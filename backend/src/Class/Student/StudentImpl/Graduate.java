@@ -1,4 +1,6 @@
 package Class.Student.StudentImpl;
 
-public class Graduate {
+import Class.Student.Student;
+
+public class Graduate extends Student {
 }
