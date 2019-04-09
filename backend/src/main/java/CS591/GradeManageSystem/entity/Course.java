@@ -1,6 +1,7 @@
 package CS591.GradeManageSystem.entity;
 
 import java.util.List;
+import java.util.Map;
 
 import CS591.GradeManageSystem.entity.Column.Column;
 import CS591.GradeManageSystem.entity.Student.Student;

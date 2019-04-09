@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/backend/CS591-GradeManageSystem.iml" filepath="$PROJECT_DIR$/backend/CS591-GradeManageSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/CS591-Group7.iml" filepath="$PROJECT_DIR$/.idea/CS591-Group7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
     </modules>
   </component>
 </project>
