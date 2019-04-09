@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class AppConf {
 
     private static final String driver = "com.mysql.cj.jdbc.Driver";
-    private static final String url = "jdbc:mysql://localhost:3306/gradingsystem?serverTimezone=UTC";
+    private static final String url = "jdbc:mysql://localhost:3306/gradingsystem?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
     private static final String username = "root";
     private static final String password = "";
 
