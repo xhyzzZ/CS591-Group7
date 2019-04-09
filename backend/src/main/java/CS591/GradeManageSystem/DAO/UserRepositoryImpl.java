@@ -27,7 +27,8 @@ public class UserRepositoryImpl implements UserRepository {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            pst = conn.prepareStatement("SELECT * FROM USER");
+            String exec = "SELECT * FROM USER";
+            pst = conn.prepareStatement("exec");
 
             // execute and get the result set
             rs = pst.executeQuery();
@@ -67,9 +68,8 @@ public class UserRepositoryImpl implements UserRepository {
             String password = user.getPassword();
 
             // pre-process the execution
-            String s = String.format("INSERT INTO USER(username, password) VALUES('%s', '%s');", username, password);
-            System.out.println(s);
-            pst = conn.prepareStatement(s);
+            String exec = String.format("INSERT INTO USER(username, password) VALUES('%s', '%s');", username, password);
+            pst = conn.prepareStatement(exec);
 
             // execute and get the result set
             pst.executeUpdate();
@@ -92,25 +92,145 @@ public class UserRepositoryImpl implements UserRepository {
         }
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(Integer id) {
+        try {
+            conn = AppConf.getConnection();
 
+            // pre-process the execution
+            String exec = String.format("DELETE FROM USER WHERE id = %s", id);
+            pst = conn.prepareStatement(exec);
+
+            // execute the operation
+            pst.executeUpdate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     public void deleteByUsername(String username) {
+        try {
+            conn = AppConf.getConnection();
 
+            // pre-process the execution
+            String exec = String.format("DELETE FROM USER WHERE username = %s", username);
+            pst = conn.prepareStatement(exec);
+
+            // execute the operation
+            pst.executeUpdate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     public User findByUsername(String username) {
-        return null;
+        User user = null;
+
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("SELECT * FROM USER WHERE username = '%s'", username);
+            pst = conn.prepareStatement(exec);
+
+            // execute and get the result set
+            rs = pst.executeQuery();
+
+            while(rs.next()) {
+                user = new User(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return user;
     }
 
-    public User findById(Long id) {
-        return null;
+    public User findById(Integer id) {
+        User user = null;
+
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("SELECT * FROM USER WHERE id = '%s'", id);
+            pst = conn.prepareStatement(exec);
+
+            // execute and get the result set
+            rs = pst.executeQuery();
+
+            while(rs.next()) {
+                user = new User(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3));
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return user;
     }
 
     public static void main(String[] args) {
         UserRepositoryImpl userRepository = new UserRepositoryImpl();
         User user = new User("junoth", "test");
-        userRepository.save(user);
     }
 }
