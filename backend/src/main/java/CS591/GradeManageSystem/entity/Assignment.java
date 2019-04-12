@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Grade {
+public class Assignment {
 
-    private int studentId;
-    private int assignmentId;
-    private int score;
-    private String note;
-
+    private int courseId;
+    private String assignmentName;
+    private int weight;
+    private boolean addPoint;
+    private boolean extraBonus;
 }
