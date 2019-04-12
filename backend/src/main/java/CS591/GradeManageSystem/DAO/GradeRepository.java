@@ -8,14 +8,14 @@ public interface GradeRepository {
 
     void save(Grade grade);
 
-    void deleteById(Integer studentId);
+    void deleteById(Integer gradeId);
 
-    Grade findById(Integer studentId);
+    Grade findById(Integer gradeId);
 
-    Grade findBySingleScore(Integer studentId, Integer gradeId, Integer assignmentId);
+    Grade findBySingleScore(Integer gradeId, Integer studentId, Integer assignmentId);
 
-    Grade findByTotalScore(Integer studentId, Integer assignmentId);
+    Grade findByTotalScore(Integer gradeId, Integer assignmentId);
 
-    Grade findByNote();
+    Grade findByNote(Integer gradeId);
 
 }
