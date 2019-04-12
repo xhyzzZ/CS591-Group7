@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="backend" />
         <module name="CS591-GradeManageSystem" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="backend" target="8" />
       <module name="CS591-GradeManageSystem" target="1.5" />
     </bytecodeTargetLevel>
   </component>

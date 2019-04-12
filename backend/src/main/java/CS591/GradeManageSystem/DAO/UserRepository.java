@@ -9,11 +9,11 @@ public interface UserRepository {
 
     void save(User user);
 
-    void deleteById(Long id);
+    void deleteById(Integer id);
 
     void deleteByUsername(String username);
 
     User findByUsername(String username);
 
-    User findById(Long id);
+    User findById(Integer id);
 }
