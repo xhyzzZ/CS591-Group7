@@ -6,9 +6,12 @@ import java.util.List;
 public interface StudentRepository {
     List<Student> getStudents();
 
-    void save(Student student);
+    void save(Student studentId);
 
-    void deleteById(Integer id);
+    void deleteById(Integer studentId);
 
-    Student findById(Integer id);
+    Student findById(Integer studentId);
+
+    Student findByNote(Integer studentId);
+
 }

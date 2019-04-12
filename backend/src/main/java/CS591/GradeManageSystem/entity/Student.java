@@ -21,8 +21,19 @@ public class Student {
     private String middleName;
     private String lastName;
     private String email;
-    private Gender gender;
+    private String note;
     private int age;
     private Type type;
-    private String note;
+    private Gender gender;
+
+    public Student(int studentId, String firstName, String middleName, String lastName, String email, String note, int age) {
+        this.studentId = studentId;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.email = email;
+        this.note = note;
+        this.age = age;
+    }
+
 }
