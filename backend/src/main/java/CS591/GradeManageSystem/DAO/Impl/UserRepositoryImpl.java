@@ -1,5 +1,6 @@
-package CS591.GradeManageSystem.DAO;
+package CS591.GradeManageSystem.DAO.Impl;
 
+import CS591.GradeManageSystem.DAO.UserRepository;
 import CS591.GradeManageSystem.config.AppConf;
 import CS591.GradeManageSystem.entity.User;
 

@@ -2,14 +2,12 @@ package CS591.GradeManageSystem.entity;
 
 import lombok.*;
 
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
 
-    private Integer id;
+    private int id;
 
     private String username;
 
