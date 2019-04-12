@@ -1,7 +1,6 @@
 package CS591.GradeManageSystem.DAO.Impl;
 
 import CS591.GradeManageSystem.config.AppConf;
-import CS591.GradeManageSystem.entity.Grade;
 import CS591.GradeManageSystem.entity.Student;
 
 import java.sql.Connection;
@@ -97,6 +96,75 @@ public class StudentRepositoryImpl {
                 ex.printStackTrace();
             }
         }
+    }
+
+    public void deleteById(Integer id) {
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("DELETE FROM STUDENT WHERE id = %s", id);
+            pst = conn.prepareStatement(exec);
+
+            // execute the operation
+            pst.executeUpdate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public Student findById(Integer id) {
+        Student student = null;
+
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("SELECT * FROM STUDENT WHERE id = '%s'", id);
+            pst = conn.prepareStatement(exec);
+
+            // execute and get the result set
+            rs = pst.executeQuery();
+
+            while(rs.next()) {
+                 student = new Student(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return student;
     }
 
 }

@@ -95,4 +95,73 @@ public class GradeRepositoryImpl {
         }
     }
 
+    public void deleteById(Integer id) {
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("DELETE FROM GRADE WHERE id = %s", id);
+            pst = conn.prepareStatement(exec);
+
+            // execute the operation
+            pst.executeUpdate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public Grade findById(Integer id) {
+        Grade grade = null;
+
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("SELECT * FROM GRADE WHERE id = '%s'", id);
+            pst = conn.prepareStatement(exec);
+
+            // execute and get the result set
+            rs = pst.executeQuery();
+
+            while(rs.next()) {
+                 grade = new Grade(rs.getInt(1),
+                         rs.getInt(2),
+                         rs.getInt(3), rs.getString(4));
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return grade;
+    }
+
 }
