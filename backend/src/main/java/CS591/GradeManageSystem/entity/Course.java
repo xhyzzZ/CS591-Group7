@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Course {
 
-    private enum Type {
+    public enum Type {
         SPRING, SUMMER, FALL
     }
 
@@ -18,4 +18,11 @@ public class Course {
     private String courseName;
     private String year;
     private Type type;
+
+    public Course(int userId, String courseName, String year, String type) {
+        this.userId = userId;
+        this.courseName = courseName;
+        this.year = year;
+        this.type = Type.valueOf(type);
+    }
 }
