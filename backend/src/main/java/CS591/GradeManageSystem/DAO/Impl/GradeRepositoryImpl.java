@@ -34,9 +34,9 @@ public class GradeRepositoryImpl {
             rs = pst.executeQuery();
 
             while(rs.next()){
-                Grade grade = new Grade(rs.getInt(1),
-                        rs.getInt(2),
-                        rs.getInt(3), rs.getString(4));
+                Grade grade = new Grade(rs.getInt(1), rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getInt(4), rs.getString(5));
                 grades.add(grade);
             }
         } catch (Exception ex) {
@@ -58,6 +58,41 @@ public class GradeRepositoryImpl {
         }
 
         return grades;
+    }
+
+    public void update(Grade grade) {
+        try {
+            conn = AppConf.getConnection();
+            int gradeId = grade.getGradeId();
+            int studentId = grade.getStudentId();
+            int assignmentId = grade.getAssignmentId();
+            int score = grade.getScore();
+            String note = grade.getNote();
+
+            // pre-process the execution
+            String exec = String.format("UPDATE GRADE(studentId, assignmentId, score, note) VALUES('%d', '%d', '%d', '%s') WHERE Grade_id = '%d';",
+                    studentId, assignmentId, score, note, gradeId);
+            pst = conn.prepareStatement(exec);
+
+            // execute and get the result set
+            pst.executeUpdate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     public void save(Grade grade) {
@@ -100,7 +135,7 @@ public class GradeRepositoryImpl {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("DELETE FROM GRADE WHERE id = %s", id);
+            String exec = String.format("DELETE FROM GRADE WHERE id = %s;", id);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
@@ -124,23 +159,103 @@ public class GradeRepositoryImpl {
         }
     }
 
-    public Grade findById(Integer id) {
+    public Grade findById(Integer Grade_id) {
         Grade grade = null;
 
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("SELECT * FROM GRADE WHERE id = '%s'", id);
+            String exec = String.format("SELECT * FROM GRADE WHERE Grade_id = '%s'", Grade_id);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set
             rs = pst.executeQuery();
 
             while(rs.next()) {
-                 grade = new Grade(rs.getInt(1),
-                         rs.getInt(2),
-                         rs.getInt(3), rs.getString(4));
+                 grade = new Grade(rs.getInt(1), rs.getInt(2),
+                         rs.getInt(3),
+                         rs.getInt(4), rs.getString(5));
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return grade;
+    }
+
+    public Grade findByStudent(Integer student_id) {
+        Grade grade = null;
+
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("SELECT * FROM GRADE WHERE student_id = '%s'", student_id);
+            pst = conn.prepareStatement(exec);
+
+            // execute and get the result set
+            rs = pst.executeQuery();
+
+            while(rs.next()) {
+                grade = new Grade(rs.getInt(1), rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getInt(4), rs.getString(5));
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return grade;
+    }
+
+    public Grade findByAssignment(Integer assignment_id) {
+        Grade grade = null;
+
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("SELECT * FROM GRADE WHERE assignment_id = '%s'", assignment_id);
+            pst = conn.prepareStatement(exec);
+
+            // execute and get the result set
+            rs = pst.executeQuery();
+
+            while(rs.next()) {
+                grade = new Grade(rs.getInt(1), rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getInt(4), rs.getString(5));
             }
 
         } catch (Exception ex) {
