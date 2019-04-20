@@ -1,5 +1,6 @@
 package CS591.GradeManageSystem.entity;
 
+import com.sun.tools.javac.jvm.Gen;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,23 +27,15 @@ public class Student {
     private Type type;
     private Gender gender;
 
-    public Student(int studentId, String firstName, String middleName, String lastName, String email, String note, int age) {
-        this.studentId = studentId;
+    public Student(String firstName, String middleName, String lastName, String email, String note, int age, String type, String gender) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.email = email;
         this.note = note;
         this.age = age;
-    }
-
-    public Student(String firstName, String middleName, String lastName, String email, String note, int age) {
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        this.email = email;
-        this.note = note;
-        this.age = age;
+        this.type = Type.valueOf(type);
+        this.gender = Gender.valueOf(gender);
     }
 
 }

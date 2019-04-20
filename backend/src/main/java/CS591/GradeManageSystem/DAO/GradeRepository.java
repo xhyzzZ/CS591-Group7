@@ -4,6 +4,8 @@ import CS591.GradeManageSystem.entity.Grade;
 import java.util.List;
 
 public interface GradeRepository {
+
+    // gradeId       studentId          assignmentId        score       note
     List<Grade> getGrades();
 
     void save(Grade grade);
@@ -14,9 +16,9 @@ public interface GradeRepository {
 
     Grade findById(Integer gradeId);
 
-    Grade findByStudent(Integer student_id);
+    Grade findByStudent(Integer studentId);
 
-    Grade findByAssignment(Integer assignment_id);
+    Grade findByAssignment(Integer assignmentId);
 
     Grade findBySingleScore(Integer gradeId, Integer studentId, Integer assignmentId);
 
