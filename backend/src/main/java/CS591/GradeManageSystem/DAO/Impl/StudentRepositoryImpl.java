@@ -60,6 +60,44 @@ public class StudentRepositoryImpl {
         return students;
     }
 
+    public void update(Student student) {
+        try {
+            conn = AppConf.getConnection();
+
+            int studentId = student.getStudentId();
+            String firstName = student.getFirstName();
+            String middleName = student.getMiddleName();
+            String lastName = student.getLastName();
+            String email = student.getEmail();
+            int age = student.getAge();
+            String note = student.getNote();
+
+            // pre-process the execution
+            String exec = String.format("UPDATE GRADE(firstName, middleName, lastName, email, age, note) VALUES('%s', '%s', '%s', '%s', '%d', '%s') WHERE Student_id = '%d';",
+                    firstName, middleName, lastName, email, age, note, studentId);
+            pst = conn.prepareStatement(exec);
+
+            // execute and get the result set
+            pst.executeUpdate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
     public void save(Student student) {
         try {
             conn = AppConf.getConnection();
@@ -73,7 +111,7 @@ public class StudentRepositoryImpl {
             String note = student.getNote();
 
             // pre-process the execution
-            String exec = String.format("INSERT INTO GRADE(studentId, firstName, middleName, lastName, email, age, note) VALUES('%d', '%s', '%s', '%s', '%s', '%d', '%s');",
+            String exec = String.format("INSERT INTO GRADE(firstName, middleName, lastName, email, age, note) VALUES('%s', '%s', '%s', '%s', '%d', '%s');",
                     studentId, firstName, middleName, lastName, email, age, note);
             pst = conn.prepareStatement(exec);
 
@@ -103,7 +141,7 @@ public class StudentRepositoryImpl {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("DELETE FROM STUDENT WHERE id = %s", id);
+            String exec = String.format("DELETE FROM STUDENT WHERE id = '%s'", id);
             pst = conn.prepareStatement(exec);
 
             // execute the operation

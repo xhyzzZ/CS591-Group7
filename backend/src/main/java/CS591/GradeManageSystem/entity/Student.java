@@ -13,7 +13,7 @@ public class Student {
         GRADUATE, UNDERGRADUATE
     }
 
-    public  enum Gender {
+    public enum Gender {
         MALE, FEMALE
     }
     private int studentId;
