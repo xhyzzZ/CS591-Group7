@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Statistics implements Calculable {
+public class Statistics {
     private int assignmentId;
     private Double median;
     private Double mean;
