@@ -2,23 +2,13 @@ package CS591.GradeManageSystem.entity;
 
 public interface Calculable {
     // under condition whether to use default method or normal method
-    default void getMedian() {
+    double getMedian();
 
-    }
+    double getMean();
 
-    default void getMean() {
+    double getMax();
 
-    }
+    double getMin();
 
-    default void getMax() {
-
-    }
-
-    default void getMin() {
-
-    }
-
-    default void getStdDev() {
-
-    }
+    double getStdDev();
 }
