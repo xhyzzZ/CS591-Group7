@@ -36,4 +36,13 @@ public class Student {
         this.age = age;
     }
 
+    public Student(String firstName, String middleName, String lastName, String email, String note, int age) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.email = email;
+        this.note = note;
+        this.age = age;
+    }
+
 }
