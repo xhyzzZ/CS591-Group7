@@ -10,8 +10,12 @@ public interface StudentRepository {
 
     void deleteById(Integer studentId);
 
+    void update(Student student);
+
     Student findById(Integer studentId);
 
     Student findByNote(Integer studentId);
+
+
 
 }
