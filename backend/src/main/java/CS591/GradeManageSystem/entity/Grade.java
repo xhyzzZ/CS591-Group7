@@ -15,4 +15,12 @@ public class Grade {
     private int score;
     private String note;
 
+    public Grade(int studentId, int assignmentId, int score, String note) {
+        this.studentId = studentId;
+        this.assignmentId = assignmentId;
+        this.score = score;
+        this.note = note;
+    }
+
+
 }

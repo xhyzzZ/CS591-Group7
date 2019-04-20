@@ -13,9 +13,11 @@ public interface UserRepository {
 
     void deleteById(Integer id);
 
+    User findById(Integer id);
+
     void deleteByUsername(String username);
 
     User findByUsername(String username);
 
-    User findById(Integer id);
+
 }
