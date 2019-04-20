@@ -1,5 +1,6 @@
 package CS591.GradeManageSystem.DAO.Impl;
 
+import CS591.GradeManageSystem.DAO.StudentRepository;
 import CS591.GradeManageSystem.config.AppConf;
 import CS591.GradeManageSystem.entity.Student;
 
@@ -9,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentRepositoryImpl {
+public class StudentRepositoryImpl implements StudentRepository {
 
     // the connection to sql server
     private static Connection conn = null;
@@ -20,6 +21,7 @@ public class StudentRepositoryImpl {
     // the result set
     private static ResultSet rs = null;
 
+    @Override
     public List<Student> getStudents() {
         List<Student> students=  new ArrayList<>();
 
@@ -34,9 +36,9 @@ public class StudentRepositoryImpl {
             rs = pst.executeQuery();
 
             while(rs.next()){
-                Student student = new Student(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
+                Student student = new Student(rs.getInt("studentId"),
+                        rs.getString("firstName"),
+                        rs.getString("middleName"), rs.getString("lastName"), rs.getString("email"), rs.getString("note"), rs.getInt("age"));
                 students.add(student);
             }
         } catch (Exception ex) {
@@ -60,6 +62,7 @@ public class StudentRepositoryImpl {
         return students;
     }
 
+    @Override
     public void update(Student student) {
         try {
             conn = AppConf.getConnection();
@@ -73,7 +76,7 @@ public class StudentRepositoryImpl {
             String note = student.getNote();
 
             // pre-process the execution
-            String exec = String.format("UPDATE GRADE(firstName, middleName, lastName, email, age, note) VALUES('%s', '%s', '%s', '%s', '%d', '%s') WHERE Student_id = '%d';",
+            String exec = String.format("UPDATE GRADE(firstName, middleName, lastName, email, age, note) VALUES('%s', '%s', '%s', '%s', '%d', '%s') WHERE studentId = '%d';",
                     firstName, middleName, lastName, email, age, note, studentId);
             pst = conn.prepareStatement(exec);
 
@@ -98,6 +101,7 @@ public class StudentRepositoryImpl {
         }
     }
 
+    @Override
     public void save(Student student) {
         try {
             conn = AppConf.getConnection();
@@ -112,7 +116,7 @@ public class StudentRepositoryImpl {
 
             // pre-process the execution
             String exec = String.format("INSERT INTO GRADE(firstName, middleName, lastName, email, age, note) VALUES('%s', '%s', '%s', '%s', '%d', '%s');",
-                    studentId, firstName, middleName, lastName, email, age, note);
+                    firstName, middleName, lastName, email, age, note);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set
@@ -136,12 +140,13 @@ public class StudentRepositoryImpl {
         }
     }
 
-    public void deleteById(Integer id) {
+    @Override
+    public void deleteById(Integer studentId) {
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("DELETE FROM STUDENT WHERE id = '%s'", id);
+            String exec = String.format("DELETE FROM STUDENT WHERE studentId = '%s'", studentId);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
@@ -165,23 +170,24 @@ public class StudentRepositoryImpl {
         }
     }
 
-    public Student findById(Integer id) {
+    @Override
+    public Student findById(Integer studentId) {
         Student student = null;
 
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("SELECT * FROM STUDENT WHERE id = '%s'", id);
+            String exec = String.format("SELECT * FROM STUDENT WHERE studentId = '%s'", studentId);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set
             rs = pst.executeQuery();
 
             while(rs.next()) {
-                 student = new Student(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
+                student = new Student(rs.getInt("studentId"),
+                    rs.getString("firstName"),
+                    rs.getString("middleName"), rs.getString("lastName"), rs.getString("email"), rs.getString("note"), rs.getInt("age"));
             }
 
         } catch (Exception ex) {
@@ -203,6 +209,11 @@ public class StudentRepositoryImpl {
         }
 
         return student;
+    }
+
+    @Override
+    public Student findByNote(Integer studentId) {
+        return null;
     }
 
 }

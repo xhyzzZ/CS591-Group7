@@ -10,7 +10,13 @@ public interface GradeRepository {
 
     void deleteById(Integer gradeId);
 
+    void update(Grade grade);
+
     Grade findById(Integer gradeId);
+
+    Grade findByStudent(Integer student_id);
+
+    Grade findByAssignment(Integer assignment_id);
 
     Grade findBySingleScore(Integer gradeId, Integer studentId, Integer assignmentId);
 
