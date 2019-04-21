@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Assignment {
 
+    private int assignmentID;
     private int courseId;
     private String assignmentName;
     private int weight;

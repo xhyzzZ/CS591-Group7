@@ -70,7 +70,7 @@ public class UserRepositoryImpl implements UserRepository {
             String password = user.getPassword();
             int id = user.getUserId();
 
-            String exec = String.format("UPDATE USER(username, password) VALUES('%s', '%s') WHERE USERID=%s;", username, password, id);
+            String exec = String.format("UPDATE USER(username, password) VALUES('%s', '%s') WHERE userId=%s;", username, password, id);
             pst = conn.prepareStatement(exec);
             pst.executeUpdate();
         } catch (Exception ex) {
@@ -102,8 +102,8 @@ public class UserRepositoryImpl implements UserRepository {
 
             String exec = String.format("INSERT INTO USER(username, password) VALUES('%s', '%s');", username, password);
             pst = conn.prepareStatement(exec);
-            int id = pst.executeUpdate();
-            user.setUserId(id);
+            int userId = pst.executeUpdate();
+            user.setUserId(userId);
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -129,7 +129,7 @@ public class UserRepositoryImpl implements UserRepository {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("DELETE FROM USER WHERE id = %s", id);
+            String exec = String.format("DELETE FROM USER WHERE id = %s;", id);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
@@ -159,7 +159,7 @@ public class UserRepositoryImpl implements UserRepository {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("DELETE FROM USER WHERE username = %s", username);
+            String exec = String.format("DELETE FROM USER WHERE username = %s;", username);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
@@ -191,7 +191,49 @@ public class UserRepositoryImpl implements UserRepository {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("SELECT * FROM USER WHERE username = '%s'", username);
+            String exec = String.format("SELECT * FROM USER WHERE username = '%s';", username);
+            pst = conn.prepareStatement(exec);
+
+            // execute and get the result set
+            rs = pst.executeQuery();
+
+            while(rs.next()) {
+                user = new User(rs.getInt("userId"),
+                        rs.getString("username"),
+                        rs.getString("password"));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return user;
+    }
+
+    @Override
+    public User findByUsernameAndPassword(String username, String password) {
+        User user = null;
+
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("SELECT * FROM USER WHERE username = '%s' AND password = '%s';",
+                    username,
+                    password);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set
@@ -231,7 +273,7 @@ public class UserRepositoryImpl implements UserRepository {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("SELECT * FROM USER WHERE id = '%d'", id);
+            String exec = String.format("SELECT * FROM USER WHERE id = '%d';", id);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set
@@ -262,10 +304,5 @@ public class UserRepositoryImpl implements UserRepository {
         }
 
         return user;
-    }
-
-    public static void main(String[] args) {
-        UserRepositoryImpl userRepository = new UserRepositoryImpl();
-        User user = new User("junoth", "test");
     }
 }

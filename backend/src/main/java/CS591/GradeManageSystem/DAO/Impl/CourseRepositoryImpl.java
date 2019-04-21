@@ -37,12 +37,11 @@ public class CourseRepositoryImpl implements CourseRepository {
             // execute the operation
             rs = pst.executeQuery();
             while (rs.next()) {
-                Course course = new Course(rs.getInt(0),
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        Course.Type.valueOf(rs.getString(4)));
-
+                Course course = new Course(rs.getInt("courseId"),
+                        rs.getInt("userId"),
+                        rs.getString("courseName"),
+                        rs.getString("year"),
+                        Course.Type.valueOf(rs.getString("type")));
                 courses.add(course);
             }
         } catch (Exception ex) {
