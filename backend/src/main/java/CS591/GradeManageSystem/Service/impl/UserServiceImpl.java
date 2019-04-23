@@ -13,9 +13,8 @@ public class UserServiceImpl implements UserService {
     private UserRepositoryImpl userRepository = new UserRepositoryImpl();
 
     @Override
-    public boolean login(String username, String password) {
-        User user = userRepository.findByUsernameAndPassword(username, password);
-        return user == null;
+    public User login(String username, String password) {
+        return userRepository.findByUsernameAndPassword(username, password);
     }
 
     // 0: success, 1: user already exists, 2: passwords not equal

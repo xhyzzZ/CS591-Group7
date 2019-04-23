@@ -23,49 +23,6 @@ public class CourseRepositoryImpl implements CourseRepository {
     private static ResultSet rs = null;
 
     @Override
-    public List<Course> getCourses() {
-
-        List<Course> courses = new ArrayList<>();
-
-        try {
-            conn = AppConf.getConnection();
-
-            // pre-process the execution
-            String exec = "SELECT * FROM COURSE";
-            pst = conn.prepareStatement(exec);
-
-            // execute the operation
-            rs = pst.executeQuery();
-            while (rs.next()) {
-                Course course = new Course(rs.getInt("courseId"),
-                        rs.getInt("userId"),
-                        rs.getString("courseName"),
-                        rs.getString("year"),
-                        Course.Type.valueOf(rs.getString("type")));
-                courses.add(course);
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-
-        return courses;
-    }
-
-    @Override
     public void save(Course course) {
 
         try {
@@ -76,7 +33,6 @@ public class CourseRepositoryImpl implements CourseRepository {
             String type = course.getType().toString();
 
             // pre-process the execution
-            int count = 0;
             String exec =  String.format("INSERT INTO COURSE(userId, courseName, year, type) VALUES (%d, %s, %s, %s)",
                     userId,
                     courseName,

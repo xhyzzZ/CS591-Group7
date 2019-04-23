@@ -22,47 +22,6 @@ public class GradeRepositoryImpl implements GradeRepository {
     private static ResultSet rs = null;
 
     @Override
-    public List<Grade> getGrades() {
-        List<Grade> grades=  new ArrayList<>();
-
-        try {
-            conn = AppConf.getConnection();
-
-            // pre-process the execution
-            String exec = "SELECT * FROM GRADE";
-            pst = conn.prepareStatement("exec");
-
-            // execute and get the result set
-            rs = pst.executeQuery();
-
-            while(rs.next()){
-                Grade grade = new Grade(rs.getInt("gradeId"), rs.getInt("studentId"),
-                        rs.getInt("assignmentId"),
-                        rs.getInt("score"), rs.getString("note"));
-                grades.add(grade);
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-
-        return grades;
-    }
-
-    @Override
     public void update(Grade grade) {
         try {
             conn = AppConf.getConnection();
@@ -207,7 +166,7 @@ public class GradeRepositoryImpl implements GradeRepository {
     }
 
     @Override
-    public Grade findByStudent(Integer studentId) {
+    public Grade findByStudentId(Integer studentId) {
         Grade grade = null;
 
         try {
@@ -248,14 +207,14 @@ public class GradeRepositoryImpl implements GradeRepository {
     }
 
     @Override
-    public Grade findByAssignment(Integer assignmentId) {
+    public Grade findByAssignmentIdAndStudentId(Integer assignmentId, Integer studentId) {
         Grade grade = null;
 
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("SELECT * FROM GRADE WHERE assignmentId = '%s'", assignmentId);
+            String exec = String.format("SELECT * FROM GRADE WHERE assignmentId = %s AND studentId = %s", assignmentId, studentId);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set
@@ -287,20 +246,4 @@ public class GradeRepositoryImpl implements GradeRepository {
 
         return grade;
     }
-
-    @Override
-    public Grade findBySingleScore(Integer gradeId, Integer studentId, Integer assignmentId) {
-        return null;
-    }
-
-    @Override
-    public Grade findByTotalScore(Integer gradeId, Integer assignmentId) {
-        return null;
-    }
-
-    @Override
-    public Grade findByNote(Integer gradeId) {
-        return null;
-    }
-
 }

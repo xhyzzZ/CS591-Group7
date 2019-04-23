@@ -7,11 +7,9 @@ import java.util.List;
 
 public interface CourseService {
 
-    public List<Course> getCourses(int userId);
+    List<Course> getCourses(int userId);
 
-    public Course createCourse(int userId, String courseName, String year, String type);
+    Course createCourse(int userId, String courseName, String year, String type);
 
-    public void deleteCourse(int courseId);
-
-
+    void deleteCourse(int courseId);
 }

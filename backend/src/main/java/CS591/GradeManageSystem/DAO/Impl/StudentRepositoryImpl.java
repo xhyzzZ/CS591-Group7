@@ -22,53 +22,6 @@ public class StudentRepositoryImpl implements StudentRepository {
     private static ResultSet rs = null;
 
     @Override
-    public List<Student> getStudents() {
-        List<Student> students=  new ArrayList<>();
-
-        try {
-            conn = AppConf.getConnection();
-
-            // pre-process the execution
-            String exec = "SELECT * FROM STUDENT";
-            pst = conn.prepareStatement("exec");
-
-            // execute and get the result set
-            rs = pst.executeQuery();
-
-            while(rs.next()){
-                Student student = new Student(rs.getInt("studentId"),
-                        rs.getString("firstName"),
-                        rs.getString("middleName"),
-                        rs.getString("lastName"),
-                        rs.getString("email"),
-                        rs.getString("note"),
-                        rs.getInt("age"),
-                        Student.Type.valueOf(rs.getString("type")),
-                        Student.Gender.valueOf(rs.getString("gender")));
-                students.add(student);
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-
-        return students;
-    }
-
-    @Override
     public void update(Student student) {
         try {
             conn = AppConf.getConnection();
@@ -192,6 +145,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
             while(rs.next()) {
                  student = new Student(rs.getInt("studentId"),
+                        rs.getInt("courseId"),
                         rs.getString("firstName"),
                         rs.getString("middleName"),
                         rs.getString("lastName"),
@@ -224,8 +178,80 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public Student findByNote(Integer studentId) {
-        return null;
+    public List<Student> findByCourseId(Integer courseId) {
+        List<Student> students=  new ArrayList<>();
+
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("SELECT * FROM STUDENT WHERE courseId = %d", courseId);
+            pst = conn.prepareStatement("exec");
+
+            // execute and get the result set
+            rs = pst.executeQuery();
+
+            while(rs.next()){
+                Student student = new Student(rs.getInt("studentId"),
+                        rs.getInt("courseId"),
+                        rs.getString("firstName"),
+                        rs.getString("middleName"),
+                        rs.getString("lastName"),
+                        rs.getString("email"),
+                        rs.getString("note"),
+                        rs.getInt("age"),
+                        Student.Type.valueOf(rs.getString("type")),
+                        Student.Gender.valueOf(rs.getString("gender")));
+                students.add(student);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return students;
     }
 
+    @Override
+    public void deleteByCourseId(Integer courseId) {
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("DELETE FROM STUDENT WHERE courseId = '%s'", courseId);
+            pst = conn.prepareStatement(exec);
+
+            // execute the operation
+            pst.executeUpdate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
 }

@@ -6,8 +6,6 @@ import java.util.List;
 public interface GradeRepository {
 
     // gradeId       studentId          assignmentId        score       note
-    List<Grade> getGrades();
-
     void save(Grade grade);
 
     void deleteById(Integer gradeId);
@@ -16,14 +14,7 @@ public interface GradeRepository {
 
     Grade findById(Integer gradeId);
 
-    Grade findByStudent(Integer studentId);
+    Grade findByStudentId(Integer studentId);
 
-    Grade findByAssignment(Integer assignmentId);
-
-    Grade findBySingleScore(Integer gradeId, Integer studentId, Integer assignmentId);
-
-    Grade findByTotalScore(Integer gradeId, Integer assignmentId);
-
-    Grade findByNote(Integer gradeId);
-
+    Grade findByAssignmentIdAndStudentId(Integer assignmentId, Integer studentId);
 }

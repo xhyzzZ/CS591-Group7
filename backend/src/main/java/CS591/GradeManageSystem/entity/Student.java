@@ -18,6 +18,7 @@ public class Student {
         MALE, FEMALE
     }
     private int studentId;
+    private int courseId;
     private String firstName;
     private String middleName;
     private String lastName;
@@ -27,7 +28,8 @@ public class Student {
     private Type type;
     private Gender gender;
 
-    public Student(String firstName, String middleName, String lastName, String email, String note, int age, String type, String gender) {
+    public Student(int courseId, String firstName, String middleName, String lastName, String email, String note, int age, String type, String gender) {
+        this.courseId = courseId;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;

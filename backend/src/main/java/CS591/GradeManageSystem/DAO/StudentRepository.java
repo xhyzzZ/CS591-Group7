@@ -6,7 +6,6 @@ import java.util.List;
 public interface StudentRepository {
 
     // studentId   firstName    middleName    lastName   email   gender  age     grad/under   note
-    List<Student> getStudents();
 
     void save(Student studentId);
 
@@ -16,8 +15,7 @@ public interface StudentRepository {
 
     Student findById(Integer studentId);
 
-    Student findByNote(Integer studentId);
+    List<Student> findByCourseId(Integer courseId);
 
-
-
+    void deleteByCourseId(Integer courseId);
 }
