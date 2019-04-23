@@ -9,5 +9,5 @@ public interface AssignmentService {
 
     void deleteById(int assignmentId);
 
-    void createAssignment(int courseId, String assignmentName, int weight, boolean addPoint, boolean extrapoints);
+    Assignment createAssignment(int courseId, String assignmentName, int weight, boolean addPoint, boolean extrapoints);
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AssignmentServiceImpl implements CS591.GradeManageSystem.Service.AssignmentService {
 
-    AssignmentRepositoryImpl assignmentRepository = new AssignmentRepositoryImpl();
+    private AssignmentRepositoryImpl assignmentRepository = new AssignmentRepositoryImpl();
 
     @Override
     public List<Assignment> getAssignments(int courseId) {
@@ -15,11 +15,13 @@ public class AssignmentServiceImpl implements CS591.GradeManageSystem.Service.As
 
     @Override
     public void deleteById(int assignmentId) {
-
+        assignmentRepository.deleteByAssignmentId(assignmentId);
     }
 
     @Override
-    public void createAssignment(int courseId, String assignmentName, int weight, boolean addPoint, boolean extrapoints) {
-
+    public Assignment createAssignment(int courseId, String assignmentName, int weight, boolean addPoint, boolean extrapoints) {
+        Assignment assignment = new Assignment(courseId, assignmentName, weight, addPoint, extrapoints);
+        assignmentRepository.save(assignment);
+        return assignment;
     }
 }

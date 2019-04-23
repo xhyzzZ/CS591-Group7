@@ -15,4 +15,12 @@ public class Assignment {
     private int weight;
     private boolean addPoint;
     private boolean extraBonus;
+
+    public Assignment(int courseId, String assignmentName, int weight, boolean addPoint, boolean extraBonus) {
+        this.courseId = courseId;
+        this.assignmentName = assignmentName;
+        this.weight = weight;
+        this.addPoint = addPoint;
+        this.extraBonus = extraBonus;
+    }
 }
