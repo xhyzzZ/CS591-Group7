@@ -22,14 +22,14 @@ public class AssignmentRepositoryImpl implements AssignmentRepository {
     private static ResultSet rs = null;
 
     @Override
-    public List<Assignment> getAssignment() {
+    public List<Assignment> findByCourseId(int courseId) {
         List<Assignment> assignments = new ArrayList<>();
 
         try {
              conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = "SELECT * FROM ASSIGNMENT";
+            String exec = String.format("SELECT * FROM ASSIGNMENT WHERE courseId = %s", courseId);
             pst = conn.prepareStatement("exec");
 
             // execute the operation

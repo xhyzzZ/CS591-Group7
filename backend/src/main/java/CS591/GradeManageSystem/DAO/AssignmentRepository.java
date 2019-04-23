@@ -8,7 +8,7 @@ public interface AssignmentRepository {
 
     // assignmentId     courseId(int)     assignmentName      weight       addPoint      extraBonus
 
-    List<Assignment> getAssignment();
+    List<Assignment> findByCourseId(int courseId);
 
     void save(Assignment assignment);
 

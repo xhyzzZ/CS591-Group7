@@ -1,7 +1,7 @@
 package CS591.GradeManageSystem.Service;
 
 import CS591.GradeManageSystem.entity.Assignment;
-import com.sun.tools.javac.util.List;
+import java.util.List;
 
 public interface AssignmentService {
 
@@ -9,5 +9,5 @@ public interface AssignmentService {
 
     void deleteById(int assignmentId);
 
-    void createAssignment();
+    void createAssignment(int courseId, String assignmentName, int weight, boolean addPoint, boolean extrapoints);
 }
