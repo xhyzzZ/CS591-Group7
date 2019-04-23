@@ -38,7 +38,13 @@ public class StudentRepositoryImpl implements StudentRepository {
             while(rs.next()){
                 Student student = new Student(rs.getInt("studentId"),
                         rs.getString("firstName"),
-                        rs.getString("middleName"), rs.getString("lastName"), rs.getString("email"), rs.getString("note"), rs.getInt("age"));
+                        rs.getString("middleName"),
+                        rs.getString("lastName"),
+                        rs.getString("email"),
+                        rs.getString("note"),
+                        rs.getInt("age"),
+                        Student.Type.valueOf(rs.getString("type")),
+                        Student.Gender.valueOf(rs.getString("gender")));
                 students.add(student);
             }
         } catch (Exception ex) {
@@ -185,9 +191,15 @@ public class StudentRepositoryImpl implements StudentRepository {
             rs = pst.executeQuery();
 
             while(rs.next()) {
-                student = new Student(rs.getInt("studentId"),
-                    rs.getString("firstName"),
-                    rs.getString("middleName"), rs.getString("lastName"), rs.getString("email"), rs.getString("note"), rs.getInt("age"));
+                 student = new Student(rs.getInt("studentId"),
+                        rs.getString("firstName"),
+                        rs.getString("middleName"),
+                        rs.getString("lastName"),
+                        rs.getString("email"),
+                        rs.getString("note"),
+                        rs.getInt("age"),
+                        Student.Type.valueOf(rs.getString("type")),
+                        Student.Gender.valueOf(rs.getString("gender")));
             }
 
         } catch (Exception ex) {

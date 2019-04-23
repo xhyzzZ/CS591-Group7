@@ -5,6 +5,8 @@ import java.util.List;
 
 public interface UserRepository {
 
+    // userId            userName          password
+
     List<User> getUsers();
 
     void save(User user);

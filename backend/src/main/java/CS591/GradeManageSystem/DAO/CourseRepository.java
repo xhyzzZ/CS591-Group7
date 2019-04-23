@@ -5,15 +5,16 @@ import java.util.List;
 
 public interface CourseRepository {
 
+    // courseId       userId       courseName         year         type/summer/fall/spring
     List<Course> getCourses();
 
     void save(Course course);
 
     void update(Course course);
 
-    void deleteByCourseId(int id);
+    void deleteByCourseId(int courseId);
 
-    Course findByCourseId(int id);
+    Course findByCourseId(int courseId);
 
     List<Course> findByCourseName(String courseName);
 

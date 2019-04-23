@@ -103,14 +103,15 @@ public class GradeRepositoryImpl implements GradeRepository {
         try {
             conn = AppConf.getConnection();
 
+            int gradeId = grade.getGradeId();
             int studentId = grade.getStudentId();
             int assignmentId = grade.getAssignmentId();
             int score = grade.getScore();
             String note = grade.getNote();
 
             // pre-process the execution
-            String exec = String.format("INSERT INTO GRADE(studentId, assignmentId, score, note) VALUES('%d', '%d', '%d', '%s');",
-                    studentId, assignmentId, score, note);
+            String exec = String.format("INSERT INTO GRADE(gradeId, studentId, assignmentId, score, note) VALUES('%d', '%d', '%d', '%d', '%s');",
+                    gradeId, studentId, assignmentId, score, note);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set
