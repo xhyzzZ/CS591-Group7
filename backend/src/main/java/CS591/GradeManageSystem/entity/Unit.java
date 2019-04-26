@@ -7,20 +7,20 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Grade {
+public class Unit {
 
-    private int gradeId;
+    private int unitId;
+    private int courseId;
     private int studentId;
     private int assignmentId;
-    private int score;
+    private String content;
     private String note;
 
-    public Grade(int studentId, int assignmentId, int score, String note) {
+    public Unit(int courseId, int studentId, int assignmentId, String content, String note) {
+        this.courseId = courseId;
         this.studentId = studentId;
         this.assignmentId = assignmentId;
-        this.score = score;
+        this.content = content;
         this.note = note;
     }
-
-
 }

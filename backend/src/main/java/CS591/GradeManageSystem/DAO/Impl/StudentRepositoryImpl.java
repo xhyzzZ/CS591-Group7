@@ -4,9 +4,7 @@ import CS591.GradeManageSystem.DAO.StudentRepository;
 import CS591.GradeManageSystem.config.AppConf;
 import CS591.GradeManageSystem.entity.Student;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,36 +25,18 @@ public class StudentRepositoryImpl implements StudentRepository {
             conn = AppConf.getConnection();
 
             int studentId = student.getStudentId();
-            String firstName = student.getFirstName();
-            String middleName = student.getMiddleName();
-            String lastName = student.getLastName();
-            String email = student.getEmail();
-            int age = student.getAge();
+            int courseId = student.getCourseId();
             String note = student.getNote();
 
             // pre-process the execution
-            String exec = String.format("UPDATE GRADE(firstName, middleName, lastName, email, age, note) VALUES('%s', '%s', '%s', '%s', '%d', '%s') WHERE studentId = '%d';",
-                    firstName, middleName, lastName, email, age, note, studentId);
+            String exec = String.format("UPDATE STUDENT SET courseId = %d, note = \'%s\' WHERE studentId = %d;",
+                    courseId, note, studentId);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set
             pst.executeUpdate();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -65,113 +45,71 @@ public class StudentRepositoryImpl implements StudentRepository {
         try {
             conn = AppConf.getConnection();
 
-            int studentId = student.getStudentId();
-            String firstName = student.getFirstName();
-            String middleName = student.getMiddleName();
-            String lastName = student.getLastName();
-            String email = student.getEmail();
-            int age = student.getAge();
+            int courseId = student.getCourseId();
             String note = student.getNote();
 
             // pre-process the execution
-            String exec = String.format("INSERT INTO GRADE(firstName, middleName, lastName, email, age, note) VALUES('%s', '%s', '%s', '%s', '%d', '%s');",
-                    firstName, middleName, lastName, email, age, note);
-            pst = conn.prepareStatement(exec);
+            String exec = String.format("INSERT INTO COURSE(courseId, note) VALUES(%d, \'%s\');",
+                    courseId, note);
+            pst = conn.prepareStatement(exec, Statement.RETURN_GENERATED_KEYS);
 
-            // execute and get the result set
-            pst.executeUpdate();
+            int affectedRows = pst.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new SQLException("Creating student failed, no rows affected.");
+            }
+
+            try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    student.setStudentId(generatedKeys.getInt(1));
+                }
+                else {
+                    throw new SQLException("Creating student failed, no ID obtained.");
+                }
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
     @Override
-    public void deleteById(Integer studentId) {
+    public void deleteByStudentId(Integer studentId) {
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("DELETE FROM STUDENT WHERE studentId = '%s'", studentId);
+            String exec = String.format("DELETE FROM STUDENT WHERE studentId = %d;", studentId);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
             pst.executeUpdate();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
     @Override
-    public Student findById(Integer studentId) {
+    public Student findByStudentId(Integer studentId) {
         Student student = null;
 
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("SELECT * FROM STUDENT WHERE studentId = '%s'", studentId);
+            String exec = String.format("SELECT * FROM STUDENT WHERE studentId = %d;", studentId);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set
             rs = pst.executeQuery();
 
             while(rs.next()) {
-                 student = new Student(rs.getInt("studentId"),
-                        rs.getInt("courseId"),
-                        rs.getString("firstName"),
-                        rs.getString("middleName"),
-                        rs.getString("lastName"),
-                        rs.getString("email"),
-                        rs.getString("note"),
-                        rs.getInt("age"),
-                        Student.Type.valueOf(rs.getString("type")),
-                        Student.Gender.valueOf(rs.getString("gender")));
+                 student = new Student(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3));
             }
 
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
 
         return student;
@@ -179,47 +117,26 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public List<Student> findByCourseId(Integer courseId) {
-        List<Student> students=  new ArrayList<>();
+        List<Student> students = new ArrayList<>();
 
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("SELECT * FROM STUDENT WHERE courseId = %d", courseId);
-            pst = conn.prepareStatement("exec");
+            String exec = String.format("SELECT * FROM STUDENT WHERE courseId = %d;", courseId);
+            pst = conn.prepareStatement(exec);
 
             // execute and get the result set
             rs = pst.executeQuery();
 
             while(rs.next()){
-                Student student = new Student(rs.getInt("studentId"),
-                        rs.getInt("courseId"),
-                        rs.getString("firstName"),
-                        rs.getString("middleName"),
-                        rs.getString("lastName"),
-                        rs.getString("email"),
-                        rs.getString("note"),
-                        rs.getInt("age"),
-                        Student.Type.valueOf(rs.getString("type")),
-                        Student.Gender.valueOf(rs.getString("gender")));
+                Student student = new Student(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3));
                 students.add(student);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
 
         return students;
@@ -231,27 +148,13 @@ public class StudentRepositoryImpl implements StudentRepository {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("DELETE FROM STUDENT WHERE courseId = '%s'", courseId);
+            String exec = String.format("DELETE FROM STUDENT WHERE courseId = %d", courseId);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
             pst.executeUpdate();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
     }
 }

@@ -5,15 +5,15 @@ import java.util.List;
 
 public interface StudentRepository {
 
-    // studentId   firstName    middleName    lastName   email   gender  age     grad/under   note
+    // courseId studentId note
 
     void save(Student studentId);
 
-    void deleteById(Integer studentId);
+    void deleteByStudentId(Integer studentId);
 
     void update(Student student);
 
-    Student findById(Integer studentId);
+    Student findByStudentId(Integer studentId);
 
     List<Student> findByCourseId(Integer courseId);
 

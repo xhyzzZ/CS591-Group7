@@ -4,9 +4,7 @@ import CS591.GradeManageSystem.DAO.UserRepository;
 import CS591.GradeManageSystem.config.AppConf;
 import CS591.GradeManageSystem.entity.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,23 +20,23 @@ public class UserRepositoryImpl implements UserRepository {
     private static ResultSet rs = null;
 
     @Override
-    public List<User> getUsers() {
+    public List<User> findAll() {
         List<User> users=  new ArrayList<User>();
 
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = "SELECT * FROM USER";
-            pst = conn.prepareStatement("exec");
+            String exec = "SELECT * FROM USER;";
+            pst = conn.prepareStatement(exec);
 
             // execute and get the result set
             rs = pst.executeQuery();
 
             while(rs.next()){
-                User user = new User(rs.getInt("userId"),
-                            rs.getString("username"),
-                            rs.getString("password"));
+                User user = new User(rs.getInt(1),
+                            rs.getString(2),
+                            rs.getString(3));
                 users.add(user);
             }
         } catch (Exception ex) {
@@ -68,27 +66,13 @@ public class UserRepositoryImpl implements UserRepository {
             conn = AppConf.getConnection();
             String username = user.getUsername();
             String password = user.getPassword();
-            int id = user.getUserId();
+            int userId = user.getUserId();
 
-            String exec = String.format("UPDATE USER(username, password) VALUES('%s', '%s') WHERE userId=%s;", username, password, id);
+            String exec = String.format("UPDATE USER SET username = \'%s\', password = \'%s\' WHERE userId = %d;", username, password, userId);
             pst = conn.prepareStatement(exec);
             pst.executeUpdate();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -100,56 +84,40 @@ public class UserRepositoryImpl implements UserRepository {
             String username = user.getUsername();
             String password = user.getPassword();
 
-            String exec = String.format("INSERT INTO USER(username, password) VALUES('%s', '%s');", username, password);
-            pst = conn.prepareStatement(exec);
-            int userId = pst.executeUpdate();
-            user.setUserId(userId);
+            String exec = String.format("INSERT INTO USER(username, password) VALUES(\'%s\', \'%s\');", username, password);
+            pst = conn.prepareStatement(exec, Statement.RETURN_GENERATED_KEYS);
+            int affectedRows = pst.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new SQLException("Creating user failed, no rows affected.");
+            }
+
+            try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    user.setUserId(generatedKeys.getInt(1));
+                }
+                else {
+                    throw new SQLException("Creating user failed, no ID obtained.");
+                }
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public void deleteByUserId(Integer userId) {
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("DELETE FROM USER WHERE id = %s;", id);
+            String exec = String.format("DELETE FROM USER WHERE userId = %d;", userId);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
             pst.executeUpdate();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -159,27 +127,13 @@ public class UserRepositoryImpl implements UserRepository {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("DELETE FROM USER WHERE username = %s;", username);
+            String exec = String.format("DELETE FROM USER WHERE username = \'%s\';", username);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
             pst.executeUpdate();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -191,33 +145,19 @@ public class UserRepositoryImpl implements UserRepository {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("SELECT * FROM USER WHERE username = '%s';", username);
+            String exec = String.format("SELECT * FROM USER WHERE username = \'%s\';", username);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set
             rs = pst.executeQuery();
 
             while(rs.next()) {
-                user = new User(rs.getInt("userId"),
-                        rs.getString("username"),
-                        rs.getString("password"));
+                user = new User(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3));
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
 
         return user;
@@ -231,49 +171,9 @@ public class UserRepositoryImpl implements UserRepository {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("SELECT * FROM USER WHERE username = '%s' AND password = '%s';",
+            String exec = String.format("SELECT * FROM USER WHERE username = \'%s\' AND password = \'%s\';",
                     username,
                     password);
-            pst = conn.prepareStatement(exec);
-
-            // execute and get the result set
-            rs = pst.executeQuery();
-
-            while(rs.next()) {
-                user = new User(rs.getInt("userId"),
-                        rs.getString("username"),
-                        rs.getString("password"));
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-
-        return user;
-    }
-
-    @Override
-    public User findById(Integer id) {
-        User user = null;
-
-        try {
-            conn = AppConf.getConnection();
-
-            // pre-process the execution
-            String exec = String.format("SELECT * FROM USER WHERE id = '%d';", id);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set
@@ -284,23 +184,32 @@ public class UserRepositoryImpl implements UserRepository {
                         rs.getString(2),
                         rs.getString(3));
             }
-
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
+        }
+
+        return user;
+    }
+
+    @Override
+    public User findByUserId(Integer userId) {
+        User user = null;
+
+        try {
+            conn = AppConf.getConnection();
+
+            // pre-process the execution
+            String exec = String.format("SELECT * FROM USER WHERE userId = %d;", userId);
+            pst = conn.prepareStatement(exec);
+            rs = pst.executeQuery();
+
+            while(rs.next()) {
+                user = new User(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3));
             }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
         return user;

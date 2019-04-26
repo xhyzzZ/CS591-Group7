@@ -7,15 +7,15 @@ public interface UserRepository {
 
     // userId            userName          password
 
-    List<User> getUsers();
+    List<User> findAll();
 
     void save(User user);
 
     void update(User user);
 
-    void deleteById(Integer id);
+    void deleteByUserId(Integer id);
 
-    User findById(Integer id);
+    User findByUserId(Integer id);
 
     void deleteByUsername(String username);
 

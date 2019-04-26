@@ -18,11 +18,13 @@ public class Course {
     private String courseName;
     private String year;
     private Type type;
+    private boolean editable;
 
-    public Course(int userId, String courseName, String year, String type) {
+    public Course(int userId, String courseName, String year, String type, boolean editable) {
         this.userId = userId;
         this.courseName = courseName;
         this.year = year;
         this.type = Type.valueOf(type);
+        this.editable = editable;
     }
 }

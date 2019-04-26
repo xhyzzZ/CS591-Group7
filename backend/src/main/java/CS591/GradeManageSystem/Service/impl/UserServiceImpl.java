@@ -12,6 +12,14 @@ public class UserServiceImpl implements UserService {
 
     private UserRepositoryImpl userRepository = new UserRepositoryImpl();
 
+    // 0: success, 1: no such user, 2: password is wrong
+    @Override
+    public int checkLogin(String username, String password) {
+        if (userRepository.findByUsername(username) == null) return 1;
+        if (userRepository.findByUsernameAndPassword(username, password) == null) return 2;
+        return 0;
+    }
+
     @Override
     public User login(String username, String password) {
         return userRepository.findByUsernameAndPassword(username, password);

@@ -10,11 +10,13 @@ public interface AssignmentRepository {
 
     List<Assignment> findByCourseId(int courseId);
 
+    Assignment findByAssignmentId(int assignmentId);
+
     void save(Assignment assignment);
 
     void update(Assignment assignment);
 
     void deleteByAssignmentId(int assignmentId);
 
-
+    void deleteByCourseId(int courseId);
 }

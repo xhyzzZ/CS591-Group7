@@ -5,7 +5,8 @@ import java.util.List;
 
 public interface CourseRepository {
 
-    // courseId       userId       courseName         year         type/summer/fall/spring
+    // courseId    userId    courseName    year    type/summer/fall/spring    editable
+
     void save(Course course);
 
     void update(Course course);

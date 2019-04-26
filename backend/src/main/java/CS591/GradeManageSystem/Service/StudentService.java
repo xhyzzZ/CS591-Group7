@@ -5,8 +5,7 @@ import java.util.List;
 
 public interface StudentService {
 
-    Student createStudent(int courseId, String firstName, String middleName, String lastName,
-                       String email, int age, String type, String gender);
+    Student createStudent(int courseId, String note);
 
     List<Student> getStudents(int courseId);
 
