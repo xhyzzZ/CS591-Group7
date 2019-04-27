@@ -2,48 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f178f37a-0034-4c2b-83cd-f62ffdcd0a35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/UnitRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/AssignmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/AssignmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/CourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/GradeRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/AssignmentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/AssignmentRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/CourseRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/CourseRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/GradeRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/UnitRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/StatisticsRepositoryImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/StudentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/StudentRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/UserRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/StatisticsRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/AssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/AssignmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/GradeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/UnitService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/StatisticsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/AssignmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/AssignmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/GradeServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/UnitServiceimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/StatisticsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/StudentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/config/AppConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/config/AppConf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GradingSystemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GradingSystemApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Assignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Calculable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Grade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Statistics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/DAO/CourseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/DAO/CourseRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/config/AppConf.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/config/AppConf.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/entity/Course$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/entity/Course$Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/entity/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/entity/Course.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/entity/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/entity/Student.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -82,7 +44,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="35" />
-          <entry key="java" value="17222" />
+          <entry key="java" value="19951" />
           <entry key="properties" value="118" />
           <entry key="sql" value="2" />
           <entry key="xml" value="123" />
@@ -91,7 +53,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="17222" />
+          <entry key="JAVA" value="19951" />
           <entry key="PLAIN_TEXT" value="35" />
           <entry key="Properties" value="118" />
           <entry key="SQL" value="2" />
@@ -102,7 +64,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="7" />
-          <entry key="java" value="135" />
+          <entry key="java" value="150" />
           <entry key="properties" value="1" />
           <entry key="sql" value="2" />
           <entry key="xml" value="2" />
@@ -111,7 +73,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="7" />
-          <entry key="JAVA" value="135" />
+          <entry key="JAVA" value="150" />
           <entry key="Properties" value="1" />
           <entry key="SQL" value="2" />
           <entry key="XML" value="2" />
@@ -122,10 +84,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Course.java">
+        <entry file="file://$PROJECT_DIR$/src/main/test/java/StudentTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+            <state relative-caret-position="227">
+              <caret line="180" lean-forward="true" selection-end-line="191" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,19 +96,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/CourseRepositoryImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/test/java/AssignmentTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="54" selection-end-column="13" />
+            <state relative-caret-position="-22">
+              <caret line="192" lean-forward="true" selection-start-line="192" selection-end-line="192" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/UnitRepositoryImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/test/java/ModelTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1623">
-              <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
+            <state relative-caret-position="1013">
+              <caret line="122" column="33" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/AssignmentRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Assignment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -170,9 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/application.yaml" />
-        <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/config/MysqlConf.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/GradingSystemRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/UserRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/User.java" />
@@ -194,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/CourseRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Column.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/ModelRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Assignment.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/CourseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/AssignmentService.java" />
@@ -210,17 +204,21 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Student.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/config/TableInitialize.java" />
-        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GradingSystemApplication.java" />
         <option value="$PROJECT_DIR$/src/main/test/java/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/config/AppConf.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/UserRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/test/java/UserTest.java" />
         <option value="$PROJECT_DIR$/src/main/test/java/CourseTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/CourseRepositoryImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/StudentRepositoryImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/AssignmentRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/ModelRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/UnitRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GradingSystemApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/StudentRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/test/java/StudentTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Assignment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/AssignmentRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/test/java/AssignmentTest.java" />
+        <option value="$PROJECT_DIR$/src/main/test/java/ModelTest.java" />
       </list>
     </option>
   </component>
@@ -327,28 +325,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="CS591" type="462c0819:PsiDirectoryNode" />
               <item name="GradeManageSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS591-GradeManageSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="CS591" type="462c0819:PsiDirectoryNode" />
-              <item name="GradeManageSystem" type="462c0819:PsiDirectoryNode" />
               <item name="DAO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS591-GradeManageSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="CS591" type="462c0819:PsiDirectoryNode" />
-              <item name="GradeManageSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="DAO" type="462c0819:PsiDirectoryNode" />
-              <item name="Impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS591-GradeManageSystem" type="b2602c69:ProjectViewProjectNode" />
@@ -385,7 +362,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556306159964" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556374688131" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -406,69 +383,69 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CourseTest.deleteByCourseId">
-    <configuration name="CourseTest.deleteByCourseId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ModelTest.update">
+    <configuration name="AssignmentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CourseTest" />
+      <option name="MAIN_CLASS_NAME" value="AssignmentTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AssignmentTest.deleteByCourseId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AssignmentTest" />
       <option name="METHOD_NAME" value="deleteByCourseId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseTest.findByCourseName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AssignmentTest.deleteByStudentId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CourseTest" />
-      <option name="METHOD_NAME" value="findByCourseName" />
+      <option name="MAIN_CLASS_NAME" value="AssignmentTest" />
+      <option name="METHOD_NAME" value="deleteByStudentId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseTest.findByUserId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ModelTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CourseTest" />
-      <option name="METHOD_NAME" value="findByUserId" />
+      <option name="MAIN_CLASS_NAME" value="ModelTest" />
+      <option name="METHOD_NAME" value="save" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseTest.update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ModelTest.update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CourseTest" />
+      <option name="MAIN_CLASS_NAME" value="ModelTest" />
       <option name="METHOD_NAME" value="update" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="JUnit.UserTest" />
-      <item itemvalue="JUnit.CourseTest.update" />
-      <item itemvalue="JUnit.CourseTest.findByUserId" />
-      <item itemvalue="JUnit.CourseTest.findByCourseName" />
-      <item itemvalue="JUnit.CourseTest.deleteByCourseId" />
+      <item itemvalue="JUnit.AssignmentTest.deleteByStudentId" />
+      <item itemvalue="JUnit.AssignmentTest.deleteByCourseId" />
+      <item itemvalue="JUnit.ModelTest.save" />
+      <item itemvalue="JUnit.AssignmentTest" />
+      <item itemvalue="JUnit.ModelTest.update" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CourseTest.deleteByCourseId" />
-        <item itemvalue="JUnit.CourseTest.findByUserId" />
-        <item itemvalue="JUnit.CourseTest.findByCourseName" />
-        <item itemvalue="JUnit.UserTest" />
-        <item itemvalue="JUnit.CourseTest.update" />
+        <item itemvalue="JUnit.ModelTest.update" />
+        <item itemvalue="JUnit.ModelTest.save" />
+        <item itemvalue="JUnit.AssignmentTest" />
+        <item itemvalue="JUnit.AssignmentTest.deleteByCourseId" />
+        <item itemvalue="JUnit.AssignmentTest.deleteByStudentId" />
       </list>
     </recent_temporary>
   </component>
@@ -500,50 +477,50 @@
       <workItem from="1556222380710" duration="175000" />
       <workItem from="1556226136312" duration="10108000" />
       <workItem from="1556291894839" duration="2337000" />
-      <workItem from="1556294251696" duration="8634000" />
+      <workItem from="1556294251696" duration="13985000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CourseTest_findByUserId - 2019.04.26 at 14h 14m 08s.xml">
-      <configuration name="CourseTest.findByUserId" configurationId="JUnit" />
+    <history-entry file="AssignmentTest_update - 2019.04.27 at 09h 51m 11s.xml">
+      <configuration name="AssignmentTest.update" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseTest_findByUserId - 2019.04.26 at 14h 15m 01s.xml">
-      <configuration name="CourseTest.findByUserId" configurationId="JUnit" />
+    <history-entry file="AssignmentTest_update - 2019.04.27 at 09h 51m 24s.xml">
+      <configuration name="AssignmentTest.update" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseTest_findByUserId - 2019.04.26 at 14h 15m 47s.xml">
-      <configuration name="CourseTest.findByUserId" configurationId="JUnit" />
+    <history-entry file="AssignmentTest_update - 2019.04.27 at 09h 52m 02s.xml">
+      <configuration name="AssignmentTest.update" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseTest_findByUserId - 2019.04.26 at 14h 17m 43s.xml">
-      <configuration name="CourseTest.findByUserId" configurationId="JUnit" />
+    <history-entry file="AssignmentTest_findByAssignmentId - 2019.04.27 at 09h 54m 40s.xml">
+      <configuration name="AssignmentTest.findByAssignmentId" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserTest - 2019.04.26 at 14h 18m 37s.xml">
-      <configuration name="UserTest" configurationId="JUnit" />
+    <history-entry file="AssignmentTest_findByCourseId - 2019.04.27 at 09h 59m 59s.xml">
+      <configuration name="AssignmentTest.findByCourseId" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseTest_findByCourseName - 2019.04.26 at 14h 28m 50s.xml">
-      <configuration name="CourseTest.findByCourseName" configurationId="JUnit" />
+    <history-entry file="AssignmentTest_deleteByStudentId - 2019.04.27 at 10h 02m 13s.xml">
+      <configuration name="AssignmentTest.deleteByStudentId" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseTest_findByUserId - 2019.04.26 at 14h 33m 57s.xml">
-      <configuration name="CourseTest.findByUserId" configurationId="JUnit" />
+    <history-entry file="AssignmentTest_deleteByCourseId - 2019.04.27 at 10h 03m 49s.xml">
+      <configuration name="AssignmentTest.deleteByCourseId" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseTest_findByUserId - 2019.04.26 at 14h 34m 09s.xml">
-      <configuration name="CourseTest.findByUserId" configurationId="JUnit" />
+    <history-entry file="ModelTest_save - 2019.04.27 at 10h 12m 20s.xml">
+      <configuration name="ModelTest.save" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseTest_deleteByCourseId - 2019.04.26 at 14h 38m 15s.xml">
-      <configuration name="CourseTest.deleteByCourseId" configurationId="JUnit" />
+    <history-entry file="AssignmentTest - 2019.04.27 at 10h 12m 27s.xml">
+      <configuration name="AssignmentTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseTest_deleteByCourseId - 2019.04.26 at 14h 38m 31s.xml">
-      <configuration name="CourseTest.deleteByCourseId" configurationId="JUnit" />
+    <history-entry file="ModelTest_save - 2019.04.27 at 10h 12m 49s.xml">
+      <configuration name="ModelTest.save" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35662000" />
+    <option name="totallyTimeSpent" value="41013000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31831187" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31831187" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -552,7 +529,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32909605" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32909605" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997175" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -610,15 +587,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.0/lombok-1.18.0.jar!/lombok/Data.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Column/Info.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Application.java" />
     <entry file="file://$PROJECT_DIR$/src/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Student/GraduateStudent.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Column/Column.java" />
@@ -628,13 +596,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Student/Student.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/UserRepositoryImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Statistics.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/StudentRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -656,16 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Assignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -749,23 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/AssignmentRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-124">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/test/java/Initialize.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -791,42 +725,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GradingSystemApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#234#235#0" expanded="true" />
-            <element signature="e#278#279#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.sql/java/sql/PreparedStatement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2">
           <caret line="93" column="46" lean-forward="true" selection-start-line="93" selection-start-column="46" selection-end-line="93" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/config/TableInitialize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -878,16 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/java/CourseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3571">
-          <caret line="229" column="42" selection-start-line="229" selection-start-column="42" selection-end-line="229" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Course.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -895,20 +787,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/AssignmentRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3630">
-          <caret line="171" column="5" selection-start-line="171" selection-start-column="5" selection-end-line="171" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/StudentRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
         </state>
       </provider>
     </entry>
@@ -931,8 +809,123 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/UnitRepositoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1623">
-          <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
+        <state relative-caret-position="457">
+          <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GradingSystemApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/config/TableInitialize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/java/CourseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2988">
+          <caret line="216" column="32" lean-forward="true" selection-start-line="216" selection-start-column="32" selection-end-line="216" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/StudentRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/StudentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/java/StudentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="180" lean-forward="true" selection-end-line="191" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/AssignmentRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="130" column="156" selection-start-line="130" selection-start-column="156" selection-end-line="130" selection-end-column="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Assignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/AssignmentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/java/AssignmentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22">
+          <caret line="192" lean-forward="true" selection-start-line="192" selection-end-line="192" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/java/ModelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1013">
+          <caret line="122" column="33" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

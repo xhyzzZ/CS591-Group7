@@ -73,14 +73,14 @@ public class ModelRepositoryImpl implements ModelRepository {
             boolean fix = model.isFix();
 
             // pre-process the execution
-            String exec = String.format("UPDATE MODEL SET modelName = \'%s\', columnName = \'%s\', weight = %d, addPoint = %b, extraBonus = %b, fix = %b) WHERE modelId = \'%s\';",
+            String exec = String.format("UPDATE MODEL SET modelName = \'%s\', columnName = \'%s\', weight = %d, addPoint = %b, extraBonus = %b, fix = %b WHERE modelId = %d;",
                     modelName,
                     columnName,
                     weight,
                     addPoint,
                     extraBonus,
-                    modelId,
-                    fix);
+                    fix,
+                    modelId);
             pst = conn.prepareStatement(exec);
 
             // execute the operation

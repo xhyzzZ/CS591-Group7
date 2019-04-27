@@ -128,7 +128,7 @@ public class AssignmentRepositoryImpl implements AssignmentRepository {
             boolean fix = assignment.isFix();
 
             // pre-process the execution
-            String exec = String.format("UPDATE ASSIGNMENT SET courseId = %d, assignmentName = \'%s\', weight = %d, addPoint = %b, extraBonus = %b, fix = %b) WHERE assignmentId = %d;",
+            String exec = String.format("UPDATE ASSIGNMENT SET courseId = %d, assignmentName = \'%s\', weight = %d, addPoint = %b, extraBonus = %b, fix = %b WHERE assignmentId = %d;",
                     courseId, assignmentName, weight, addPoint, extraBonus, fix, assignmentId);
             pst = conn.prepareStatement(exec);
 

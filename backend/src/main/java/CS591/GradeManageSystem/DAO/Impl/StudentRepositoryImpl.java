@@ -49,7 +49,7 @@ public class StudentRepositoryImpl implements StudentRepository {
             String note = student.getNote();
 
             // pre-process the execution
-            String exec = String.format("INSERT INTO COURSE(courseId, note) VALUES(%d, \'%s\');",
+            String exec = String.format("INSERT INTO STUDENT(courseId, note) VALUES(%d, \'%s\');",
                     courseId, note);
             pst = conn.prepareStatement(exec, Statement.RETURN_GENERATED_KEYS);
 
