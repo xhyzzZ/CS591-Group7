@@ -1,41 +1,9 @@
-/*package GUI;
-import java.awt.Font;
-
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-
-
-public class AddNewCourse extends JPanel{
-	private JLabel addcourseLabel, coursenameLabel, courseidLabel, professorLabel, courseyearLabel, seasonLabel, moduleLabel;
-	private JTextField coursenameField, courseidField, professorField, courseyearField;
-	private JComboBox seasonBox, moduleBox;
-	private JButton confirmButton, cancelButton;
-	private static Font labelFont = new Font("Dialog", Font.BOLD, 14);
-	
-	public AddNewCourse() {
-		super(null);
-		
-		addcourseLabel = new JLabel("Add New Course");
-		addcourseLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		addcourseLabel.setVerticalAlignment(SwingConstants.CENTER);
-		
-		
-	}
-}*/
-
 package GUI;
 import java.awt.*;
-
 import java.awt.event.*;
 import javax.swing.*;
 
-public class AddNewCourse extends JPanel{//implements ActionListener
+public class AddNewCourse1 extends JPanel{
 	private JTextField  courseName=new JTextField(),courseID=new JTextField(),professorName=new JTextField(),courseYear=new JTextField();
 	private JButton confirm=new JButton("confirm"),cancel=new JButton("cancel"), open = new JButton("open");
 	private JLabel courseName1=new JLabel("Course Name:");
@@ -51,9 +19,11 @@ public class AddNewCourse extends JPanel{//implements ActionListener
 	private static Font labelFont = new Font("Dialog", Font.PLAIN, 20);
 	private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);
 	
-	AddNewCourse(JPanel p){
-    	 JPanel panel = new JPanel();
-    	 panel.setSize(800, 1000);
+	public AddNewCourse1(JPanel p){
+		super(null);
+		
+    	 //JPanel panel = new JPanel();
+    	 //panel.setSize(800, 1000);
     	 
     	 this.p=p;
     	 courseName1.setFont(labelFont);
@@ -104,47 +74,58 @@ public class AddNewCourse extends JPanel{//implements ActionListener
     	 open.setToolTipText("Choose file from computer");
     	 open.setBounds(460, 500, 200, 50);
     	 
+    	 confirm.setFont(labelFont);
+    	 confirm.setToolTipText("Confirm the course.");
+    	 confirm.setBounds(510, 550, 200, 50);
+    	 
+    	 cancel.setFont(labelFont);
+    	 cancel.setToolTipText("Cancel it.");
+    	 cancel.setBounds(560, 550, 200, 50);
+    	 
     	 semesterBox.setBounds(460, 400, 200, 50);
     	 
     	 importModule.setBounds(460, 450, 200, 50);
     	 
-    	 panel.add(courseID1);
-    	 panel.add(courseID);
-    	 panel.add(courseName1);
-    	 panel.add(courseName);
-    	 panel.add(courseYear1);
-    	 panel.add(courseYear);
-    	 panel.add(importFile);
-    	 panel.add(cancel);
-    	 this.add(confirm);
-    	 this.add(importModule);
-    	 this.add(semester);
-    	 this.add(semesterBox);
-    	 this.add(importModule1);
-    	// this.setResizable(false);
+    	 //this.add(courseID1);
+    	 //this.add(courseID);
+    	 //this.add(courseName1);
+    	 //this.add(courseName);
+    	 //this.add(courseYear1);
+    	 //this.add(courseYear);
+    	 //this.add(importFile);
+    	 //this.add(cancel);
+    	 //this.add(confirm);
+    	 //this.add(importModule);
+    	 //this.add(semester);
+    	 //this.add(semesterBox);
+    	 //this.add(importModule1);
+    	 //this.setResizable(false);
     	// this.setDefaultCloseOperation(JPanel.EXIT_ON_CLOSE);	
-    		//this.setLayout(new GridLayout(2,2));
-    		//Panel  p1=new Panel();
-    		//p1.setLayout(new GridLayout(4,2));
-    		//p1.add(courseName1);	
-    		//p1.add(courseName);	
-    		//p1.add(courseID1);	
-    		//p1.add(courseID);	
-    		//p1.add(professorName1);	
-    		//p1.add(professorName);	
-    		//p1.add(courseYear1);	
-    		//p1.add(courseYear);	
-    		//p1.add(semester);
-    		//p1.add(semesterBox);
-    		//p1.add(importModule1);	
-    		//p1.add(importModule);
-    		//Panel  p2=new Panel();
-    		//p2.add(confirm);	
-    		//p2.add(cancel);
-    		//this.add(p1);
-    		//this.add(p2);
-    	 this.add(panel);
-    	 panel.setVisible(true);
+    		this.setLayout(new GridLayout(2,2));
+    		Panel  p1=new Panel();
+    		p1.setLayout(new GridLayout(7,3));
+    		p1.add(courseName1);	
+    		p1.add(courseName);	
+    		p1.add(courseID1);	
+    		p1.add(courseID);	
+    		p1.add(professorName1);	
+    		p1.add(professorName);	
+    		p1.add(courseYear1);	
+    		p1.add(courseYear);	
+    		p1.add(semester);
+    		p1.add(semesterBox);
+    		p1.add(importModule1);	
+    		p1.add(importModule);
+    		p1.add(importFile);
+    		p1.add(open);
+    		
+    		Panel  p2=new Panel();
+    		p2.add(confirm);	
+    		p2.add(cancel);
+    		this.add(p1);
+    		this.add(p2);
+    	 //this.add(panel);
+    	 //panel.setVisible(true);
     	 validate();
    
     }
@@ -173,9 +154,13 @@ public class AddNewCourse extends JPanel{//implements ActionListener
 	public JButton getCancelButton() {
 		return this.cancel;
 	}
+	
+	public JButton getOpenButton() {
+		return this.open;
+	}
+	
 	public JPanel getCoursePanel() {
 		return this.p;
 	}
-
+	
 }
-

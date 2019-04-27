@@ -11,33 +11,37 @@ import java.awt.GridLayout;
 
 public class Dashboard extends JPanel{
 	private JLabel dashboardLabel;
-	private static Font labelFont = new Font("Dialog", Font.BOLD, 14);
+	//private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);
 	private JButton logoutButton, addnewcourseButton, cs591Button;
 	private JPanel coursePanel;
+	private static Font labelFont = new Font("Dialog", Font.PLAIN, 20);
+	private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);
 	
 	public Dashboard() {
 		super(null);
 		
 		dashboardLabel  = new JLabel("Dashboard");
-		dashboardLabel.setFont(labelFont);
+		dashboardLabel.setFont(labelFont_big);
 		dashboardLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		dashboardLabel.setVerticalAlignment(SwingConstants.CENTER);
-		dashboardLabel.setBounds(150, 10, 200, 50);
+		dashboardLabel.setBounds(400, 100, 200, 50);
 		
 		logoutButton = new JButton("log out");
+		logoutButton.setFont(labelFont);
 		logoutButton.setToolTipText("Log out dahsboard");
-		logoutButton.setBounds(40, 50, 150, 50);
+		logoutButton.setBounds(280, 200, 200, 50);
 		
 		addnewcourseButton = new JButton("add new course");
+		addnewcourseButton.setFont(labelFont);
 		addnewcourseButton.setToolTipText("add new course to the system");
-		addnewcourseButton.setBounds(305, 50, 150, 50);
+		addnewcourseButton.setBounds(540, 200, 200, 50);
 		
-		cs591Button = new JButton("CS 591 P1");
+		//cs591Button = new JButton("CS 591 P1");
 		
 		coursePanel = new JPanel();
-		coursePanel.setBounds(130, 120, 240, 170);
+		coursePanel.setBounds(400, 300, 240, 170);
 		coursePanel.setLayout(new GridLayout(0, 1, 0, 0));
-		coursePanel.add(cs591Button);
+		//coursePanel.add(cs591Button);
 		
 		this.add(dashboardLabel);
 		this.add(logoutButton);
@@ -57,4 +61,5 @@ public class Dashboard extends JPanel{
 	public JPanel getcoursePanel() {
 		return this.coursePanel;
 	}
+	
 }
