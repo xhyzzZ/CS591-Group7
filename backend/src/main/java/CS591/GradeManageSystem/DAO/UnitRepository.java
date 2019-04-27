@@ -10,9 +10,9 @@ public interface UnitRepository {
 
     void deleteByUnitId(Integer unitId);
 
-    void deleteByStudentId(Integer studentId);
+    void deleteByCourseIdAndStudentId(Integer CourseId, Integer studentId);
 
-    void deleteByAssignmentId(Integer assignmentId);
+    void deleteByCourseIdAndAssignmentId(Integer CourseId, Integer assignmentId);
 
     void deleteByCourseId(Integer courseId);
 

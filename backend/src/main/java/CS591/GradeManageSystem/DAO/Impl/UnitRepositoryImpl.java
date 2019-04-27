@@ -32,7 +32,7 @@ public class UnitRepositoryImpl implements UnitRepository {
             String note = unit.getNote();
 
             // pre-process the execution
-            String exec = String.format("UPDATE UNIT SET courseId = %d, studentId = %d , assignmentId = %d, content = \'%s\', note = \'%s\') WHERE unitId = %d;",
+            String exec = String.format("UPDATE UNIT SET courseId = %d, studentId = %d , assignmentId = %d, content = \'%s\', note = \'%s\' WHERE unitId = %d;",
                     courseId, studentId, assignmentId, content, note, unitId);
             pst = conn.prepareStatement(exec);
 
@@ -66,7 +66,7 @@ public class UnitRepositoryImpl implements UnitRepository {
 
             try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    unit.setCourseId(generatedKeys.getInt(1));
+                    unit.setUnitId(generatedKeys.getInt(1));
                 }
                 else {
                     throw new SQLException(Constants.UNITFAILEDONID);
@@ -94,12 +94,12 @@ public class UnitRepositoryImpl implements UnitRepository {
     }
 
     @Override
-    public void deleteByStudentId(Integer studentId) {
+    public void deleteByCourseIdAndStudentId(Integer courseId, Integer studentId) {
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("DELETE FROM UNIT WHERE studentId = %d;", studentId);
+            String exec = String.format("DELETE FROM UNIT WHERE courseId = %d AND studentId = %d;", courseId, studentId);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
@@ -110,12 +110,12 @@ public class UnitRepositoryImpl implements UnitRepository {
     }
 
     @Override
-    public void deleteByAssignmentId(Integer assignmentId) {
+    public void deleteByCourseIdAndAssignmentId(Integer courseId, Integer assignmentId) {
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("DELETE FROM UNIT WHERE assignmentId = %d;", assignmentId);
+            String exec = String.format("DELETE FROM UNIT WHERE courseId = %d AND assignmentId = %d;", courseId, assignmentId);
             pst = conn.prepareStatement(exec);
 
             // execute the operation

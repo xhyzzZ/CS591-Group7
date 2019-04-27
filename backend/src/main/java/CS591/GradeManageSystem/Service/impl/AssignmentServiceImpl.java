@@ -21,8 +21,8 @@ public class AssignmentServiceImpl implements CS591.GradeManageSystem.Service.As
     }
 
     @Override
-    public void deleteById(int assignmentId) {
-        unitRepository.deleteByAssignmentId(assignmentId);
+    public void deleteById(int courseId, int assignmentId) {
+        unitRepository.deleteByCourseIdAndAssignmentId(courseId, assignmentId);
         assignmentRepository.deleteByAssignmentId(assignmentId);
     }
 

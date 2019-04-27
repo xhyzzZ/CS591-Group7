@@ -9,5 +9,5 @@ public interface StudentService {
 
     List<Student> getStudents(int courseId);
 
-    void deleteStudent(int studentId);
+    void deleteStudent(int courseId, int studentId);
 }

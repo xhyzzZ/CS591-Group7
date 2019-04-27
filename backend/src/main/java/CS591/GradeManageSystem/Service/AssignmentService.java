@@ -7,7 +7,7 @@ public interface AssignmentService {
 
     List<Assignment> getAssignments(int courseId);
 
-    void deleteById(int assignmentId);
+    void deleteById(int courseId, int assignmentId);
 
     Assignment createAssignment(int courseId, String assignmentName, int weight, boolean addPoint, boolean extraBonus, boolean fix);
 }

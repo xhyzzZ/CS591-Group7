@@ -28,8 +28,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void deleteStudent(int studentId) {
-        unitRepository.deleteByStudentId(studentId);
+    public void deleteStudent(int courseId, int studentId) {
+        unitRepository.deleteByCourseIdAndStudentId(courseId, studentId);
         studentRepository.deleteByStudentId(studentId);
     }
 }

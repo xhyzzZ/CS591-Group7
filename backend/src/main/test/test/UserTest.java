@@ -1,3 +1,5 @@
+package test;
+
 import CS591.GradeManageSystem.DAO.Impl.UserRepositoryImpl;
 import CS591.GradeManageSystem.config.AppConf;
 import CS591.GradeManageSystem.entity.User;

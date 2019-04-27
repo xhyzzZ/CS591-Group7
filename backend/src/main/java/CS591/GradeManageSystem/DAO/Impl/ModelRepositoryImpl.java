@@ -184,22 +184,6 @@ public class ModelRepositoryImpl implements ModelRepository {
     }
 
     @Override
-    public void deleteByModelName(String modelName) {
-        try {
-            conn = AppConf.getConnection();
-
-            // pre-process the execution
-            String exec = String.format("DELETE FROM MODEL WHERE modelName = \'%s\';", modelName);
-            pst = conn.prepareStatement(exec);
-
-            // execute the operation
-            pst.executeUpdate();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    @Override
     public void deleteByModelId(int modelId) {
         try {
             conn = AppConf.getConnection();

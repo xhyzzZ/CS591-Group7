@@ -1,3 +1,5 @@
+package test;
+
 import CS591.GradeManageSystem.DAO.Impl.AssignmentRepositoryImpl;
 import CS591.GradeManageSystem.config.AppConf;
 import CS591.GradeManageSystem.entity.Assignment;

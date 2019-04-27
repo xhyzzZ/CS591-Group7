@@ -15,7 +15,5 @@ public interface ModelRepository {
 
     Model findByModelId(int modelId);
 
-    void deleteByModelName(String modelName);
-
     void deleteByModelId(int modelId);
 }
