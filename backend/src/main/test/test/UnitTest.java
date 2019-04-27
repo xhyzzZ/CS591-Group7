@@ -276,7 +276,6 @@ public class UnitTest {
 
             Unit ret1 = unitRepository.findByUnitId(unit1.getUnitId());
             Unit ret2 = unitRepository.findByUnitId(unit2.getUnitId());
-
             Assert.assertNull(ret1);
             Assert.assertNotNull(ret2);
         } catch (Exception ex) {
