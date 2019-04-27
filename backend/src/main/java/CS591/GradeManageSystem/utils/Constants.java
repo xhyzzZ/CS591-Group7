@@ -27,7 +27,7 @@ public class Constants {
 
     public static final String LOADSUCCESS = "Successfully load Mysql database.";
 
-    public static final String LOADFAILED = "Successfully load Mysql database.";
+    public static final String LOADFAILED = "Load failed.";
 
 
 }
