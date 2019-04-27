@@ -1,4 +1,6 @@
 package CS591.GradeManageSystem.GUI;
+import CS591.GradeManageSystem.Service.impl.UserServiceImpl;
+
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -18,6 +20,8 @@ public class GUI extends JFrame{
 	private AddNewAssignment assignmentPanel= new AddNewAssignment();
 	private AddNewCourse1 addcoursePanel= new AddNewCourse1(dashboardPanel.getcoursePanel());
 	private Statistic staPanel= new Statistic();
+
+	UserServiceImpl userService = new UserServiceImpl();
 	
 	//!!!!!!
 	private JFrame frame;
@@ -77,7 +81,9 @@ public class GUI extends JFrame{
 		
 		loginPanel.getLoginButton().addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				//check mima
+				//check password
+				String username = loginPanel.getUsernameField().getText();
+				String password = String.valueOf(loginPanel.getPasswordField().getPassword());
 
 				//if() {
 				loginPanel.setVisible(false);
@@ -442,17 +448,15 @@ public class GUI extends JFrame{
 		
 		
 		assignmentPanel.getConfirmButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {			
+			public void actionPerformed(ActionEvent e) {
 				assignmentPanel.setVisible(false);
 				// add colomn name
-				
+
 				DefaultTableModel tableModel = managePage.getd();
 				tableModel.addColumn(assignmentPanel.getassignmentField().getText());
 				managePage.setVisible(true);
 			}
 		});
-		
-	
 		
 		assignmentPanel.getCancelButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
