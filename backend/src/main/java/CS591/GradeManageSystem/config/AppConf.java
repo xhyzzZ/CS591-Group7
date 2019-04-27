@@ -1,5 +1,7 @@
 package CS591.GradeManageSystem.config;
 
+import CS591.GradeManageSystem.utils.Constants;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -15,9 +17,9 @@ public class AppConf {
     static {
         try {
             Class.forName(driver);
-            print("Successfully load Mysql database");
+            print(Constants.LOADSUCCESS);
         } catch (Exception ex) {
-            print("Load failed");
+            print(Constants.LOADFAILED);
             ex.printStackTrace();
         }
     }

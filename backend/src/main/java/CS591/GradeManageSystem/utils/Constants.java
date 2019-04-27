@@ -25,7 +25,9 @@ public class Constants {
 
     public static final String USERFAILEDONID = "Creating user failed, no ID affected.";
 
+    public static final String LOADSUCCESS = "Successfully load Mysql database.";
 
+    public static final String LOADFAILED = "Successfully load Mysql database.";
 
 
 }
