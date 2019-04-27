@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 
 public class AppConf {
 
-    private static final String driver = "com.mysql.cj.jdbc.Driver";
-    private static final String url = "jdbc:mysql://localhost:3306/gradingsystem?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=false";
+    private static final String driver = "com.mysql.jdbc.Driver";
+    private static final String url = "jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=gbk";
     private static final String username = "root";
-    private static final String password = "";
+    private static final String password = "19951029";
 
     private static Connection conn = null;
 
