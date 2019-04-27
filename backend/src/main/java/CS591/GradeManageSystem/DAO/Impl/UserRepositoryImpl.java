@@ -3,6 +3,7 @@ package CS591.GradeManageSystem.DAO.Impl;
 import CS591.GradeManageSystem.DAO.UserRepository;
 import CS591.GradeManageSystem.config.AppConf;
 import CS591.GradeManageSystem.entity.User;
+import CS591.GradeManageSystem.utils.Constants;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -89,7 +90,7 @@ public class UserRepositoryImpl implements UserRepository {
             int affectedRows = pst.executeUpdate();
 
             if (affectedRows == 0) {
-                throw new SQLException("Creating user failed, no rows affected.");
+                throw new SQLException(Constants.USERFAILEDONROWS);
             }
 
             try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
@@ -97,7 +98,7 @@ public class UserRepositoryImpl implements UserRepository {
                     user.setUserId(generatedKeys.getInt(1));
                 }
                 else {
-                    throw new SQLException("Creating user failed, no ID obtained.");
+                    throw new SQLException(Constants.USERFAILEDONID);
                 }
             }
         } catch (Exception ex) {

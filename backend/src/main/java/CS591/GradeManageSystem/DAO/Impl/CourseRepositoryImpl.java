@@ -4,6 +4,7 @@ import CS591.GradeManageSystem.DAO.CourseRepository;
 import CS591.GradeManageSystem.config.AppConf;
 import CS591.GradeManageSystem.entity.Course;
 import CS591.GradeManageSystem.entity.Student;
+import CS591.GradeManageSystem.utils.Constants;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class CourseRepositoryImpl implements CourseRepository {
             int affectedRows = pst.executeUpdate();
 
             if (affectedRows == 0) {
-                throw new SQLException("Creating course failed, no rows affected.");
+                throw new SQLException(Constants.COURSEFAILEDONROWS);
             }
 
             try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
@@ -50,7 +51,7 @@ public class CourseRepositoryImpl implements CourseRepository {
                     course.setCourseId(generatedKeys.getInt(1));
                 }
                 else {
-                    throw new SQLException("Creating course failed, no ID obtained.");
+                    throw new SQLException(Constants.COURSEFAILEDONID);
                 }
             }
         } catch (Exception ex) {

@@ -23,6 +23,6 @@ public class Assignment {
         this.weight = weight;
         this.addPoint = addPoint;
         this.extraBonus = extraBonus;
-        this.fix = true;
+        this.fix = fix;
     }
 }

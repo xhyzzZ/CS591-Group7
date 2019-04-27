@@ -3,6 +3,7 @@ package CS591.GradeManageSystem.DAO.Impl;
 import CS591.GradeManageSystem.DAO.StudentRepository;
 import CS591.GradeManageSystem.config.AppConf;
 import CS591.GradeManageSystem.entity.Student;
+import CS591.GradeManageSystem.utils.Constants;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -49,14 +50,14 @@ public class StudentRepositoryImpl implements StudentRepository {
             String note = student.getNote();
 
             // pre-process the execution
-            String exec = String.format("INSERT INTO COURSE(courseId, note) VALUES(%d, \'%s\');",
+            String exec = String.format("INSERT INTO STUDENT(courseId, note) VALUES(%d, \'%s\');",
                     courseId, note);
             pst = conn.prepareStatement(exec, Statement.RETURN_GENERATED_KEYS);
 
             int affectedRows = pst.executeUpdate();
 
             if (affectedRows == 0) {
-                throw new SQLException("Creating student failed, no rows affected.");
+                throw new SQLException(Constants.STUDENTFAILEDONROWS);
             }
 
             try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
@@ -64,7 +65,7 @@ public class StudentRepositoryImpl implements StudentRepository {
                     student.setStudentId(generatedKeys.getInt(1));
                 }
                 else {
-                    throw new SQLException("Creating student failed, no ID obtained.");
+                    throw new SQLException(Constants.STUDENTFAILEDONID);
                 }
             }
         } catch (Exception ex) {

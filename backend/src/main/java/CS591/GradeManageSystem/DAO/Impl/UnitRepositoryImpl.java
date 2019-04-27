@@ -3,6 +3,7 @@ package CS591.GradeManageSystem.DAO.Impl;
 import CS591.GradeManageSystem.DAO.UnitRepository;
 import CS591.GradeManageSystem.config.AppConf;
 import CS591.GradeManageSystem.entity.Unit;
+import CS591.GradeManageSystem.utils.Constants;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class UnitRepositoryImpl implements UnitRepository {
             int affectedRows = pst.executeUpdate();
 
             if (affectedRows == 0) {
-                throw new SQLException("Creating unit failed, no rows affected.");
+                throw new SQLException(Constants.UNITFAILEDONROWS);
             }
 
             try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
@@ -68,7 +69,7 @@ public class UnitRepositoryImpl implements UnitRepository {
                     unit.setCourseId(generatedKeys.getInt(1));
                 }
                 else {
-                    throw new SQLException("Creating unit failed, no ID obtained.");
+                    throw new SQLException(Constants.UNITFAILEDONID);
                 }
             }
         } catch (Exception ex) {

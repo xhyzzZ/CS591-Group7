@@ -3,6 +3,7 @@ package CS591.GradeManageSystem.DAO.Impl;
 import CS591.GradeManageSystem.DAO.ModelRepository;
 import CS591.GradeManageSystem.config.AppConf;
 import CS591.GradeManageSystem.entity.Model;
+import CS591.GradeManageSystem.utils.Constants;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class ModelRepositoryImpl implements ModelRepository {
             int affectedRows = pst.executeUpdate();
 
             if (affectedRows == 0) {
-                throw new SQLException("Creating model failed, no rows affected.");
+                throw new SQLException(Constants.MODELFAILEDONROWS);
             }
 
             try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
@@ -51,7 +52,7 @@ public class ModelRepositoryImpl implements ModelRepository {
                     model.setModelId(generatedKeys.getInt(1));
                 }
                 else {
-                    throw new SQLException("Creating model failed, no ID obtained.");
+                    throw new SQLException(Constants.MODELFAILEDONID);
                 }
             }
         } catch (Exception ex) {
@@ -73,14 +74,14 @@ public class ModelRepositoryImpl implements ModelRepository {
             boolean fix = model.isFix();
 
             // pre-process the execution
-            String exec = String.format("UPDATE MODEL SET modelName = \'%s\', columnName = \'%s\', weight = %d, addPoint = %b, extraBonus = %b, fix = %b) WHERE modelId = \'%s\';",
+            String exec = String.format("UPDATE MODEL SET modelName = \'%s\', columnName = \'%s\', weight = %d, addPoint = %b, extraBonus = %b, fix = %b WHERE modelId = %d;",
                     modelName,
                     columnName,
                     weight,
                     addPoint,
                     extraBonus,
-                    modelId,
-                    fix);
+                    fix,
+                    modelId);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
