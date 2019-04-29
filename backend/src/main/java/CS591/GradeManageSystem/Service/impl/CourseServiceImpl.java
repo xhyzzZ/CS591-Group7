@@ -21,6 +21,11 @@ public class CourseServiceImpl implements CS591.GradeManageSystem.Service.Course
     private ModelRepositoryImpl modelRepository = new ModelRepositoryImpl();
 
     @Override
+    public void update(Course course) {
+        courseRepository.update(course);
+    }
+
+    @Override
     public List<Course> getCourses(int userId) {
         return courseRepository.findByUserId(userId);
     }

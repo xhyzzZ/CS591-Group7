@@ -1,5 +1,4 @@
 package CS591.GradeManageSystem.GUI;
-import CS591.GradeManageSystem.Service.UnitService;
 import CS591.GradeManageSystem.Service.impl.*;
 import CS591.GradeManageSystem.Service.impl.UserServiceImpl;
 import CS591.GradeManageSystem.entity.*;
@@ -25,6 +24,7 @@ public class GUI extends JFrame{
 	private AssignmentServiceImpl assignmentServiceImpl = new AssignmentServiceImpl();
 	private StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
 	private UnitServiceimpl unitServiceimpl = new UnitServiceimpl();
+	private ModelServiceImpl modelService = new ModelServiceImpl();
 
 	// current login user
 	private User currentUser = null;
@@ -217,6 +217,7 @@ public class GUI extends JFrame{
 
 		// delete a column
 		managePage.getdeletecolButton().addActionListener(e -> {
+			//currentCourse.isEditable()
 			int[] selColIndexes = managePage.getTable().getSelectedColumns();
 			if (selColIndexes == null || selColIndexes.length == 0) JOptionPane.showMessageDialog(managePage, "Please select column first!");
 			else {
@@ -252,6 +253,8 @@ public class GUI extends JFrame{
 			//read only
 			int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to close this course? If yes the data will be read-only!");
 			if (t == 0) {
+				currentCourse.setEditable(false);
+				courseServiceImpl.update(currentCourse);
 				managePage.getTable().setEnabled(false);
 			}
 		});
@@ -274,10 +277,9 @@ public class GUI extends JFrame{
 
 			String[] forCombo;
 			int colCount=managePage.getd().getColumnCount();
-			System.out.println(colCount);
-			forCombo=new String[colCount-2];/////-5
+			forCombo=new String[colCount - 5];/////-5
 
-			for(int i=0,j=2;j<colCount;i++,j++) {
+			for(int i = 0, j = 5; j < colCount ; i++, j++) {
 				forCombo[i] = managePage.getd().getColumnName(j);
 			}
 
@@ -291,28 +293,16 @@ public class GUI extends JFrame{
 			DefaultTableModel tableModel = managePage.getd();
 			int rowCount=tableModel.getRowCount();
 			int colCount=tableModel.getColumnCount();
-			double[] weight=new double[] {0.2,0.8};
-			tableModel.addColumn("total");
-			for(int i=0;i<rowCount;i++) {
-				
-				double fenshu=0;
-
-				for(int j=0;j<weight.length;j++) {
-
-					//!!!!!!!
-					int dex=2+j; ////5
-					if(tableModel.getValueAt(i, dex)!=null)
-					{
-						fenshu+=Integer.parseInt(tableModel.getValueAt(i, dex).toString())*weight[j];
-						//if(jiade){fenshu+=Integer.parseInt(tableModel.getValueAt(i, dex).toString())*weight[j];}
-						//else{fenshu+=(HW1.MAX+Integer.parseInt(tableModel.getValueAt(i, dex).toString()) )*weight[j];}
-					}
-
+			Assignment totalColumn = assignmentServiceImpl.createAssignment(currentCourse.getCourseId(), "Total", 0, false, true, true);
+			for (Student student : students) {
+				double total = 0;
+				for (int i = 5; i < assignments.size(); i++) {
+					Assignment assignment = assignments.get(i);
+					total += Integer.parseInt(units.get(assignment).get(student).getContent()) * ((assignment.getWeight() / 100.0));
 				}
-				//to[i]=fenshu;
-
-				tableModel.setValueAt(fenshu, i, colCount);
+				unitServiceimpl.createUnit(currentCourse.getCourseId(), student.getStudentId(), totalColumn.getAssignmentId(), String.valueOf(total), "");
 			}
+			update(currentCourse);
 		});
 
 		// save sheet
@@ -327,6 +317,17 @@ public class GUI extends JFrame{
 				}
 			}
 			update(currentCourse);
+		});
+
+		// save as model
+		managePage.getsaveasmodelButton().addActionListener(e -> {
+			String modelName = currentCourse.getCourseName() + " " + currentCourse.getYear() + " " + currentCourse.getType().toString();
+			System.out.println(modelName);
+			System.out.println(assignments.size());
+			for (Assignment assignment : assignments) {
+				Model model = new Model(modelName, assignment.getAssignmentName(), assignment.getWeight(), assignment.isAddPoint(), assignment.isExtraBonus(), assignment.isFix());
+				modelService.save(model);
+			}
 		});
 
 		// save and exit sheet
@@ -359,8 +360,8 @@ public class GUI extends JFrame{
 		staPanel.getCalButton().addActionListener(e -> {
 			DefaultTableModel model =managePage.getd();
 			int rowCount = model.getRowCount();
-			String t=staPanel.getchooseHW().getSelectedItem().toString();
-			int c=staPanel.getchooseHW().getSelectedIndex()+2; //+5 default
+			String t = staPanel.getchooseHW().getSelectedItem().toString();
+			int c = staPanel.getchooseHW().getSelectedIndex() + 5;
 			int[] data=new int[rowCount];
 			for(int i=0;i<rowCount;i++){
 				if(model.getValueAt(i, c)==null)
@@ -369,10 +370,7 @@ public class GUI extends JFrame{
 					data[i]=Integer.parseInt(model.getValueAt(i, c).toString());
 			}
 
-			int test=0;
-			for(int j=0;j<2;j++)
-				test+=data[j];
-			JOptionPane.showMessageDialog(staPanel,t+"'s "+test/2+"Statistic:\nMean:\nMedian:\nStdDev:\nHighest\nLowest:\n");
+//			JOptionPane.showMessageDialog(staPanel,t+"'s "+test/2+"Statistic:\nMean:\nMedian:\nStdDev:\nHighest\nLowest:\n");
 		});
 
 		assignmentPanel.getConfirmButton().addActionListener(e -> {
@@ -387,7 +385,7 @@ public class GUI extends JFrame{
 			assignmentPanel.setVisible(false);
 
 			for (Student student : students) {
-				unitServiceimpl.createUnit(currentCourse.getCourseId(), student.getStudentId(), assignment.getAssignmentId(), "", "");
+				unitServiceimpl.createUnit(currentCourse.getCourseId(), student.getStudentId(), assignment.getAssignmentId(), "0", "");
 			}
 
 			update(currentCourse);
