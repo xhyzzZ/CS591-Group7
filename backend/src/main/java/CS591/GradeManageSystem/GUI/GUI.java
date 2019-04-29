@@ -293,7 +293,7 @@ public class GUI extends JFrame{
 			DefaultTableModel tableModel = managePage.getd();
 			int rowCount=tableModel.getRowCount();
 			int colCount=tableModel.getColumnCount();
-			Assignment totalColumn = assignmentServiceImpl.createAssignment(currentCourse.getCourseId(), "Total", 0, false, true, true);
+			Assignment totalColumn = assignmentServiceImpl.createAssignment(currentCourse.getCourseId(), "Total", 0, 100, false, true, true);
 			for (Student student : students) {
 				double total = 0;
 				for (int i = 5; i < assignments.size(); i++) {
@@ -322,11 +322,8 @@ public class GUI extends JFrame{
 		// save as model
 		managePage.getsaveasmodelButton().addActionListener(e -> {
 			String modelName = currentCourse.getCourseName() + " " + currentCourse.getYear() + " " + currentCourse.getType().toString();
-			System.out.println(modelName);
-			System.out.println(assignments.size());
 			for (Assignment assignment : assignments) {
-				Model model = new Model(modelName, assignment.getAssignmentName(), assignment.getWeight(), assignment.isAddPoint(), assignment.isExtraBonus(), assignment.isFix());
-				modelService.save(model);
+				modelService.createModel(modelName, assignment.getAssignmentName(), assignment.getWeight(), assignment.getMaxPoint(), assignment.isAddPoint(), assignment.isExtraBonus(), assignment.isFix());
 			}
 		});
 
@@ -377,11 +374,12 @@ public class GUI extends JFrame{
 			int courseId = currentCourse.getCourseId();
 			String assignmentName = assignmentPanel.getassignmentField();
 			int weight = assignmentPanel.getpercentField();
+			int maxPoint = assignmentPanel.getmaximumField();
 			boolean addPoint = !assignmentPanel.getpointBox().isSelected();
 			boolean extraBonus = false;
 			boolean fix = false;
 
-			Assignment assignment = assignmentServiceImpl.createAssignment(courseId, assignmentName, weight, addPoint, extraBonus, fix);
+			Assignment assignment = assignmentServiceImpl.createAssignment(courseId, assignmentName, weight, maxPoint, addPoint, extraBonus, fix);
 			assignmentPanel.setVisible(false);
 
 			for (Student student : students) {

@@ -42,7 +42,7 @@ public class TableInitialize {
             pst.executeUpdate();
 
             // initialize model table
-            String exec6 = "CREATE TABLE IF NOT EXISTS MODEL (modelId INT AUTO_INCREMENT, modelName VARCHAR(255) NOT NULL, columnName VARCHAR(255) NOT NULL, weight INT NOT NULL, addPoint BOOLEAN NOT NULL, extraBonus BOOLEAN NOT NULL, fix BOOLEAN NOT NULL, PRIMARY KEY (modelId))  ENGINE=INNODB";
+            String exec6 = "CREATE TABLE IF NOT EXISTS MODEL (modelId INT AUTO_INCREMENT, modelName VARCHAR(255) NOT NULL, columnName VARCHAR(255) NOT NULL, weight INT NOT NULL, maxPoint INT NOT NULL, addPoint BOOLEAN NOT NULL, extraBonus BOOLEAN NOT NULL, fix BOOLEAN NOT NULL, PRIMARY KEY (modelId))  ENGINE=INNODB";
             pst = conn.prepareStatement(exec6);
             pst.executeUpdate();
 
@@ -53,23 +53,23 @@ public class TableInitialize {
 
             // default model
             // firstname middlename lastname studentId email
-            String exec7 = "INSERT INTO MODEL(modelName, columnName, weight, addPoint, extraBonus, fix) VALUES('DEFAULT', 'firstname', 0, FALSE, FALSE, TRUE);";
+            String exec7 = "INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES('DEFAULT', 'firstname', 0, 0, FALSE, FALSE, TRUE);";
             pst = conn.prepareStatement(exec7);
             pst.executeUpdate();
 
-            String exec8 = "INSERT INTO MODEL(modelName, columnName, weight, addPoint, extraBonus, fix) VALUES('DEFAULT', 'middlename', 0, FALSE, FALSE, TRUE);";
+            String exec8 = "INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES('DEFAULT', 'middlename', 0, 0, FALSE, FALSE, TRUE);";
             pst = conn.prepareStatement(exec8);
             pst.executeUpdate();
 
-            String exec9 = "INSERT INTO MODEL(modelName, columnName, weight, addPoint, extraBonus, fix) VALUES('DEFAULT', 'lastname', 0, FALSE, FALSE, TRUE);";
+            String exec9 = "INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES('DEFAULT', 'lastname', 0, 0, FALSE, FALSE, TRUE);";
             pst = conn.prepareStatement(exec9);
             pst.executeUpdate();
 
-            String exec10 = "INSERT INTO MODEL(modelName, columnName, weight, addPoint, extraBonus, fix) VALUES('DEFAULT', 'studentId', 0, FALSE, FALSE, TRUE);";
+            String exec10 = "INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES('DEFAULT', 'studentId', 0, 0, FALSE, FALSE, TRUE);";
             pst = conn.prepareStatement(exec10);
             pst.executeUpdate();
 
-            String exec11 = "INSERT INTO MODEL(modelName, columnName, weight, addPoint, extraBonus, fix) VALUES('DEFAULT', 'email', 0, FALSE, FALSE, TRUE);";
+            String exec11 = "INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES('DEFAULT', 'email', 0, 0, FALSE, FALSE, TRUE);";
             pst = conn.prepareStatement(exec11);
             pst.executeUpdate();
         } catch (Exception e) {

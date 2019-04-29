@@ -39,8 +39,8 @@ public class AssignmentServiceImpl implements CS591.GradeManageSystem.Service.As
     }
 
     @Override
-    public Assignment createAssignment(int courseId, String assignmentName, int weight, boolean addPoint, boolean extraBonus, boolean fix) {
-        Assignment assignment = new Assignment(courseId, assignmentName, weight, addPoint, extraBonus, fix);
+    public Assignment createAssignment(int courseId, String assignmentName, int weight, int maxPoint, boolean addPoint, boolean extraBonus, boolean fix) {
+        Assignment assignment = new Assignment(courseId, assignmentName, weight, maxPoint, addPoint, extraBonus, fix);
         assignmentRepository.save(assignment);
         return assignment;
     }

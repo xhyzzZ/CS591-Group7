@@ -98,6 +98,8 @@ public class StudentTest {
 
             Assert.assertEquals(2, courseId);
             Assert.assertEquals("test2.1", note);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -116,6 +118,8 @@ public class StudentTest {
             Assert.assertNotNull(ret);
             Assert.assertEquals(1, ret.getCourseId());
             Assert.assertEquals("test3", ret.getNote());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -148,6 +152,8 @@ public class StudentTest {
             Student student1 = students.get(1);
             Assert.assertEquals(1, student1.getCourseId());
             Assert.assertEquals("test4.2", student1.getNote());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -166,6 +172,8 @@ public class StudentTest {
             Student ret = studentRepository.findByStudentId(student.getStudentId());
 
             Assert.assertNull(ret);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -186,6 +194,8 @@ public class StudentTest {
             List<Student> ret = studentRepository.findByCourseId(1);
 
             Assert.assertTrue(ret.isEmpty());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

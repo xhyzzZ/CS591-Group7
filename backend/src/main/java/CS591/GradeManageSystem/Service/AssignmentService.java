@@ -11,5 +11,5 @@ public interface AssignmentService {
 
     void deleteById(int courseId, int assignmentId);
 
-    Assignment createAssignment(int courseId, String assignmentName, int weight, boolean addPoint, boolean extraBonus, boolean fix);
+    Assignment createAssignment(int courseId, String assignmentName, int weight, int maxPoint, boolean addPoint, boolean extraBonus, boolean fix);
 }

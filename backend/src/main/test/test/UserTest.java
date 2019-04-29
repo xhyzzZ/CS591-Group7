@@ -63,6 +63,8 @@ public class UserTest {
 
             Assert.assertEquals("tester1", username);
             Assert.assertEquals("test", password);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -95,6 +97,8 @@ public class UserTest {
 
             Assert.assertEquals("tester2", username);
             Assert.assertEquals("test2", password);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -112,6 +116,8 @@ public class UserTest {
 
             Assert.assertEquals("tester3", ret.getUsername());
             Assert.assertEquals("test", ret.getPassword());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -131,6 +137,8 @@ public class UserTest {
             User user = userRepository.findByUsername("tester4");
 
             Assert.assertEquals("test", user.getPassword());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -150,6 +158,8 @@ public class UserTest {
             User user = userRepository.findByUsernameAndPassword("tester5", "test");
 
             Assert.assertNotNull(user);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -168,6 +178,8 @@ public class UserTest {
             User ret = userRepository.findByUserId(user.getUserId());
 
             Assert.assertNull(ret);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -189,6 +201,8 @@ public class UserTest {
             User user = userRepository.findByUsername("tester7");
 
             Assert.assertNull(user);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -72,6 +72,8 @@ public class UnitTest {
             Assert.assertEquals(4, assignmentId);
             Assert.assertEquals("40", content);
             Assert.assertEquals("test1", note);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -117,6 +119,8 @@ public class UnitTest {
             Assert.assertEquals(5, assignmentId);
             Assert.assertEquals("50", content);
             Assert.assertEquals("test2.1", note);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -138,6 +142,8 @@ public class UnitTest {
             Assert.assertEquals(4, ret.getAssignmentId());
             Assert.assertEquals("40", ret.getContent());
             Assert.assertEquals("test3", ret.getNote());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -176,6 +182,8 @@ public class UnitTest {
             Assert.assertEquals(5, unit1.getAssignmentId());
             Assert.assertEquals("50", unit1.getContent());
             Assert.assertEquals("test4.2", unit1.getNote());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -197,6 +205,8 @@ public class UnitTest {
             Assert.assertEquals(4, ret.getAssignmentId());
             Assert.assertEquals("40", ret.getContent());
             Assert.assertEquals("test5", ret.getNote());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -215,6 +225,8 @@ public class UnitTest {
             Unit ret = unitRepository.findByUnitId(unit.getUnitId());
 
             Assert.assertNull(ret);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -235,6 +247,8 @@ public class UnitTest {
             List<Unit> ret = unitRepository.findByCourseId(1);
 
             Assert.assertTrue(ret.isEmpty());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -257,6 +271,8 @@ public class UnitTest {
 
             Assert.assertNull(ret1);
             Assert.assertNotNull(ret2);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -278,6 +294,8 @@ public class UnitTest {
             Unit ret2 = unitRepository.findByUnitId(unit2.getUnitId());
             Assert.assertNull(ret1);
             Assert.assertNotNull(ret2);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

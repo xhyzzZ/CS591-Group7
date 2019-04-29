@@ -117,8 +117,8 @@ public class AddNewAssignment extends JPanel{
 		return Integer.parseInt(this.percentField.getText());
 	}
 
-	public JTextField getmaximumField() {
-		return this.maximumField;
+	public int getmaximumField() {
+		return Integer.parseInt(this.maximumField.getText());
 	}
 
 	public JCheckBox getpointBox() {

@@ -46,7 +46,7 @@ public class ModelTest {
         try {
             initialize();
 
-            Model model = new Model("test1", "name", 20, true, true, false);
+            Model model = new Model("test1", "name", 20, 100, true, true, false);
             modelRepository.save(model);
 
             conn = AppConf.getConnection();
@@ -58,6 +58,7 @@ public class ModelTest {
             String modelName = "";
             String columnName = "";
             int weight = -1;
+            int maxPoint = -1;
             boolean addPoint = false;
             boolean extraBonus = false;
             boolean fix = true;
@@ -65,17 +66,21 @@ public class ModelTest {
                 modelName = rs.getString(2);
                 columnName = rs.getString(3);
                 weight = rs.getInt(4);
-                addPoint = rs.getBoolean(5);
-                extraBonus = rs.getBoolean(6);
-                fix = rs.getBoolean(7);
+                maxPoint = rs.getInt(5);
+                addPoint = rs.getBoolean(6);
+                extraBonus = rs.getBoolean(7);
+                fix = rs.getBoolean(8);
             }
 
             Assert.assertEquals("test1", modelName);
             Assert.assertEquals("name", columnName);
             Assert.assertEquals(20, weight);
+            Assert.assertEquals(100, maxPoint);
             Assert.assertTrue(addPoint);
             Assert.assertTrue(extraBonus);
             Assert.assertFalse(fix);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -87,12 +92,13 @@ public class ModelTest {
         try {
             initialize();
 
-            Model model = new Model("test2", "name", 20, true, true, false);
+            Model model = new Model("test2", "name", 20, 100, true, true, false);
             modelRepository.save(model);
 
             model.setModelName("test2.1");
             model.setColumnName("name2");
             model.setWeight(30);
+            model.setMaxPoint(90);
             model.setAddPoint(false);
             model.setExtraBonus(false);
             model.setFix(true);
@@ -107,6 +113,7 @@ public class ModelTest {
             String modelName= "";
             String columnName = "";
             int weight = -1;
+            int maxPoint = -1;
             boolean addPoint = true;
             boolean extraBonus = true;
             boolean fix = false;
@@ -114,17 +121,21 @@ public class ModelTest {
                 modelName = rs.getString(2);
                 columnName = rs.getString(3);
                 weight = rs.getInt(4);
-                addPoint = rs.getBoolean(5);
-                extraBonus = rs.getBoolean(6);
-                fix = rs.getBoolean(7);
+                maxPoint = rs.getInt(5);
+                addPoint = rs.getBoolean(6);
+                extraBonus = rs.getBoolean(7);
+                fix = rs.getBoolean(8);
             }
 
             Assert.assertEquals("test2.1", modelName);
             Assert.assertEquals("name2", columnName);
             Assert.assertEquals(30, weight);
+            Assert.assertEquals(90, maxPoint);
             Assert.assertFalse(addPoint);
             Assert.assertFalse(extraBonus);
             Assert.assertTrue(fix);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -135,7 +146,7 @@ public class ModelTest {
         try {
             initialize();
 
-            Model model = new Model("test3", "name", 20, true, true, false);
+            Model model = new Model("test3", "name", 20, 100, true, true, false);
             modelRepository.save(model);
 
             Model ret = modelRepository.findByModelId(model.getModelId());
@@ -144,9 +155,12 @@ public class ModelTest {
             Assert.assertEquals("test3", ret.getModelName());
             Assert.assertEquals("name", ret.getColumnName());
             Assert.assertEquals(20, ret.getWeight());
+            Assert.assertEquals(100, ret.getMaxPoint());
             Assert.assertTrue(model.isAddPoint());
             Assert.assertTrue(model.isExtraBonus());
             Assert.assertFalse(model.isFix());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -158,8 +172,8 @@ public class ModelTest {
             initialize();
 
             conn = AppConf.getConnection();
-            String exec1 = "INSERT INTO MODEL(modelName, columnName, weight, addPoint, extraBonus, fix) VALUES('test4', 'name1', 20, TRUE, TRUE, FALSE);";
-            String exec2 = "INSERT INTO MODEL(modelName, columnName, weight, addPoint, extraBonus, fix) VALUES('test4', 'name2', 30, FALSE, FALSE, TRUE);";
+            String exec1 = "INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES('test4', 'name1', 20, 100, TRUE, TRUE, FALSE);";
+            String exec2 = "INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES('test4', 'name2', 30, 90, FALSE, FALSE, TRUE);";
 
             pst = conn.prepareStatement(exec1);
             pst.executeUpdate();
@@ -175,6 +189,7 @@ public class ModelTest {
             Assert.assertEquals("test4", model0.getModelName());
             Assert.assertEquals("name1", model0.getColumnName());
             Assert.assertEquals(20, model0.getWeight());
+            Assert.assertEquals(100, model0.getMaxPoint());
             Assert.assertTrue(model0.isAddPoint());
             Assert.assertTrue(model0.isExtraBonus());
             Assert.assertFalse(model0.isFix());
@@ -184,9 +199,12 @@ public class ModelTest {
             Assert.assertEquals("test4", model1.getModelName());
             Assert.assertEquals("name2", model1.getColumnName());
             Assert.assertEquals(30, model1.getWeight());
+            Assert.assertEquals(90, model1.getMaxPoint());
             Assert.assertFalse(model1.isAddPoint());
             Assert.assertFalse(model1.isExtraBonus());
             Assert.assertTrue(model1.isFix());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -198,9 +216,9 @@ public class ModelTest {
             initialize();
 
             conn = AppConf.getConnection();
-            String exec1 = "INSERT INTO MODEL(modelName, columnName, weight, addPoint, extraBonus, fix) VALUES('test5.1', 'name1', 20, TRUE, TRUE, FALSE);";
-            String exec2 = "INSERT INTO MODEL(modelName, columnName, weight, addPoint, extraBonus, fix) VALUES('test5.2', 'name2', 30, FALSE, FALSE, TRUE);";
-            String exec3 = "INSERT INTO MODEL(modelName, columnName, weight, addPoint, extraBonus, fix) VALUES('test5.3', 'name3', 40, FALSE, FALSE, TRUE);";
+            String exec1 = "INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES('test5.1', 'name1', 20, 100, TRUE, TRUE, FALSE);";
+            String exec2 = "INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES('test5.2', 'name2', 30, 90, FALSE, FALSE, TRUE);";
+            String exec3 = "INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES('test5.3', 'name3', 40, 80, FALSE, FALSE, TRUE);";
 
             pst = conn.prepareStatement(exec1);
             pst.executeUpdate();
@@ -219,6 +237,7 @@ public class ModelTest {
             Assert.assertEquals("test5.1", model0.getModelName());
             Assert.assertEquals("name1", model0.getColumnName());
             Assert.assertEquals(20, model0.getWeight());
+            Assert.assertEquals(100, model0.getMaxPoint());
             Assert.assertTrue(model0.isAddPoint());
             Assert.assertTrue(model0.isExtraBonus());
             Assert.assertFalse(model0.isFix());
@@ -228,6 +247,7 @@ public class ModelTest {
             Assert.assertEquals("test5.2", model1.getModelName());
             Assert.assertEquals("name2", model1.getColumnName());
             Assert.assertEquals(30, model1.getWeight());
+            Assert.assertEquals(90, model1.getMaxPoint());
             Assert.assertFalse(model1.isAddPoint());
             Assert.assertFalse(model1.isExtraBonus());
             Assert.assertTrue(model1.isFix());
@@ -237,9 +257,12 @@ public class ModelTest {
             Assert.assertEquals("test5.3", model2.getModelName());
             Assert.assertEquals("name3", model2.getColumnName());
             Assert.assertEquals(40, model2.getWeight());
+            Assert.assertEquals(80, model2.getMaxPoint());
             Assert.assertFalse(model2.isAddPoint());
             Assert.assertFalse(model2.isExtraBonus());
             Assert.assertTrue(model2.isFix());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -250,7 +273,7 @@ public class ModelTest {
         try {
             initialize();
 
-            Model model = new Model("test6", "name", 20, true, true, false);
+            Model model = new Model("test6", "name", 20, 100, true, true, false);
             modelRepository.save(model);
 
             modelRepository.deleteByModelId(model.getModelId());

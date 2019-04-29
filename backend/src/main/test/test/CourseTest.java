@@ -74,6 +74,8 @@ public class CourseTest {
             Assert.assertEquals("2019", year);
             Assert.assertEquals("SPRING", type);
             Assert.assertTrue(editable);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -119,6 +121,8 @@ public class CourseTest {
             Assert.assertEquals("2020", year);
             Assert.assertEquals("SUMMER", type);
             Assert.assertFalse(editable);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -140,6 +144,8 @@ public class CourseTest {
             Assert.assertEquals("2019", ret.getYear());
             Assert.assertEquals("SPRING", ret.getType().toString());
             Assert.assertTrue(ret.isEditable());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -178,6 +184,8 @@ public class CourseTest {
             Assert.assertEquals("2020", course1.getYear());
             Assert.assertEquals("FALL", course1.getType().toString());
             Assert.assertTrue(course1.isEditable());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -216,6 +224,8 @@ public class CourseTest {
             Assert.assertEquals("2020", course1.getYear());
             Assert.assertEquals("FALL", course1.getType().toString());
             Assert.assertTrue(course1.isEditable());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -234,6 +244,8 @@ public class CourseTest {
             Course ret = courseRepository.findByCourseId(course.getCourseId());
 
             Assert.assertNull(ret);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -3,5 +3,5 @@ package CS591.GradeManageSystem.Service;
 import CS591.GradeManageSystem.entity.Model;
 
 public interface ModelService {
-    void save(Model model);
+    Model createModel(String modelName, String columnName, int weight, int maxPoint, boolean addPoint, boolean extraBonus, boolean fix);
 }

@@ -40,6 +40,7 @@ public class CourseServiceImpl implements CS591.GradeManageSystem.Service.Course
             Assignment assignment = new Assignment(course.getCourseId(),
                     model.getColumnName(),
                     model.getWeight(),
+                    model.getMaxPoint(),
                     model.isAddPoint(),
                     model.isExtraBonus(),
                     model.isFix());

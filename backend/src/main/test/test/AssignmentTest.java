@@ -47,7 +47,7 @@ public class AssignmentTest {
         try {
             initialize();
 
-            Assignment assignment = new Assignment(1, "test1", 20, true, true, false);
+            Assignment assignment = new Assignment(1, "test1", 20, 100, true, true, false);
             assignmentRepository.save(assignment);
 
             conn = AppConf.getConnection();
@@ -59,6 +59,7 @@ public class AssignmentTest {
             int courseId = 1;
             String assignmentName = "";
             int weight = -1;
+            int maxPoint = -1;
             boolean addPoint = false;
             boolean extraBonus = false;
             boolean fix = true;
@@ -66,17 +67,21 @@ public class AssignmentTest {
                 courseId = rs.getInt(2);
                 assignmentName = rs.getString(3);
                 weight = rs.getInt(4);
-                addPoint = rs.getBoolean(5);
-                extraBonus = rs.getBoolean(6);
-                fix = rs.getBoolean(7);
+                maxPoint = rs.getInt(5);
+                addPoint = rs.getBoolean(6);
+                extraBonus = rs.getBoolean(7);
+                fix = rs.getBoolean(8);
             }
 
             Assert.assertEquals(1, courseId);
             Assert.assertEquals("test1", assignmentName);
             Assert.assertEquals(20, weight);
+            Assert.assertEquals(100, maxPoint);
             Assert.assertTrue(addPoint);
             Assert.assertTrue(extraBonus);
             Assert.assertFalse(fix);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -88,12 +93,13 @@ public class AssignmentTest {
         try {
             initialize();
 
-            Assignment assignment = new Assignment(1, "test2", 20, true, true, false);
+            Assignment assignment = new Assignment(1, "test2", 20, 100, true, true, false);
             assignmentRepository.save(assignment);
 
             assignment.setCourseId(2);
             assignment.setAssignmentName("test2.1");
             assignment.setWeight(40);
+            assignment.setMaxPoint(80);
             assignment.setAddPoint(false);
             assignment.setExtraBonus(false);
             assignment.setFix(true);
@@ -108,6 +114,7 @@ public class AssignmentTest {
             int courseId = -1;
             String assignmentName = "";
             int weight = -1;
+            int maxPoint = -1;
             boolean addPoint = true;
             boolean extraBonus = true;
             boolean fix = false;
@@ -115,17 +122,21 @@ public class AssignmentTest {
                 courseId = rs.getInt(2);
                 assignmentName = rs.getString(3);
                 weight = rs.getInt(4);
-                addPoint = rs.getBoolean(5);
-                extraBonus = rs.getBoolean(6);
-                fix = rs.getBoolean(7);
+                maxPoint = rs.getInt(5);
+                addPoint = rs.getBoolean(6);
+                extraBonus = rs.getBoolean(7);
+                fix = rs.getBoolean(8);
             }
 
             Assert.assertEquals(2, courseId);
             Assert.assertEquals("test2.1", assignmentName);
             Assert.assertEquals(40, weight);
+            Assert.assertEquals(80, maxPoint);
             Assert.assertFalse(addPoint);
             Assert.assertFalse(extraBonus);
             Assert.assertTrue(fix);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -136,7 +147,7 @@ public class AssignmentTest {
         try {
             initialize();
 
-            Assignment assignment = new Assignment(1, "test3", 20, true, true, false);
+            Assignment assignment = new Assignment(1, "test3", 20, 100, true, true, false);
             assignmentRepository.save(assignment);
 
             Assignment ret = assignmentRepository.findByAssignmentId(assignment.getAssignmentId());
@@ -145,9 +156,12 @@ public class AssignmentTest {
             Assert.assertEquals(1, ret.getCourseId());
             Assert.assertEquals("test3", ret.getAssignmentName());
             Assert.assertEquals(20, ret.getWeight());
+            Assert.assertEquals(100, ret.getMaxPoint());
             Assert.assertTrue(assignment.isAddPoint());
             Assert.assertTrue(assignment.isExtraBonus());
             Assert.assertFalse(assignment.isFix());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -159,8 +173,8 @@ public class AssignmentTest {
             initialize();
 
             conn = AppConf.getConnection();
-            String exec1 = "INSERT INTO ASSIGNMENT(courseId, assignmentName, weight, addPoint, extraBonus, fix) VALUES(1, 'test4.1', 20, TRUE, TRUE, FALSE);";
-            String exec2 = "INSERT INTO ASSIGNMENT(courseId, assignmentName, weight, addPoint, extraBonus, fix) VALUES(1, 'test4.2', 30, FALSE, FALSE, TRUE);";
+            String exec1 = "INSERT INTO ASSIGNMENT(courseId, assignmentName, weight, maxPoint, addPoint, extraBonus, fix) VALUES(1, 'test4.1', 20, 100, TRUE, TRUE, FALSE);";
+            String exec2 = "INSERT INTO ASSIGNMENT(courseId, assignmentName, weight, maxPoint, addPoint, extraBonus, fix) VALUES(1, 'test4.2', 30, 90, FALSE, FALSE, TRUE);";
 
             pst = conn.prepareStatement(exec1);
             pst.executeUpdate();
@@ -176,6 +190,7 @@ public class AssignmentTest {
             Assert.assertEquals(1, assignment0.getCourseId());
             Assert.assertEquals("test4.1", assignment0.getAssignmentName());
             Assert.assertEquals(20, assignment0.getWeight());
+            Assert.assertEquals(100, assignment0.getMaxPoint());
             Assert.assertTrue(assignment0.isAddPoint());
             Assert.assertTrue(assignment0.isExtraBonus());
             Assert.assertFalse(assignment0.isFix());
@@ -185,6 +200,7 @@ public class AssignmentTest {
             Assert.assertEquals(1, assignment1.getCourseId());
             Assert.assertEquals("test4.2", assignment1.getAssignmentName());
             Assert.assertEquals(30, assignment1.getWeight());
+            Assert.assertEquals(90, assignment1.getMaxPoint());
             Assert.assertFalse(assignment1.isAddPoint());
             Assert.assertFalse(assignment1.isExtraBonus());
             Assert.assertTrue(assignment1.isFix());
@@ -198,7 +214,7 @@ public class AssignmentTest {
         try {
             initialize();
 
-            Assignment assignment = new Assignment(1, "test5", 20, true, true, false);
+            Assignment assignment = new Assignment(1, "test5", 20, 100, true, true, false);
             assignmentRepository.save(assignment);
 
             assignmentRepository.deleteByAssignmentId(assignment.getAssignmentId());
@@ -206,6 +222,8 @@ public class AssignmentTest {
             Assignment ret = assignmentRepository.findByAssignmentId(assignment.getAssignmentId());
 
             Assert.assertNull(ret);
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -216,8 +234,8 @@ public class AssignmentTest {
         try {
             initialize();
 
-            Assignment assignment1 = new Assignment(1, "test6.1", 20, true, true, false);
-            Assignment assignment2 = new Assignment(1, "test6.2", 20, true, true, false);
+            Assignment assignment1 = new Assignment(1, "test6.1", 20, 100, true, true, false);
+            Assignment assignment2 = new Assignment(1, "test6.2", 20, 90, true, true, false);
             assignmentRepository.save(assignment1);
             assignmentRepository.save(assignment2);
 
@@ -226,6 +244,8 @@ public class AssignmentTest {
             List<Assignment> ret = assignmentRepository.findByCourseId(1);
 
             Assert.assertTrue(ret.isEmpty());
+
+            initialize();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
