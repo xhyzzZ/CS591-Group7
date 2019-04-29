@@ -9,6 +9,7 @@ import CS591.GradeManageSystem.entity.Assignment;
 import CS591.GradeManageSystem.entity.Student;
 import CS591.GradeManageSystem.entity.Unit;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,7 +22,29 @@ public class UnitServiceimpl implements UnitService {
     private StudentRepositoryImpl studentRepository = new StudentRepositoryImpl();
 
     @Override
+    public void update(Unit unit) {
+        unitRepository.update(unit);
+    }
+
+    @Override
+    public String[][] getUnitContents(int courseId) {
+        List<Assignment> assignments = assignmentRepository.findByCourseId(courseId);
+        List<Student> students = studentRepository.findByCourseId(courseId);
+
+        String[][] res = new String[students.size()][assignments.size()];
+        for (int i = 0; i < students.size(); i++) {
+            for (int j = 0; j < assignments.size(); j++) {
+                res[i][j] = unitRepository.findByAssignmentIdAndStudentId(assignments.get(j).getAssignmentId(),
+                        students.get(i).getStudentId()).getContent();
+            }
+        }
+
+        return res;
+    }
+
+    @Override
     public Map<Assignment, Map<Student, Unit>> getUnits(int courseId) {
+
         List<Unit> units = unitRepository.findByCourseId(courseId);
         Map<Assignment, Map<Student, Unit>> ret = new HashMap<>();
         for (Unit unit : units) {

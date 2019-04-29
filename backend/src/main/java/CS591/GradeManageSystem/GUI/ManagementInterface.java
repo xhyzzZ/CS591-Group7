@@ -106,10 +106,10 @@ public class ManagementInterface extends JPanel{
 }*/
 
 package CS591.GradeManageSystem.GUI;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
+
+import java.awt.*;
 import java.util.LinkedList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -133,33 +133,16 @@ public class ManagementInterface extends JPanel {
 	private JScrollPane scrollPane;
 	private JTextArea ta;
 	private JLabel noteLabel;
-	//private JScrollPane scrollPane = new JScrollPane();
-//	String[] columnNames = {"First Name",
-//            "Last Name",
-//            "Sport",
-//            "# of Years",
-//            "Vegetarian"};
-//	Object[][] data = {
-//		    {"Kathy", "Smith",
-//		     "Snowboarding", new Integer(5), new Boolean(false)},
-//		    {"John", "Doe",
-//		     "Rowing", new Integer(3), new Boolean(true)},
-//		    {"Sue", "Black",
-//		     "Knitting", new Integer(2), new Boolean(false)},
-//		    {"Jane", "White",
-//		     "Speed reading", new Integer(20), new Boolean(true)},
-//		    {"Joe", "Brown",
-//		     "Pool", new Integer(10), new Boolean(false)}
-//		};
+
 	private DefaultTableModel d;
-//
-    private JTable managementTable ;
+    private JTable managementTable;
     private JButton b;
-	public ManagementInterface(DefaultTableModel d,JButton b) {		
+
+	public ManagementInterface(DefaultTableModel d, JButton b) {
 		super(null);
-		this.b=b;
+		this.b = b;
 		managementPanel=new JPanel();
-		this.d=d;
+		this.d = d;
 		managementTable=new JTable(d);
 		managementTable.setPreferredScrollableViewportSize(new Dimension(500, 70));
 		managementTable.setFillsViewportHeight(true);
@@ -226,8 +209,6 @@ public class ManagementInterface extends JPanel {
 		noteLabel = new JLabel("Note:");
 		noteLabel.setBounds(50, 540, 50, 150);
 		noteLabel.setVerticalAlignment(SwingConstants.CENTER);
-       // managementTable.setFillsViewportHeight(true);
-		//scrollPane.setViewportView(managementTable);	
 		p1.add(addassignmentButton);
 		p1.add(deletecolButton);
 		p1.add(addrowButton);
@@ -235,12 +216,6 @@ public class ManagementInterface extends JPanel {
 		p1.add(showStatistic);
 		p1.add(total);
 		p1.add(addNote);
-		//p1.add(closecourseButton);
-		//p1.add(deletesheetButton);
-		//p1.add(exitButton);
-		//p1.add(exporttocsvButton);
-		//p1.add(saveasmodelButton);
-		//p1.add(savesheetButton);
 		p2.add(exitButton);
 		p2.add(deletesheetButton);
 		p2.add(closecourseButton);
@@ -325,47 +300,26 @@ public class ManagementInterface extends JPanel {
 		return d;
 	}
 	
-	public void update(JButton nb) {
-		System.out.println("aasdffhh");
-		String[] cc = {"First Name",
-	             "Last Name","test","test1"
-	           };
-		Object[][] data1 = {
-	       {"Kathy", "Smith",
-	         new Integer(5), new Integer(3)},
-	       {"John", "Doe",
-	         new Integer(3), new Integer(2)},    
-	   };
-
-		//System.out.println("ssss");
+	public void update(JButton button, String[] assignments, String[][] content) {
 	    this.managementPanel.remove(scrollPane);
-		//
-		//scrollPane.add(new JTable(new DefaultTableModel(data1,cc)));
-		//this.scrollPane.revalidate();
-		//this.scrollPane.repaint();
-		//this.managementTable=;
-	    
-	    d.setDataVector(data1,cc);
+	    d.setDataVector(content, assignments);
 	    JTable n = new JTable(d);
 	    this.managementTable = n;
-	//	this.managementPanel.add();
 		JScrollPane scroll = new JScrollPane(n);
 		this.managementPanel.add(scroll);
 		this.scrollPane=scroll;
 		this.managementPanel.revalidate();
-		this.b=nb;
-	
+		this.b = button;
 	}
 	
-	public void update(String[] cn, Object[][] da) {  
-		   this.managementPanel.remove(scrollPane);     
-		      d.setDataVector(da,cn);
-		      JTable n=new JTable(d);      
-		      this.managementTable=n;
-		  JScrollPane scroll = new JScrollPane(n);
-		  this.managementPanel.add(scroll);
-		  this.scrollPane=scroll;
-		  this.managementPanel.revalidate(); 
-		 }
-	
+	public void update(String[] assignments, String[][] content) {
+		this.managementPanel.remove(scrollPane);
+		d.setDataVector(content, assignments);
+		JTable n=new JTable(d);
+		this.managementTable = n;
+		JScrollPane scroll = new JScrollPane(n);
+		this.managementPanel.add(scroll);
+		this.scrollPane=scroll;
+		this.managementPanel.revalidate();
+	}
 }

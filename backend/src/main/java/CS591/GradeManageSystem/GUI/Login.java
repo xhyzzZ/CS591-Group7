@@ -57,6 +57,9 @@ public class Login extends JPanel{
 		loginButton.setToolTipText("Login to your account");
 		loginButton.setBounds(330, 400, 130, 100);
 
+		loginButton.addActionListener(e -> {
+
+		});
 
 		registerButton = new JButton("Register", new ImageIcon("/Users/zhukaikang/eclipse-workspace/591_frontend/images/Register.png"));
 		registerButton.setFont(labelFont);

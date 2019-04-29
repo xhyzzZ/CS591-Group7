@@ -21,6 +21,18 @@ public class AssignmentServiceImpl implements CS591.GradeManageSystem.Service.As
     }
 
     @Override
+    public String[] getAssignmentsName(int courseId) {
+        List<Assignment> assignments = assignmentRepository.findByCourseId(courseId);
+        assignments.sort(Comparator.comparingInt(Assignment::getAssignmentId));
+        String[] assignmentNames = new String[assignments.size()];
+        for (int i = 0; i < assignments.size(); i++) {
+            assignmentNames[i] = assignments.get(i).getAssignmentName();
+        }
+
+        return assignmentNames;
+    }
+
+    @Override
     public void deleteById(int courseId, int assignmentId) {
         unitRepository.deleteByCourseIdAndAssignmentId(courseId, assignmentId);
         assignmentRepository.deleteByAssignmentId(assignmentId);

@@ -11,12 +11,13 @@ public class Statistic extends JPanel{
 	private JButton cal=new JButton("Calculate");
 	private JButton back=new JButton("back");
 	
-	Statistic(){
+	Statistic() {
 		this.add(label);
 		this.add(chooseHW);
 		this.add(cal);
 		this.add(back);
-       }
+	}
+
 	public JButton getCalButton() {
 		return this.cal;
 	}
@@ -30,9 +31,6 @@ public class Statistic extends JPanel{
 	public void SetforCombo(String[] t) {
 		DefaultComboBoxModel model = new DefaultComboBoxModel(t);
 		this.chooseHW.setModel(model);
-		//this.chooseHW=new JComboBox(t);
-	
 	}
-	
-	}
+}
 

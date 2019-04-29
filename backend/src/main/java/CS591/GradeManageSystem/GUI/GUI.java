@@ -1,71 +1,63 @@
-
 package CS591.GradeManageSystem.GUI;
+import CS591.GradeManageSystem.Service.UnitService;
+import CS591.GradeManageSystem.Service.impl.*;
 import CS591.GradeManageSystem.Service.impl.UserServiceImpl;
-import CS591.GradeManageSystem.Service.impl.AssignmentServiceImpl;
-import CS591.GradeManageSystem.Service.impl.CourseServiceImpl;
-import CS591.GradeManageSystem.Service.impl.UserServiceImpl;
-import CS591.GradeManageSystem.entity.User;
+import CS591.GradeManageSystem.entity.*;
 
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashSet;
+import java.util.List;
 
 public class GUI extends JFrame{
-	private Login loginPanel= new Login();
+	private Login loginPanel = new Login();
 	private Register registerPanel=new Register();
 	private Dashboard dashboardPanel= new Dashboard();
 	private AddNewAssignment assignmentPanel= new AddNewAssignment();
 	private AddNewCourse1 addcoursePanel= new AddNewCourse1(dashboardPanel.getcoursePanel());
 	private Statistic staPanel= new Statistic();
 
-	UserServiceImpl userService = new UserServiceImpl();
+	private UserServiceImpl userServiceImpl = new UserServiceImpl();
+	private CourseServiceImpl courseServiceImpl = new CourseServiceImpl();
+	private AssignmentServiceImpl assignmentServiceImpl = new AssignmentServiceImpl();
+	private StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
+	private UnitServiceimpl unitServiceimpl = new UnitServiceimpl();
 
-	UserServiceImpl userServiceImpl = new UserServiceImpl();
-	CourseServiceImpl courseServiceImpl = new CourseServiceImpl();
-	AssignmentServiceImpl assignmentServiceImpl = new AssignmentServiceImpl();
+	// current login user
+	private User currentUser = null;
 
+	// current courses
+	private List<Course> currentCourses;
 
-	//!!!!!!
+	// current course
+	private Course currentCourse = null;
+
+	// current assignments
+	private List<Assignment> assignments = new ArrayList<>();
+
+	// current student
+	private List<Student> students = new ArrayList<>();
+
+	// current units
+	private Map<Assignment, Map<Student, Unit>> units = new HashMap<>();
+
 	private JFrame frame;
 
-	String[] columnNames = {"First Name",
-			"Last Name",
-			"Sport",
-			"# of Years",
-			"Vegetarian"};
-	Object[][] data = {
-			{"Kathy", "Smith",
-					"Snowboarding", new Integer(5), new Boolean(false)},
-			{"John", "Doe",
-					"Rowing", new Integer(3), new Boolean(true)},
-			{"Sue", "Black",
-					"Knitting", new Integer(2), new Boolean(false)},
-			{"Jane", "White",
-					"Speed reading", new Integer(20), new Boolean(true)},
-			{"Joe", "Brown",
-					"Pool", new Integer(10), new Boolean(false)}
-	};
 	private DefaultTableModel dd;
 	private ManagementInterface managePage;
 
 
 	public static void main(String[] args) {
 		new GUI();
-		Object a = 1;
-		int b= Integer.parseInt(a.toString());
-		//System.out.println(b+b);
 	}
 
 	public GUI(){
 		frame = new JFrame();
-		this.dd=new DefaultTableModel(data,columnNames);
-		this.managePage=new ManagementInterface(dd,null);
+		this.dd = new DefaultTableModel();
+		this.managePage = new ManagementInterface(dd,null);
 
 		frame.setTitle("Welcome to Grading System!");
 		frame.setSize(1000, 800);
@@ -74,10 +66,10 @@ public class GUI extends JFrame{
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(new CardLayout());
 
-		frame.add(loginPanel );
-		frame.add(registerPanel );
-		frame.add(dashboardPanel );
-		frame.add(assignmentPanel );
+		frame.add(loginPanel);
+		frame.add(registerPanel);
+		frame.add(dashboardPanel);
+		frame.add(assignmentPanel);
 		frame.add(addcoursePanel) ;
 		frame.add(managePage);
 		frame.add(staPanel);
@@ -87,445 +79,354 @@ public class GUI extends JFrame{
 
 		validate();
 
-		loginPanel.getLoginButton().addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				//check password
-				String username = loginPanel.getUsernameField().getText();
-				String password = String.valueOf(loginPanel.getPasswordField().getPassword());
+		// the login button
+		loginPanel.getLoginButton().addActionListener(e -> {
+			//check password
+			String username = loginPanel.getUsernameField();
+			String password = loginPanel.getPasswordField();
 
-				//if() {
-				loginPanel.setVisible(false);
-				dashboardPanel.setVisible(true);
-				//else
-
-				String username = loginPanel.getUsernameField();
-				String password = loginPanel.getPasswordField();
-				int check = userServiceImpl.checkLogin(username, password);
-				if(check == 1) {
-					JOptionPane.showMessageDialog(loginPanel, "No such user!");
-				} else if (check == 2) {
-					JOptionPane.showMessageDialog(loginPanel, "Wrong password!");
-				} else {
-					User user = userServiceImpl.login(username, password);
-					loginPanel.setVisible(false);
-					dashboardPanel.setVisible(true);
-				}
-			}
-		});
-
-		loginPanel.getRedisterButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				loginPanel.setVisible(false);
-				registerPanel.setVisible(true);
-			}
-		});
-
-		registerPanel.getCancelButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				registerPanel.setVisible(false);
-				loginPanel.setVisible(true);
-			}
-		});
-
-		registerPanel.getConfirmButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String username = registerPanel.getUsernameField();
-				String password = registerPanel.getPasswordField();
-				String passwordre = registerPanel.getPasswordreField();
-				int check = userServiceImpl.register(username, password, passwordre);
-				if(check == 1) {
-					JOptionPane.showMessageDialog(registerPanel, "The user already exists!");
-				} else if(check == 2) {
-					JOptionPane.showMessageDialog(registerPanel, "Password is not the same!");
-				} else {
-					registerPanel.setVisible(false);
-					dashboardPanel.setVisible(true);
-				}
-
-			}
-		});
-
-		dashboardPanel.getlogoutButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dashboardPanel.setVisible(false);
-				loginPanel.setVisible(true);
-			}
-		});
-
-		dashboardPanel.getaddnewcourseButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dashboardPanel.setVisible(false);
-				addcoursePanel.setVisible(true);
-			}
-		});
-
-
-		addcoursePanel.getConfirmButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//jia course xinxi
-				// problem currentUser
-				int currentUser = 1;
-				String courseName = addcoursePanel.getCourseName();
-				String year = addcoursePanel.getCourseYear();
-				String moduleName = (String) addcoursePanel.getImportModule().getSelectedItem();
-				if(moduleName.equals("default")) {
-					//!!!
-				} else {
-					//!!!
-				}
-				String semester = (String) addcoursePanel.getSemester().getSelectedItem();
-				courseServiceImpl.createCourse(currentUser, courseName, year, semester, moduleName);
-
-				JButton course=new JButton(addcoursePanel.getCourseName());
-
-				addcoursePanel.getCoursePanel().add(course);
-				addcoursePanel.setVisible(false);
-				dashboardPanel.setVisible(true);
-
-				course.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
+			int check = userServiceImpl.checkLogin(username, password);
+			if(check == 1) {
+				JOptionPane.showMessageDialog(loginPanel, "No such user!");
+			} else if (check == 2) {
+				JOptionPane.showMessageDialog(loginPanel, "Wrong password!");
+			} else {
+				currentUser = userServiceImpl.login(username, password);
+				addcoursePanel.getCoursePanel().removeAll();
+				for (Course cs : courseServiceImpl.getCourses(currentUser.getUserId())) {
+					JButton name = new JButton(cs.getCourseName());
+					addcoursePanel.getCoursePanel().add(name);
+					name.addActionListener(e1 -> {
 						dashboardPanel.setVisible(false);
-						//map string table after save put(updated table) map.get(course.getName())
-						managePage.update(course);
-						managePage.setVisible(true);
-
-					}
-				});
-
-
-			}
-		});
-
-		addcoursePanel.getCancelButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				addcoursePanel.setVisible(false);
+						currentCourse = cs;
+						update(name, cs);
+					});
+				}
+				loginPanel.setVisible(false);
 				dashboardPanel.setVisible(true);
 			}
 		});
 
-		addcoursePanel.getOpenButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFileChooser c = new JFileChooser();
-				int rVal = c.showSaveDialog(GUI.this);
-				if(rVal == c.APPROVE_OPTION) {
-					String name = c.getSelectedFile().getName();
-					String dir = c.getCurrentDirectory().toString();
-					System.out.println(name + "\n" + dir);
-				}
-				if(rVal == c.CANCEL_OPTION){
-					System.out.println("You pressed cancel");
+		// open the register GUI
+		loginPanel.getRedisterButton().addActionListener(e -> {
+			loginPanel.setVisible(false);
+			registerPanel.setVisible(true);
+		});
+
+		// return to the login GUI
+		registerPanel.getCancelButton().addActionListener(e -> {
+			registerPanel.setVisible(false);
+			loginPanel.setVisible(true);
+		});
+
+		// the register button
+		registerPanel.getConfirmButton().addActionListener(e -> {
+			String username = registerPanel.getUsernameField();
+			String password = registerPanel.getPasswordField();
+			String confirm = registerPanel.getPasswordreField();
+			int check = userServiceImpl.register(username, password, confirm);
+			if(check == 1) {
+				JOptionPane.showMessageDialog(registerPanel, "The user already exists!");
+			} else if(check == 2) {
+				JOptionPane.showMessageDialog(registerPanel, "Password is not the same!");
+			} else {
+				registerPanel.setVisible(false);
+				dashboardPanel.setVisible(true);
+			}
+		});
+
+		// logout button
+		dashboardPanel.getlogoutButton().addActionListener(e -> {
+			currentUser = null;
+			dashboardPanel.setVisible(false);
+			loginPanel.setVisible(true);
+		});
+
+		// open the add-new-course GUI
+		dashboardPanel.getaddnewcourseButton().addActionListener(e -> {
+			dashboardPanel.setVisible(false);
+			addcoursePanel.setVisible(true);
+		});
+
+		// add new course
+		addcoursePanel.getConfirmButton().addActionListener(e -> {
+			int userId = currentUser.getUserId();
+			String courseName = addcoursePanel.getCourseName();
+			String year = addcoursePanel.getCourseYear();
+			String moduleName = (String)addcoursePanel.getImportModule().getSelectedItem();
+			moduleName = moduleName.toUpperCase();
+			String semester = (String) addcoursePanel.getSemester().getSelectedItem();
+			semester = semester.toUpperCase();
+			Course cs = courseServiceImpl.createCourse(userId, courseName, year, semester, moduleName);
+
+			JButton name = new JButton(cs.getCourseName());
+			addcoursePanel.getCoursePanel().add(name);
+			name.addActionListener(e1 -> {
+				dashboardPanel.setVisible(false);
+				currentCourse = cs;
+				update(name, cs);
+				managePage.setVisible(true);
+			});
+
+			addcoursePanel.setVisible(false);
+			dashboardPanel.setVisible(true);
+		});
+
+		// return to the dashboard GUI
+		addcoursePanel.getCancelButton().addActionListener(e -> {
+			addcoursePanel.setVisible(false);
+			dashboardPanel.setVisible(true);
+		});
+
+		// import from file
+		addcoursePanel.getOpenButton().addActionListener(e -> {
+			JFileChooser c = new JFileChooser();
+			int rVal = c.showSaveDialog(GUI.this);
+			if(rVal == c.APPROVE_OPTION) {
+				String name = c.getSelectedFile().getName();
+				String dir = c.getCurrentDirectory().toString();
+				System.out.println(name + "\n" + dir);
+			}
+			if(rVal == c.CANCEL_OPTION){
+				System.out.println("You pressed cancel");
+			}
+		});
+
+		// open add-assignment GUI
+		managePage.getaddassignmentButton().addActionListener(e -> {
+			managePage.setVisible(false);
+			assignmentPanel.setVisible(true);
+		});
+
+		// delete a student
+		managePage.deletestudentButton().addActionListener(e -> {
+			int[] selRowIndexes = managePage.getTable().getSelectedRows();
+			if(selRowIndexes == null || selRowIndexes.length==0) JOptionPane.showMessageDialog(managePage, "Please select student first!");
+			else{
+				int t = JOptionPane.showConfirmDialog(managePage,"Are you sure to delete the student?");
+				if (t == 0) {
+					for(int i : selRowIndexes) {
+						Student student = students.get(i);
+						studentServiceImpl.deleteStudent(currentCourse.getCourseId(), student.getStudentId());
+					}
+					update(currentCourse);
+					JOptionPane.showMessageDialog(managePage, "Succeed!");
 				}
 			}
 		});
 
-		managePage.getaddassignmentButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				managePage.setVisible(false);
-				assignmentPanel.setVisible(true);
-			}
-		});
-
-		managePage.deletestudentButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int[] selRowIndexs=managePage.getTable().getSelectedRows();
-				System.out.println(selRowIndexs.length);
-				if(selRowIndexs==null||selRowIndexs.length==0) JOptionPane.showMessageDialog(managePage, "Please select student first!");
-				else{
-					int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to delete the student?");
-					if(t==0) {
-
-						System.out.println(selRowIndexs.length);
-						for(int i=0;i<selRowIndexs.length;i++){
-							//System.out.println(i+" "+selRowIndexs[i]);
-							managePage.getd().removeRow(selRowIndexs[i]-i);
-						}
-						JOptionPane.showMessageDialog(managePage, "Succeed!");
-
+		// delete a column
+		managePage.getdeletecolButton().addActionListener(e -> {
+			int[] selColIndexes = managePage.getTable().getSelectedColumns();
+			if (selColIndexes == null || selColIndexes.length == 0) JOptionPane.showMessageDialog(managePage, "Please select column first!");
+			else {
+				int t = JOptionPane.showConfirmDialog(managePage,"Are you sure to delete these column?");
+				if(t == 0) {
+					for (int i : selColIndexes) {
+						Assignment assignment = assignments.get(i);
+						assignmentServiceImpl.deleteById(currentCourse.getCourseId(), assignment.getAssignmentId());
 					}
 
+					update(currentCourse);
 				}
 			}
 		});
-		/*
-		managePage.getdeletecolButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 
-				 int[] selcolIndexs=managePage.getTable().getSelectedColumns();
-				if(selcolIndexs==null||selcolIndexs.length==0) JOptionPane.showMessageDialog(managePage, "Please select column first!");
-				else{
-					int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to delete these column?");
-				if(t==0) {
-					// managePage.getTable().removeColumn(managePage.getTable().getColumnModel().getColumn(selcolIndexs[0]));
-            for(int i=0;i<selcolIndexs.length;i++){
-        	  managePage.getTable().removeColumn(managePage.getTable().getColumnModel().getColumn(selcolIndexs[i]-i));
-          }
-
-				}
-			}}
-
-		});*/
-
-		managePage.getdeletecolButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int[] selcolIndexs=managePage.getTable().getSelectedColumns();
-				int c=managePage.getTable().getColumnCount();
-				int r=managePage.getTable().getRowCount();
-				if(selcolIndexs==null||selcolIndexs.length==0) JOptionPane.showMessageDialog(managePage, "Please select column first!");
-				else{
-					int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to delete these column?");
-					if(t==0) {
-						// managePage.getTable().removeColumn(managePage.getTable().getColumnModel().getColumn(selcolIndexs[0]));
-						HashSet<Integer> h=new HashSet();
-						String[] n=new String[c-selcolIndexs.length];
-						Object[][] o=new Object[r][c-selcolIndexs.length];
-						for(int i=0;i<selcolIndexs.length;i++){
-							h.add(selcolIndexs[i]);
-						}
-
-						for(int i=0,j=0;i<n.length;){
-
-							if(!h.contains(j)) {
-								n[i]=managePage.getd().getColumnName(j);
-								i++;j++;
-							}
-							else j++;
-
-						}
-						for(int w=0;w<r;w++) {
-							for(int i=0,j=0;i<n.length;){
-
-								if(!h.contains(j)) {
-									o[w][i]=managePage.getd().getValueAt(w, j);
-									i++;j++;
-								}
-								else j++;
-							}
-						}
-						managePage.update(n,o);
-					}
-				}}
-
+		// add row
+		managePage.getrowButton().addActionListener(e -> {
+			DefaultTableModel d = managePage.getd();
+			Student student = studentServiceImpl.createStudent(currentCourse.getCourseId(), "");
+			students.add(student);
+			for (Assignment assignment : assignments) {
+				unitServiceimpl.createUnit(currentCourse.getCourseId(),
+						student.getStudentId(),
+						assignment.getAssignmentId(),
+						"",
+						"");
+			}
+			update(currentCourse);
 		});
 
-		managePage.getrowButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel d = managePage.getd();
-				d.addRow(new Object[] {});
+		// close course
+		managePage.getclosecourseButton().addActionListener(e -> {
+			//read only
+			int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to close this course? If yes the data will be read-only!");
+			if (t == 0) {
+				managePage.getTable().setEnabled(false);
 			}
 		});
 
-		managePage.getclosecourseButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//read only
-				int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to close this course? If yes the data will be read-only!");
-				if(t==0)
-					managePage.getTable().setEnabled(false);
-
-			}
-		});
-
-		managePage.getexitButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//read only
-				int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to exit this chart? ");
-				if(t==0) {
-					managePage.setVisible(false);
-					dashboardPanel.setVisible(true);}
-
-			}
-		});
-
-
-		managePage.getdeletesheetButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to delete this whole table? ");
-				if(t==0) {
-					dashboardPanel.getcoursePanel().remove(managePage.getb());
-					managePage.setVisible(false);
-					dashboardPanel.setVisible(true);
-				}
-
-			}
-		});
-
-		managePage.getStatistic().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				managePage.setVisible(false);
-
-				String[] forCombo;
-				int colCount=managePage.getd().getColumnCount();
-				System.out.println(colCount);
-				forCombo=new String[colCount-2];/////-5
-
-				for(int i=0,j=2;j<colCount;i++,j++) {
-					forCombo[i]=managePage.getd().getColumnName(j);
-				}
-				staPanel.SetforCombo(forCombo);
-
-				staPanel.setVisible(true);
-			}
-
-		});
-
-		managePage.getTotal().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel tableModel = managePage.getd();
-				int rowCount=tableModel.getRowCount();
-				int colCount=tableModel.getColumnCount();
-				double[] weight=new double[] {0.2,0.8};
-				tableModel.addColumn("total");
-				for(int i=0;i<rowCount;i++) {
-					double fenshu=0;
-
-					for(int j=0;j<weight.length;j++) {
-
-						//!!!!!!!
-						int dex=2+j; ////5
-						if(tableModel.getValueAt(i, dex)!=null)
-						{
-							fenshu+=Integer.parseInt(tableModel.getValueAt(i, dex).toString())*weight[j];
-							//if(jiade){fenshu+=Integer.parseInt(tableModel.getValueAt(i, dex).toString())*weight[j];}
-							//else{fenshu+=(HW1.MAX+Integer.parseInt(tableModel.getValueAt(i, dex).toString()) )*weight[j];}
-						}
-
-					}
-					//to[i]=fenshu;
-
-					tableModel.setValueAt(fenshu, i, colCount);
-
-
-				}
-
-//			    Vector<Object> toda =(tableModel).getDataVector();
-//			    toda.add(to);
-				//
-//			    setDataVector(dataVector, columnIdentifiers);setDataVector(toda, columnNames);
-
-
-			}});
-
-		managePage.getsavesheetButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel m = managePage.getd();
-				int r = m.getRowCount();
-				int c = m.getColumnCount();
-				String[] colName = new String[c];
-				Object[][] tab = new Object[r][c];
-				for(int i = 0; i < c; i++) {
-					colName[i] = m.getColumnName(i);
-					//System.out.println(colName[i]);
-				}
-				for(int i = 0; i < r; i++) {
-					for(int j = 0; j < c; j++) {
-						tab[i][j] = m.getValueAt(i, j);
-					}
-
-				}
-				///return tab, colName
-
-
-			}});
-
-		managePage.getexitButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel m = managePage.getd();
-				int r=m.getRowCount();
-				int c=m.getColumnCount();
-				String[] colName=new String[c];
-				Object[][] tab=new Object[r][c];
-				for(int i=0;i<c;i++) {
-					colName[i]=m.getColumnName(i);
-					//System.out.println(colName[i]);
-				}
-				for(int i=0;i<r;i++) {
-					for(int j=0;j<c;j++) {
-						tab[i][j]=m.getValueAt(i, j);
-					}
-
-				}
-				///return tab, colName
+		// delete the course
+		managePage.getdeletesheetButton().addActionListener(e -> {
+			int t = JOptionPane.showConfirmDialog(managePage,"Are you sure to delete this whole table? ");
+			if (t == 0) {
+				courseServiceImpl.deleteCourse(currentCourse.getCourseId());
+				currentCourse = null;
+				dashboardPanel.getcoursePanel().remove(managePage.getb());
 				managePage.setVisible(false);
 				dashboardPanel.setVisible(true);
-
 			}
 		});
 
-		staPanel.getBackButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				staPanel.setVisible(false);
-				managePage.setVisible(true);
+		// get the statistics
+		managePage.getStatistic().addActionListener(e -> {
+			managePage.setVisible(false);
 
-			}});
+			String[] forCombo;
+			int colCount=managePage.getd().getColumnCount();
+			System.out.println(colCount);
+			forCombo=new String[colCount-2];/////-5
 
-		staPanel.getCalButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel model =managePage.getd();
-				int rowCount= model.getRowCount();
-				String t=staPanel.getchooseHW().getSelectedItem().toString();
-				// !!!!!!!
-				int c=staPanel.getchooseHW().getSelectedIndex()+2; //+5 default
-				int[] data=new int[rowCount];
-				for(int i=0;i<rowCount;i++){
-					if(model.getValueAt(i, c)==null)
-						data[i]=0;
-					else
-						data[i]=Integer.parseInt(model.getValueAt(i, c).toString());
+			for(int i=0,j=2;j<colCount;i++,j++) {
+				forCombo[i] = managePage.getd().getColumnName(j);
+			}
+
+			staPanel.SetforCombo(forCombo);
+
+			staPanel.setVisible(true);
+		});
+
+		// get Total
+		managePage.getTotal().addActionListener(e -> {
+			DefaultTableModel tableModel = managePage.getd();
+			int rowCount=tableModel.getRowCount();
+			int colCount=tableModel.getColumnCount();
+			double[] weight=new double[] {0.2,0.8};
+			tableModel.addColumn("total");
+			for(int i=0;i<rowCount;i++) {
+				
+				double fenshu=0;
+
+				for(int j=0;j<weight.length;j++) {
+
+					//!!!!!!!
+					int dex=2+j; ////5
+					if(tableModel.getValueAt(i, dex)!=null)
+					{
+						fenshu+=Integer.parseInt(tableModel.getValueAt(i, dex).toString())*weight[j];
+						//if(jiade){fenshu+=Integer.parseInt(tableModel.getValueAt(i, dex).toString())*weight[j];}
+						//else{fenshu+=(HW1.MAX+Integer.parseInt(tableModel.getValueAt(i, dex).toString()) )*weight[j];}
+					}
+
 				}
+				//to[i]=fenshu;
 
-				int test=0;
-				for(int j=0;j<2;j++)
-					test+=data[j];
-				JOptionPane.showMessageDialog(staPanel,t+"'s "+test/2+"Statistic:\nMean:\nMedian:\nStdDev:\nHighest\nLowest:\n");
-
-			}
-
-		});
-
-
-		assignmentPanel.getConfirmButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// problem courseid
-				int courseId = 1;
-				String assignmentName = assignmentPanel.getassignmentField();
-				int weight = assignmentPanel.getpercentField();
-				boolean deduct = assignmentPanel.getpointBox().isSelected();
-
-
-				//!!!
-				boolean bouns = true;
-				//!!!!
-				boolean fix = false;
-				assignmentServiceImpl.createAssignment(courseId, assignmentName, weight, deduct, bouns, fix);
-				assignmentPanel.setVisible(false);
-				// add colomn name
-
-				DefaultTableModel tableModel = managePage.getd();
-				tableModel.addColumn(assignmentPanel.getassignmentField());
-				managePage.setVisible(true);
+				tableModel.setValueAt(fenshu, i, colCount);
 			}
 		});
 
+		// save sheet
+		managePage.getsavesheetButton().addActionListener(e -> {
+			DefaultTableModel m = managePage.getd();
+			for(int i = 0; i < m.getRowCount(); i++) {
+				for(int j = 0; j < m.getColumnCount(); j++) {
+					String content = (String) m.getValueAt(i, j);
+					Unit unit = units.get(assignments.get(j)).get(students.get(i));
+					unit.setContent(content);
+					unitServiceimpl.update(unit);
+				}
+			}
+			update(currentCourse);
+		});
 
-		assignmentPanel.getCancelButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				assignmentPanel.setVisible(false);
-				// add colomn name
-				managePage.setVisible(true);
+		// save and exit sheet
+		managePage.getexitButton().addActionListener(e -> {
+			int t = JOptionPane.showConfirmDialog(managePage,"Are you sure to exit this chart? ");
+			if (t == 0) {
+				DefaultTableModel m = managePage.getd();
+				for(int i = 0; i < m.getRowCount(); i++) {
+					for(int j = 0; j < m.getColumnCount(); j++) {
+						String content = (String) m.getValueAt(i, j);
+						Unit unit = units.get(assignments.get(j)).get(students.get(i));
+						unit.setContent(content);
+						unitServiceimpl.update(unit);
+					}
+				}
+				update(currentCourse);
+
+				managePage.setVisible(false);
+				dashboardPanel.setVisible(true);
 			}
 		});
 
+		// return to the manage page
+		staPanel.getBackButton().addActionListener(e -> {
+			staPanel.setVisible(false);
+			managePage.setVisible(true);
+		});
 
-		//DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
-		//tableModel.addRow(new Object[]{"sitinspring", "35", "Boss"});
+		// calculate the row
+		staPanel.getCalButton().addActionListener(e -> {
+			DefaultTableModel model =managePage.getd();
+			int rowCount = model.getRowCount();
+			String t=staPanel.getchooseHW().getSelectedItem().toString();
+			int c=staPanel.getchooseHW().getSelectedIndex()+2; //+5 default
+			int[] data=new int[rowCount];
+			for(int i=0;i<rowCount;i++){
+				if(model.getValueAt(i, c)==null)
+					data[i]=0;
+				else
+					data[i]=Integer.parseInt(model.getValueAt(i, c).toString());
+			}
 
+			int test=0;
+			for(int j=0;j<2;j++)
+				test+=data[j];
+			JOptionPane.showMessageDialog(staPanel,t+"'s "+test/2+"Statistic:\nMean:\nMedian:\nStdDev:\nHighest\nLowest:\n");
+		});
 
+		assignmentPanel.getConfirmButton().addActionListener(e -> {
+			int courseId = currentCourse.getCourseId();
+			String assignmentName = assignmentPanel.getassignmentField();
+			int weight = assignmentPanel.getpercentField();
+			boolean addPoint = !assignmentPanel.getpointBox().isSelected();
+			boolean extraBonus = false;
+			boolean fix = false;
 
+			Assignment assignment = assignmentServiceImpl.createAssignment(courseId, assignmentName, weight, addPoint, extraBonus, fix);
+			assignmentPanel.setVisible(false);
 
+			for (Student student : students) {
+				unitServiceimpl.createUnit(currentCourse.getCourseId(), student.getStudentId(), assignment.getAssignmentId(), "", "");
+			}
+
+			update(currentCourse);
+
+			managePage.setVisible(true);
+		});
+
+		// return to the manage page
+		assignmentPanel.getCancelButton().addActionListener(e -> {
+			assignmentPanel.setVisible(false);
+			managePage.setVisible(true);
+		});
 	}
 
+	public void update(JButton name, Course cs) {
+		assignments = assignmentServiceImpl.getAssignments(cs.getCourseId());
+		students = studentServiceImpl.getStudents(cs.getCourseId());
+		units = unitServiceimpl.getUnits(cs.getCourseId());
 
+		String[] as = assignmentServiceImpl.getAssignmentsName(cs.getCourseId());
+
+		String[][] us = unitServiceimpl.getUnitContents(cs.getCourseId());
+		managePage.update(name, as, us);
+
+		managePage.setVisible(true);
+	}
+
+	public void update(Course cs) {
+		assignments = assignmentServiceImpl.getAssignments(cs.getCourseId());
+		students = studentServiceImpl.getStudents(cs.getCourseId());
+		units = unitServiceimpl.getUnits(cs.getCourseId());
+
+		String[] as = assignmentServiceImpl.getAssignmentsName(cs.getCourseId());
+
+		String[][] us = unitServiceimpl.getUnitContents(cs.getCourseId());
+		managePage.update(as, us);
+
+		managePage.setVisible(true);
+	}
 }
 
 
