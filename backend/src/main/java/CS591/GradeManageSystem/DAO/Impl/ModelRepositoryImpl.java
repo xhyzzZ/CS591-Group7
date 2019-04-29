@@ -28,15 +28,17 @@ public class ModelRepositoryImpl implements ModelRepository {
             String modelName = model.getModelName();
             String columnName = model.getColumnName();
             int weight = model.getWeight();
+            int maxPoint = model.getMaxPoint();
             boolean addPoint = model.isAddPoint();
             boolean extraBonus = model.isExtraBonus();
             boolean fix = model.isFix();
 
             // pre-process the execution
-            String exec = String.format("INSERT INTO MODEL(modelName, columnName, weight, addPoint, extraBonus, fix) VALUES(\'%s\', \'%s\', %d, %b, %b, %b);",
+            String exec = String.format("INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES(\'%s\', \'%s\', %d, %d, %b, %b, %b);",
                     modelName,
                     columnName,
                     weight,
+                    maxPoint,
                     addPoint,
                     extraBonus,
                     fix);
@@ -69,15 +71,17 @@ public class ModelRepositoryImpl implements ModelRepository {
             String modelName = model.getModelName();
             String columnName = model.getColumnName();
             int weight = model.getWeight();
+            int maxPoint = model.getMaxPoint();
             boolean addPoint = model.isAddPoint();
             boolean extraBonus = model.isExtraBonus();
             boolean fix = model.isFix();
 
             // pre-process the execution
-            String exec = String.format("UPDATE MODEL SET modelName = \'%s\', columnName = \'%s\', weight = %d, addPoint = %b, extraBonus = %b, fix = %b WHERE modelId = %d;",
+            String exec = String.format("UPDATE MODEL SET modelName = \'%s\', columnName = \'%s\', weight = %d, maxPoint = %d, addPoint = %b, extraBonus = %b, fix = %b WHERE modelId = %d;",
                     modelName,
                     columnName,
                     weight,
+                    maxPoint,
                     addPoint,
                     extraBonus,
                     fix,
@@ -110,9 +114,10 @@ public class ModelRepositoryImpl implements ModelRepository {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getInt(4),
-                        rs.getBoolean(5),
+                        rs.getInt(5),
                         rs.getBoolean(6),
-                        rs.getBoolean(7));
+                        rs.getBoolean(7),
+                        rs.getBoolean(8));
                 models.add(model);
             }
         } catch (Exception ex) {
@@ -141,9 +146,10 @@ public class ModelRepositoryImpl implements ModelRepository {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getInt(4),
-                        rs.getBoolean(5),
+                        rs.getInt(5),
                         rs.getBoolean(6),
-                        rs.getBoolean(7));
+                        rs.getBoolean(7),
+                        rs.getBoolean(8));
                 models.add(model);
             }
         } catch (Exception ex) {
@@ -172,9 +178,10 @@ public class ModelRepositoryImpl implements ModelRepository {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getInt(4),
-                        rs.getBoolean(5),
+                        rs.getInt(5),
                         rs.getBoolean(6),
-                        rs.getBoolean(7));
+                        rs.getBoolean(7),
+                        rs.getBoolean(8));
             }
         } catch (Exception ex) {
             ex.printStackTrace();

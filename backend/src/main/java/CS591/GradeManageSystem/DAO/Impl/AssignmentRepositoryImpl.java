@@ -38,9 +38,10 @@ public class AssignmentRepositoryImpl implements AssignmentRepository {
                         rs.getInt(2),
                         rs.getString(3),
                         rs.getInt(4),
-                        rs.getBoolean(5),
+                        rs.getInt(5),
                         rs.getBoolean(6),
-                        rs.getBoolean(7));
+                        rs.getBoolean(7),
+                        rs.getBoolean(8));
 
                 assignments.add(assignment);
             }
@@ -69,9 +70,10 @@ public class AssignmentRepositoryImpl implements AssignmentRepository {
                         rs.getInt(2),
                         rs.getString(3),
                         rs.getInt(4),
-                        rs.getBoolean(5),
+                        rs.getInt(5),
                         rs.getBoolean(6),
-                        rs.getBoolean(7));
+                        rs.getBoolean(7),
+                        rs.getBoolean(8));
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -88,13 +90,14 @@ public class AssignmentRepositoryImpl implements AssignmentRepository {
             int courseId = assignment.getCourseId();
             String assignmentName = assignment.getAssignmentName();
             int weight = assignment.getWeight();
+            int maxPoint = assignment.getMaxPoint();
             boolean addPoint = assignment.isAddPoint();
             boolean extraBonus = assignment.isExtraBonus();
             boolean fix = assignment.isFix();
 
             // pre-process the execution
-            String exec = String.format("INSERT INTO ASSIGNMENT(courseId, assignmentName, weight, addPoint, extraBonus, fix) VALUES(%d, \'%s\', %d, %b, %b, %b);",
-                    courseId, assignmentName, weight, addPoint, extraBonus, fix);
+            String exec = String.format("INSERT INTO ASSIGNMENT(courseId, assignmentName, weight, maxPoint, addPoint, extraBonus, fix) VALUES(%d, \'%s\', %d, %d, %b, %b, %b);",
+                    courseId, assignmentName, weight, maxPoint, addPoint, extraBonus, fix);
             pst = conn.prepareStatement(exec, Statement.RETURN_GENERATED_KEYS);
             int affectedRows = pst.executeUpdate();
 
@@ -124,13 +127,14 @@ public class AssignmentRepositoryImpl implements AssignmentRepository {
             int courseId = assignment.getCourseId();
             String assignmentName = assignment.getAssignmentName();
             int weight = assignment.getWeight();
+            int maxPoint = assignment.getMaxPoint();
             boolean addPoint = assignment.isAddPoint();
             boolean extraBonus = assignment.isExtraBonus();
             boolean fix = assignment.isFix();
 
             // pre-process the execution
-            String exec = String.format("UPDATE ASSIGNMENT SET courseId = %d, assignmentName = \'%s\', weight = %d, addPoint = %b, extraBonus = %b, fix = %b WHERE assignmentId = %d;",
-                    courseId, assignmentName, weight, addPoint, extraBonus, fix, assignmentId);
+            String exec = String.format("UPDATE ASSIGNMENT SET courseId = %d, assignmentName = \'%s\', weight = %d, maxPoint = %d, addPoint = %b, extraBonus = %b, fix = %b WHERE assignmentId = %d;",
+                    courseId, assignmentName, weight, maxPoint, addPoint, extraBonus, fix, assignmentId);
             pst = conn.prepareStatement(exec);
 
             // execute and get the result set

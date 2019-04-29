@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AssignmentRepository {
 
-    // assignmentId     courseId(int)     assignmentName      weight       addPoint      extraBonus
+    // assignmentId     courseId(int)     assignmentName      weight    maxPoint     addPoint      extraBonus
 
     List<Assignment> findByCourseId(int courseId);
 

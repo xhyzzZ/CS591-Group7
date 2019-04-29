@@ -27,7 +27,7 @@ public class TableInitialize {
             pst.executeUpdate();
 
             // initialize assignment table
-            String exec3 = "CREATE TABLE IF NOT EXISTS ASSIGNMENT (assignmentId INT AUTO_INCREMENT, courseId INT NOT NULL, assignmentName VARCHAR(255) NOT NULL, weight INT NOT NULL, addPoint BOOLEAN NOT NULL, extraBonus BOOLEAN NOT NULL, fix BOOLEAN NOT NULL, PRIMARY KEY (assignmentId))  ENGINE=INNODB";
+            String exec3 = "CREATE TABLE IF NOT EXISTS ASSIGNMENT (assignmentId INT AUTO_INCREMENT, courseId INT NOT NULL, assignmentName VARCHAR(255) NOT NULL, weight INT NOT NULL, maxPoint INT NOT NULL, addPoint BOOLEAN NOT NULL, extraBonus BOOLEAN NOT NULL, fix BOOLEAN NOT NULL, PRIMARY KEY (assignmentId))  ENGINE=INNODB";
             pst = conn.prepareStatement(exec3);
             pst.executeUpdate();
 
