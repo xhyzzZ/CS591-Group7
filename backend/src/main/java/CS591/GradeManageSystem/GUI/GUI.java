@@ -4,13 +4,9 @@ import CS591.GradeManageSystem.Service.impl.UserServiceImpl;
 import CS591.GradeManageSystem.entity.*;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.io.File;
 import java.util.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 public class GUI extends JFrame{
@@ -31,9 +27,6 @@ public class GUI extends JFrame{
 
 	// current login user
 	private User currentUser = null;
-
-	// current courses
-	private List<Course> currentCourses;
 
 	// current course
 	private Course currentCourse = null;
@@ -205,7 +198,7 @@ public class GUI extends JFrame{
 		// delete a student
 		managePage.deletestudentButton().addActionListener(e -> {
 			int[] selRowIndexes = managePage.getTable().getSelectedRows();
-			if(selRowIndexes == null || selRowIndexes.length==0) JOptionPane.showMessageDialog(managePage, "Please select student first!");
+			if(selRowIndexes == null || selRowIndexes.length == 0) JOptionPane.showMessageDialog(managePage, "Please select student first!");
 			else{
 				int t = JOptionPane.showConfirmDialog(managePage,"Are you sure to delete the student?");
 				if (t == 0) {
@@ -239,7 +232,6 @@ public class GUI extends JFrame{
 
 		// add row
 		managePage.getrowButton().addActionListener(e -> {
-			DefaultTableModel d = managePage.getd();
 			Student student = studentServiceImpl.createStudent(currentCourse.getCourseId(), "");
 			students.add(student);
 			for (Assignment assignment : assignments) {
@@ -294,9 +286,6 @@ public class GUI extends JFrame{
 
 		// get Total
 		managePage.getTotal().addActionListener(e -> {
-			DefaultTableModel tableModel = managePage.getd();
-			int rowCount=tableModel.getRowCount();
-			int colCount=tableModel.getColumnCount();
 			Assignment totalColumn = assignmentServiceImpl.createAssignment(currentCourse.getCourseId(), "Total", 0, 100, false, true, true);
 			for (Student student : students) {
 				double total = 0;
@@ -359,7 +348,6 @@ public class GUI extends JFrame{
 
 		// calculate the row
 		staPanel.getCalButton().addActionListener(e -> {
-			DefaultTableModel model = managePage.getd();
 			int c = staPanel.getchooseHW().getSelectedIndex() + 5;
 			Assignment assignment = assignments.get(c);
 			double[] data = statisticsService.getStatistics(assignment.getAssignmentId(), currentCourse.getCourseId());
