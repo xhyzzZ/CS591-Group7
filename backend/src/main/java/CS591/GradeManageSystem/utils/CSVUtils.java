@@ -18,6 +18,10 @@ public class CSVUtils {
             // create CSVWriter object filewriter object as parameter
             CSVWriter writer = new CSVWriter(outputfile);
 
+            // the data we want to get
+            
+
+            writer.writeAll(data);
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
