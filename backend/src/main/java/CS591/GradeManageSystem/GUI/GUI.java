@@ -2,6 +2,8 @@ package CS591.GradeManageSystem.GUI;
 import CS591.GradeManageSystem.Service.impl.*;
 import CS591.GradeManageSystem.Service.impl.UserServiceImpl;
 import CS591.GradeManageSystem.entity.*;
+import CS591.GradeManageSystem.utils.CSVUtils;
+import CS591.GradeManageSystem.utils.Constants;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -338,6 +340,11 @@ public class GUI extends JFrame {
 				managePage.setVisible(false);
 				dashboardPanel.setVisible(true);
 			}
+		});
+
+		// export csv model to local
+		managePage.getexporttocsvButton().addActionListener(e -> {
+			CSVUtils.outputCSV(Constants.OUTPUTCSVPATH);
 		});
 
 		// return to the manage page
