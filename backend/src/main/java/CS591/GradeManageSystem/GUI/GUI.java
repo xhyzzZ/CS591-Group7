@@ -365,9 +365,11 @@ public class GUI extends JFrame {
 					data.add(assignment);
 				}
 				for(int i = 0; i < students.size(); i++) {
-					String[] student = new String[students.size()];
-					student[i] = units.get(assignments.get(i)).get(students.get(i)).getContent();
-					data.add(student);
+					for(int j = 0; j < assignments.size(); j++) {
+						String[] student = new String[assignments.size()];
+						student[i] = units.get(assignments.get(j)).get(students.get(i)).getContent();
+						data.add(student);
+					}
 				}
 
 				writer.writeAll(data);
