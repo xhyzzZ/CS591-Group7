@@ -359,7 +359,16 @@ public class GUI extends JFrame {
 
 				// the data we want to get
 				List<String[]> data = new ArrayList<>();
-				data.add(new String[] {});
+				for(int i = 0; i < assignments.size(); i++) {
+					String[] assignment = new String[assignments.size()];
+					assignment[i] = assignments.get(i).getAssignmentName();
+					data.add(assignment);
+				}
+				for(int i = 0; i < students.size(); i++) {
+					String[] student = new String[students.size()];
+					student[i] = units.get(assignments.get(i)).get(students.get(i)).getContent();
+					data.add(student);
+				}
 
 				writer.writeAll(data);
 				writer.close();
