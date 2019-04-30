@@ -4,8 +4,10 @@ import CS591.GradeManageSystem.Service.impl.UserServiceImpl;
 import CS591.GradeManageSystem.entity.*;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.io.File;
 import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,6 +27,7 @@ public class GUI extends JFrame{
 	private StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
 	private UnitServiceimpl unitServiceimpl = new UnitServiceimpl();
 	private ModelServiceImpl modelService = new ModelServiceImpl();
+	private StatisticsServiceImpl statisticsService = new StatisticsServiceImpl();
 
 	// current login user
 	private User currentUser = null;
@@ -181,6 +184,7 @@ public class GUI extends JFrame{
 		// import from file
 		addcoursePanel.getOpenButton().addActionListener(e -> {
 			JFileChooser c = new JFileChooser();
+			c.setFileSelectionMode(JFileChooser.FILES_ONLY);
 			int rVal = c.showSaveDialog(GUI.this);
 			if(rVal == c.APPROVE_OPTION) {
 				String name = c.getSelectedFile().getName();
@@ -276,8 +280,8 @@ public class GUI extends JFrame{
 			managePage.setVisible(false);
 
 			String[] forCombo;
-			int colCount=managePage.getd().getColumnCount();
-			forCombo=new String[colCount - 5];/////-5
+			int colCount = managePage.getd().getColumnCount();
+			forCombo = new String[colCount - 5];
 
 			for(int i = 0, j = 5; j < colCount ; i++, j++) {
 				forCombo[i] = managePage.getd().getColumnName(j);
@@ -355,19 +359,22 @@ public class GUI extends JFrame{
 
 		// calculate the row
 		staPanel.getCalButton().addActionListener(e -> {
-			DefaultTableModel model =managePage.getd();
-			int rowCount = model.getRowCount();
-			String t = staPanel.getchooseHW().getSelectedItem().toString();
+			DefaultTableModel model = managePage.getd();
 			int c = staPanel.getchooseHW().getSelectedIndex() + 5;
-			int[] data=new int[rowCount];
-			for(int i=0;i<rowCount;i++){
-				if(model.getValueAt(i, c)==null)
-					data[i]=0;
-				else
-					data[i]=Integer.parseInt(model.getValueAt(i, c).toString());
-			}
+			Assignment assignment = assignments.get(c);
+			double[] data = statisticsService.getStatistics(assignment.getAssignmentId(), currentCourse.getCourseId());
+			double max = statisticsService.getMax(data);
+			double min = statisticsService.getMin(data);
+			double medium = statisticsService.getMedium(data);
+			double mean = statisticsService.getMean(data);
+			double stddev = statisticsService.getStdDev(data);
 
-//			JOptionPane.showMessageDialog(staPanel,t+"'s "+test/2+"Statistic:\nMean:\nMedian:\nStdDev:\nHighest\nLowest:\n");
+			String sb = "Max: " + max + "\n" +
+					"Min: " + min + "\n" +
+					"Medium: " + medium + "\n" +
+					"Mean: " + mean + "\n" +
+					"StdDev: " + stddev + "\n";
+			JOptionPane.showMessageDialog(staPanel, sb);
 		});
 
 		assignmentPanel.getConfirmButton().addActionListener(e -> {

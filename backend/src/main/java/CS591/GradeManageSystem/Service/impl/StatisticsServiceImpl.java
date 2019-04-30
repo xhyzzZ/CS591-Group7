@@ -20,7 +20,7 @@ public class StatisticsServiceImpl implements StatisticsService {
         List<Student> students = studentRepository.findByCourseId(courseId);
         double[] res = new double[students.size()];
         for(int i = 0; i < students.size(); i++) {
-            res[i] = Double.parseDouble(unitRepository.findByAssignmentIdAndStudentId(students.get(i).getStudentId(), assignmentId).getContent());
+            res[i] = Double.parseDouble(unitRepository.findByAssignmentIdAndStudentId(assignmentId, students.get(i).getStudentId()).getContent());
         }
         return res;
     }
@@ -45,12 +45,12 @@ public class StatisticsServiceImpl implements StatisticsService {
 
     @Override
     public double getMean(double[] res) {
-        double average = 0;
+        if (res.length == 0) return 0;
         double sum = 0;
         for(int i = 0; i < res.length; i++) {
             sum += res[i];
         }
-        return sum / average;
+        return sum / res.length;
     }
 
     @Override
