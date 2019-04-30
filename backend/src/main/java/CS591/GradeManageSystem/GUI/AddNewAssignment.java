@@ -11,7 +11,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class AddNewAssignment extends JPanel{
+public class AddNewAssignment extends JPanel {
 	private JLabel addassignmentLabel, assignmentnameLabel, percentLabel, maximumLabel, deductpointLabel;
 	private JTextField assignmentField, percentField, maximumField;
 	private JCheckBox pointBox;

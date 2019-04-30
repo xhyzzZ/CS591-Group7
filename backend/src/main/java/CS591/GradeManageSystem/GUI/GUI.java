@@ -9,13 +9,13 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
-public class GUI extends JFrame{
+public class GUI extends JFrame {
 	private Login loginPanel = new Login();
-	private Register registerPanel=new Register();
-	private Dashboard dashboardPanel= new Dashboard();
-	private AddNewAssignment assignmentPanel= new AddNewAssignment();
-	private AddNewCourse1 addcoursePanel= new AddNewCourse1(dashboardPanel.getcoursePanel());
-	private Statistic staPanel= new Statistic();
+	private Register registerPanel = new Register();
+	private Dashboard dashboardPanel = new Dashboard();
+	private AddNewAssignment assignmentPanel = new AddNewAssignment();
+	private AddNewCourse1 addcoursePanel = new AddNewCourse1(dashboardPanel.getcoursePanel());
+	private Statistic staPanel = new Statistic();
 
 	private UserServiceImpl userServiceImpl = new UserServiceImpl();
 	private CourseServiceImpl courseServiceImpl = new CourseServiceImpl();

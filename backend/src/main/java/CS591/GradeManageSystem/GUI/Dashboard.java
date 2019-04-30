@@ -9,7 +9,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-public class Dashboard extends JPanel{
+public class Dashboard extends JPanel {
 	private JLabel dashboardLabel;
 	//private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);
 	private JButton logoutButton, addnewcourseButton, cs591Button;

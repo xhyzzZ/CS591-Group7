@@ -9,7 +9,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class Register extends JPanel{
+public class Register extends JPanel {
 	private JLabel registerLabel, usernameLabel, passwordLabel, passwordreLabel;
 	private static Font labelFont = new Font("Dialog", Font.BOLD, 20);
 	private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);

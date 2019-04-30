@@ -141,9 +141,9 @@ public class ManagementInterface extends JPanel {
 	public ManagementInterface(DefaultTableModel d, JButton b) {
 		super(null);
 		this.b = b;
-		managementPanel=new JPanel();
+		managementPanel = new JPanel();
 		this.d = d;
-		managementTable=new JTable(d);
+		managementTable = new JTable(d);
 		managementTable.setPreferredScrollableViewportSize(new Dimension(500, 70));
 		managementTable.setFillsViewportHeight(true);
 		managementTable.setRowHeight(30);
@@ -307,7 +307,7 @@ public class ManagementInterface extends JPanel {
 	    this.managementTable = n;
 		JScrollPane scroll = new JScrollPane(n);
 		this.managementPanel.add(scroll);
-		this.scrollPane=scroll;
+		this.scrollPane = scroll;
 		this.managementPanel.revalidate();
 		this.b = button;
 	}
@@ -315,11 +315,11 @@ public class ManagementInterface extends JPanel {
 	public void update(String[] assignments, String[][] content) {
 		this.managementPanel.remove(scrollPane);
 		d.setDataVector(content, assignments);
-		JTable n=new JTable(d);
+		JTable n = new JTable(d);
 		this.managementTable = n;
 		JScrollPane scroll = new JScrollPane(n);
 		this.managementPanel.add(scroll);
-		this.scrollPane=scroll;
+		this.scrollPane = scroll;
 		this.managementPanel.revalidate();
 	}
 }

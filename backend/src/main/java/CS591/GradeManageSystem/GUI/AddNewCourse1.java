@@ -3,18 +3,18 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class AddNewCourse1 extends JPanel{
-	private JTextField  courseName=new JTextField(),courseID=new JTextField(),professorName=new JTextField(),courseYear=new JTextField();
-	private JButton confirm=new JButton("confirm"),cancel=new JButton("cancel"), open = new JButton("open");
-	private JLabel courseName1=new JLabel("Course Name:");
-	private JLabel courseID1=new JLabel("Course ID:");
-	private JLabel professorName1=new JLabel("Professor:");
-	private JLabel courseYear1=new JLabel("Course Year:");
-	private JLabel semester=new JLabel("Semester");
+public class AddNewCourse1 extends JPanel {
+	private JTextField  courseName = new JTextField(),courseID = new JTextField(),professorName = new JTextField(),courseYear = new JTextField();
+	private JButton confirm = new JButton("confirm"),cancel = new JButton("cancel"), open = new JButton("open");
+	private JLabel courseName1 = new JLabel("Course Name:");
+	private JLabel courseID1 = new JLabel("Course ID:");
+	private JLabel professorName1 = new JLabel("Professor:");
+	private JLabel courseYear1 = new JLabel("Course Year:");
+	private JLabel semester = new JLabel("Semester");
 	private JLabel importFile = new JLabel("Import File:");
-	private JLabel importModule1=new JLabel("Import Module:");
-	private JComboBox semesterBox =new JComboBox(new String[]{"Spring", "Fall"});;
-	private JComboBox importModule=new JComboBox(new String[]{"Default"});
+	private JLabel importModule1 = new JLabel("Import Module:");
+	private JComboBox semesterBox = new JComboBox(new String[]{"Spring", "Fall"});;
+	private JComboBox importModule = new JComboBox(new String[]{"Default"});
 	private JPanel p;
 	private static Font labelFont = new Font("Dialog", Font.PLAIN, 20);
 	private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);
@@ -102,7 +102,7 @@ public class AddNewCourse1 extends JPanel{
 		//this.setResizable(false);
 		// this.setDefaultCloseOperation(JPanel.EXIT_ON_CLOSE);
 		this.setLayout(new GridLayout(2,2));
-		Panel  p1=new Panel();
+		Panel p1 = new Panel();
 		p1.setLayout(new GridLayout(7,3));
 		p1.add(courseName1);
 		p1.add(courseName);
@@ -119,7 +119,7 @@ public class AddNewCourse1 extends JPanel{
 		p1.add(importFile);
 		p1.add(open);
 
-		Panel  p2=new Panel();
+		Panel p2 = new Panel();
 		p2.add(confirm);
 		p2.add(cancel);
 		this.add(p1);
