@@ -2,12 +2,15 @@ package CS591.GradeManageSystem.GUI;
 import CS591.GradeManageSystem.Service.impl.*;
 import CS591.GradeManageSystem.Service.impl.UserServiceImpl;
 import CS591.GradeManageSystem.entity.*;
-import CS591.GradeManageSystem.utils.CSVUtils;
 import CS591.GradeManageSystem.utils.Constants;
+import com.opencsv.CSVWriter;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -344,7 +347,25 @@ public class GUI extends JFrame {
 
 		// export csv model to local
 		managePage.getexporttocsvButton().addActionListener(e -> {
-			CSVUtils.outputCSV(Constants.OUTPUTCSVPATH);
+
+			File file = new File(Constants.OUTPUTCSVPATH);
+
+			try {
+				// create FileWriter object with file as parameter
+				FileWriter outputfile = new FileWriter(file);
+
+				// create CSVWriter object filewriter object as parameter
+				CSVWriter writer = new CSVWriter(outputfile);
+
+				// the data we want to get
+				List<String[]> data = new ArrayList<>();
+				data.add(new String[] {});
+
+				writer.writeAll(data);
+				writer.close();
+			} catch (IOException ee) {
+				ee.printStackTrace();
+			}
 		});
 
 		// return to the manage page
