@@ -50,7 +50,7 @@ public class GUI extends JFrame {
 		new GUI();
 	}
 
-	public GUI(){
+	public GUI() {
 		frame = new JFrame();
 		this.dd = new DefaultTableModel();
 		this.managePage = new ManagementInterface(dd,null);

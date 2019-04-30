@@ -19,7 +19,7 @@ public class AddNewCourse1 extends JPanel {
 	private static Font labelFont = new Font("Dialog", Font.PLAIN, 20);
 	private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);
 
-	public AddNewCourse1(JPanel p){
+	public AddNewCourse1(JPanel p) {
 		super(null);
 
 		//JPanel panel = new JPanel();
