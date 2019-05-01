@@ -23,7 +23,7 @@ class MyJTable extends JTable implements MouseListener{
         this.getTableHeader().addMouseListener(new TableHeaderMouseListener(this));
     }
 
-    MyJTable(DefaultTableModel d){
+    MyJTable(DefaultTableModel d) {
         super(d);
         this.addMouseListener(this);
         this.getTableHeader().addMouseListener(new TableHeaderMouseListener(this));

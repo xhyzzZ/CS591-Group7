@@ -4,27 +4,27 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class AddNewCourse1 extends JPanel{
-	private JTextField  courseName=new JTextField(),courseID=new JTextField(),professorName=new JTextField(),courseYear=new JTextField();
-	private JButton confirm=new JButton("confirm"),cancel=new JButton("cancel"), open = new JButton("open");
-	private JLabel courseName1=new JLabel("Course Name:");
-	private JLabel courseID1=new JLabel("Course ID:");
-	private JLabel professorName1=new JLabel("Professor:");
-	private JLabel courseYear1=new JLabel("Course Year:");
-	private JLabel semester=new JLabel("Semester");
+	private JTextField courseName = new JTextField(), courseID = new JTextField(), professorName = new JTextField(), courseYear = new JTextField();
+	private JButton confirm = new JButton("confirm"),cancel=new JButton("cancel"), open = new JButton("open");
+	private JLabel courseName1 = new JLabel("Course Name:");
+	private JLabel courseID1 = new JLabel("Course ID:");
+	private JLabel professorName1 = new JLabel("Professor:");
+	private JLabel courseYear1 = new JLabel("Course Year:");
+	private JLabel semester = new JLabel("Semester");
 	private JLabel importFile = new JLabel("Import File:");
-	private JLabel importModule1=new JLabel("Import Module:");
-	private JComboBox semesterBox =new JComboBox(new String[]{"Spring", "Fall", "Summer"});;
+	private JLabel importModule1 = new JLabel("Import Module:");
+	private JComboBox semesterBox = new JComboBox(new String[]{"Spring", "Fall", "Summer"});;
 	private JComboBox importModule = new JComboBox();
 	private JPanel p;
 	private static Font labelFont = new Font("Dialog", Font.PLAIN, 20);
 
-	public AddNewCourse1(JPanel p){
+	public AddNewCourse1(JPanel p) {
 		super(null);
 
 		//JPanel panel = new JPanel();
 		//panel.setSize(800, 1000);
 
-		this.p=p;
+		this.p = p;
 		courseName1.setFont(labelFont);
 		courseName1.setVerticalAlignment(SwingConstants.CENTER);
 		courseName1.setBounds(730, 200, 200, 50);
@@ -103,7 +103,7 @@ public class AddNewCourse1 extends JPanel{
 		p1.add(importFile);
 		p1.add(open);
 
-		Panel  p2=new Panel();
+		Panel p2 = new Panel();
 		p2.add(confirm);
 		p2.add(cancel);
 		this.add(p1);

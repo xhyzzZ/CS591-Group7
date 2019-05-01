@@ -39,9 +39,9 @@ public class ManagementInterface extends JPanel {
 	private JButton b;
 	public ManagementInterface(DefaultTableModel d,JButton b) {
 		super(null);
-		this.b=b;
-		managementPanel=new JPanel();
-		this.d=d;
+		this.b = b;
+		managementPanel = new JPanel();
+		this.d = d;
 
 		managementTable = new MyJTable(d);
 		managementTable.setPreferredScrollableViewportSize(managementTable.getPreferredSize());
@@ -59,7 +59,7 @@ public class ManagementInterface extends JPanel {
 		managementPanel.setLayout(new BorderLayout());
 		managementPanel.add(scrollPane, BorderLayout.CENTER);
 
-		JPanel p1=new JPanel();
+		JPanel p1 = new JPanel();
 		p1.setLayout(new GridLayout(7,1));
 
 		JPanel p2 = new JPanel();

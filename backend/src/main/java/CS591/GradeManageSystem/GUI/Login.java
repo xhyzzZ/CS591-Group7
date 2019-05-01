@@ -81,18 +81,6 @@ public class Login extends JPanel {
 		validate();
 	}
 
-//	public JLabel getLoginLabel() {
-//		return this.loginLabel;
-//	}
-//
-//	public JLabel getUsernameLabel() {
-//		return this.usernameLabel;
-//	}
-//
-//	public JLabel getPasswordLabel() {
-//		return this.passwordLabel;
-//	}
-
 	public String getUsernameField() {
 		return this.usernameField.getText();
 	}

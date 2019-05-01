@@ -14,7 +14,7 @@ public class GUI extends JFrame{
 	private static Login loginPanel = new Login();
 	private static Register registerPanel = new Register();
 	private static Dashboard dashboardPanel = new Dashboard();
-	private static AddNewAssignment assignmentPanel= new AddNewAssignment();
+	private static AddNewAssignment assignmentPanel = new AddNewAssignment();
 	private static AddNewCourse1 addcoursePanel = new AddNewCourse1(dashboardPanel.getcoursePanel());
 	private static Statistic staPanel = new Statistic();
 	private static UpdateAssignment updateAssignment = new UpdateAssignment();
@@ -54,13 +54,14 @@ public class GUI extends JFrame{
 	private JFrame frame;
 
 	private DefaultTableModel dd;
+
 	private static ManagementInterface managePage;
 
 	public static void main(String[] args) {
 		new GUI();
 	}
 
-	public GUI(){
+	public GUI() {
 		frame = new JFrame();
 		this.dd = new DefaultTableModel();
 		this.managePage = new ManagementInterface(dd,null);
@@ -568,6 +569,8 @@ public class GUI extends JFrame{
 			}
 
 			if (weight + sum > 100) {
+
+				//if weight plus sum is larger than 100, then show the message
 				JOptionPane.showMessageDialog(managePage,"The total weight exceeds 100%");
 			}
 
@@ -590,6 +593,7 @@ public class GUI extends JFrame{
 		});
 	}
 
+	// update for the course
 	public static void update(JButton name, Course cs) {
 		assignments = assignmentServiceImpl.getAssignments(cs.getCourseId());
 		students = studentServiceImpl.getStudents(cs.getCourseId());
@@ -612,6 +616,7 @@ public class GUI extends JFrame{
 		managePage.update(as, us);
 	}
 
+	// sort the course, then you can update the course
 	public static void sortUpdate(Course cs) {
 		String[] as = assignmentServiceImpl.getAssignmentsName(cs.getCourseId());
 		String[][] us = getUnits();
@@ -634,6 +639,7 @@ public class GUI extends JFrame{
 		return units.get(assignments.get(c)).get(students.get(r)).getNote();
 	}
 
+	//sort the column
 	public static void sortByColumn(int c) {
 		students.sort(Comparator.comparing(o -> units.get(assignments.get(c)).get(o).getContent()));
 		sortUpdate(currentCourse);

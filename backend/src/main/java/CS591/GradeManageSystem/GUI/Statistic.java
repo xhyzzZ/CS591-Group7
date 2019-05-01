@@ -5,11 +5,11 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Statistic extends JPanel{
-	private JLabel label=new JLabel("Statistics:");
+public class Statistic extends JPanel {
+	private JLabel label = new JLabel("Statistics:");
 	private JComboBox chooseHW = new JComboBox();
-	private JButton cal=new JButton("Calculate");
-	private JButton back=new JButton("back");
+	private JButton cal = new JButton("Calculate");
+	private JButton back = new JButton("back");
 	
 	Statistic() {
 		this.add(label);

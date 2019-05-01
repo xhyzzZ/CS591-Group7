@@ -142,6 +142,7 @@ public class AddNewAssignment extends JPanel{
 	public JCheckBox getpointBox() {
 		return this.pointBox;
 	}
+
 	public JCheckBox getextraBox() {
 		return this.bounsBox;
 	}

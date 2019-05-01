@@ -20,7 +20,7 @@ public class Dashboard extends JPanel {
 	public Dashboard() {
 		super(null);
 		
-		dashboardLabel  = new JLabel("Dashboard");
+		dashboardLabel = new JLabel("Dashboard");
 		dashboardLabel.setFont(labelFont_big);
 		dashboardLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		dashboardLabel.setVerticalAlignment(SwingConstants.CENTER);
