@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-public class Login extends JPanel{
+public class Login extends JPanel {
 	private JLabel loginLabel, usernameLabel, passwordLabel, imageLabel;
 	private static Font labelFont = new Font("Dialog", Font.PLAIN, 20);
 	private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);
