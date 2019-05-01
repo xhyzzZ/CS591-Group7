@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="78b91a7b-5671-4b29-a038-69ff9ed10e34" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/UnitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/UnitService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/UnitServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/UnitServiceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/GUI$1.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,13 +16,13 @@
     <session id="5801509">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="10671" />
+          <entry key="java" value="10825" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10671" />
+          <entry key="JAVA" value="10825" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -55,8 +53,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="631" lean-forward="true" selection-start-line="631" selection-end-line="631" />
+            <state relative-caret-position="884">
+              <caret line="639" column="36" selection-start-line="639" selection-start-column="36" selection-end-line="639" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1961#1962#0" expanded="true" />
@@ -488,7 +486,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556683636521" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556686923608" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -627,7 +625,7 @@
       <workItem from="1556545336981" duration="1509000" />
       <workItem from="1556546854779" duration="2891000" />
       <workItem from="1556565109731" duration="4165000" />
-      <workItem from="1556599441886" duration="30638000" />
+      <workItem from="1556599441886" duration="31668000" />
     </task>
     <servers />
   </component>
@@ -664,7 +662,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37642000" />
+    <option name="totallyTimeSpent" value="38672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="800" extended-state="0" />
@@ -1179,8 +1177,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="631" lean-forward="true" selection-start-line="631" selection-end-line="631" />
+        <state relative-caret-position="884">
+          <caret line="639" column="36" selection-start-line="639" selection-start-column="36" selection-end-line="639" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1961#1962#0" expanded="true" />

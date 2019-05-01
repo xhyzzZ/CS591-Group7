@@ -104,6 +104,7 @@ public class GUI extends JFrame{
 					addcoursePanel.getCoursePanel().add(name);
 					name.addActionListener(e1 -> {
 						dashboardPanel.setVisible(false);
+						managePage.setVisible(true);
 						currentCourse = cs;
 						update(name, cs);
 					});
@@ -609,17 +610,20 @@ public class GUI extends JFrame{
 
 		String[][] us = getUnits();
 		managePage.update(as, us);
-		for (Student student : students) {
-			System.out.println(student.getStudentId());
-		}
+	}
+
+	public static void sortUpdate(Course cs) {
+		String[] as = assignmentServiceImpl.getAssignmentsName(cs.getCourseId());
+		String[][] us = getUnits();
+
+		managePage.update(as, us);
 	}
 
 	public static String[][] getUnits() {
 		String[][] res = new String[students.size()][assignments.size()];
-		for (int i = 0; i < students.size(); i++) {
+		for (int i = 0; i < students.size(); i++) {	
 			for (int j = 0; j < assignments.size(); j++) {
-				res[i][j] = unitServiceimpl.getUnit(assignments.get(j).getAssignmentId(),
-						students.get(i).getStudentId()).getContent();
+				res[i][j] = unitServiceimpl.getUnit(assignments.get(j).getAssignmentId(), students.get(i).getStudentId()).getContent();
 			}
 		}
 
@@ -631,13 +635,8 @@ public class GUI extends JFrame{
 	}
 
 	public static void sortByColumn(int c) {
-		Collections.sort(students, new Comparator<Student>() {
-			@Override
-			public int compare(Student o1, Student o2) {
-				return units.get(assignments.get(c)).get(o1).getContent().compareTo(units.get(assignments.get(c)).get(o2).getContent());
-			}
-		});
-		update(currentCourse);
+		students.sort(Comparator.comparing(o -> units.get(assignments.get(c)).get(o).getContent()));
+		sortUpdate(currentCourse);
 	}
 }
 
