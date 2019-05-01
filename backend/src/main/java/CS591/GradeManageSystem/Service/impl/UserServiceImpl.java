@@ -11,6 +11,7 @@ public class UserServiceImpl implements UserService {
     private static final int PASSWORDNOTEQUAL = 2;
 
     private UserRepositoryImpl userRepository = new UserRepositoryImpl();
+    private ModelServiceImpl modelService = new ModelServiceImpl();
 
     // 0: success, 1: no such user, 2: password is wrong
     @Override
@@ -33,6 +34,7 @@ public class UserServiceImpl implements UserService {
         if (user != null) return USERALREADYEXIST;
         user = new User(username, password);
         userRepository.save(user);
+        modelService.createDefault(user.getUserId());
         return SUCCESS;
     }
 }

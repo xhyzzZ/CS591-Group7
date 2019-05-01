@@ -25,6 +25,7 @@ public class ModelRepositoryImpl implements ModelRepository {
         try {
             conn = AppConf.getConnection();
 
+            int userId = model.getUserId();
             String modelName = model.getModelName();
             String columnName = model.getColumnName();
             int weight = model.getWeight();
@@ -34,7 +35,8 @@ public class ModelRepositoryImpl implements ModelRepository {
             boolean fix = model.isFix();
 
             // pre-process the execution
-            String exec = String.format("INSERT INTO MODEL(modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES(\'%s\', \'%s\', %d, %d, %b, %b, %b);",
+            String exec = String.format("INSERT INTO MODEL(userId, modelName, columnName, weight, maxPoint, addPoint, extraBonus, fix) VALUES(%d, \'%s\', \'%s\', %d, %d, %b, %b, %b);",
+                    userId,
                     modelName,
                     columnName,
                     weight,
@@ -67,6 +69,7 @@ public class ModelRepositoryImpl implements ModelRepository {
         try {
             conn = AppConf.getConnection();
 
+            int userId = model.getUserId();
             int modelId = model.getModelId();
             String modelName = model.getModelName();
             String columnName = model.getColumnName();
@@ -77,7 +80,8 @@ public class ModelRepositoryImpl implements ModelRepository {
             boolean fix = model.isFix();
 
             // pre-process the execution
-            String exec = String.format("UPDATE MODEL SET modelName = \'%s\', columnName = \'%s\', weight = %d, maxPoint = %d, addPoint = %b, extraBonus = %b, fix = %b WHERE modelId = %d;",
+            String exec = String.format("UPDATE MODEL SET userId = %d, modelName = \'%s\', columnName = \'%s\', weight = %d, maxPoint = %d, addPoint = %b, extraBonus = %b, fix = %b WHERE modelId = %d;",
+                    userId,
                     modelName,
                     columnName,
                     weight,
@@ -96,14 +100,14 @@ public class ModelRepositoryImpl implements ModelRepository {
     }
 
     @Override
-    public List<Model> findAll() {
+    public List<Model> findByUserId(int userId) {
         List<Model> models = new ArrayList<>();
 
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = "SELECT * FROM MODEL";
+            String exec = String.format("SELECT * FROM MODEL WHERE userId = %d", userId);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
@@ -111,13 +115,14 @@ public class ModelRepositoryImpl implements ModelRepository {
 
             while (rs.next()) {
                 Model model = new Model(rs.getInt(1),
-                        rs.getString(2),
+                        rs.getInt(2),
                         rs.getString(3),
-                        rs.getInt(4),
+                        rs.getString(4),
                         rs.getInt(5),
-                        rs.getBoolean(6),
+                        rs.getInt(6),
                         rs.getBoolean(7),
-                        rs.getBoolean(8));
+                        rs.getBoolean(8),
+                        rs.getBoolean(9));
                 models.add(model);
             }
         } catch (Exception ex) {
@@ -128,14 +133,14 @@ public class ModelRepositoryImpl implements ModelRepository {
     }
 
     @Override
-    public List<Model> findByModelName(String modelName) {
+    public List<Model> findByUserIdAndModelName(int userId, String modelName) {
         List<Model> models = new ArrayList<>();
 
         try {
             conn = AppConf.getConnection();
 
             // pre-process the execution
-            String exec = String.format("SELECT * FROM MODEL WHERE modelName = \'%s\';", modelName);
+            String exec = String.format("SELECT * FROM MODEL WHERE userId = %d AND modelName = \'%s\';", userId, modelName);
             pst = conn.prepareStatement(exec);
 
             // execute the operation
@@ -143,13 +148,14 @@ public class ModelRepositoryImpl implements ModelRepository {
 
             while (rs.next()) {
                 Model model = new Model(rs.getInt(1),
-                        rs.getString(2),
+                        rs.getInt(2),
                         rs.getString(3),
-                        rs.getInt(4),
+                        rs.getString(4),
                         rs.getInt(5),
-                        rs.getBoolean(6),
+                        rs.getInt(6),
                         rs.getBoolean(7),
-                        rs.getBoolean(8));
+                        rs.getBoolean(8),
+                        rs.getBoolean(9));
                 models.add(model);
             }
         } catch (Exception ex) {
@@ -175,13 +181,14 @@ public class ModelRepositoryImpl implements ModelRepository {
 
             while (rs.next()) {
                 model = new Model(rs.getInt(1),
-                        rs.getString(2),
+                        rs.getInt(2),
                         rs.getString(3),
-                        rs.getInt(4),
+                        rs.getString(4),
                         rs.getInt(5),
-                        rs.getBoolean(6),
+                        rs.getInt(6),
                         rs.getBoolean(7),
-                        rs.getBoolean(8));
+                        rs.getBoolean(8),
+                        rs.getBoolean(9));
             }
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -9,9 +9,9 @@ public interface ModelRepository {
 
     void update(Model model);
 
-    List<Model> findAll();
+    List<Model> findByUserId(int userId);
 
-    List<Model> findByModelName(String modelName);
+    List<Model> findByUserIdAndModelName(int userId, String modelName);
 
     Model findByModelId(int modelId);
 

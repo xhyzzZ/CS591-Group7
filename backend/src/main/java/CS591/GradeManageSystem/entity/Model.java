@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class Model {
 
     private int modelId;
+    private int userId;
     private String modelName;
     private String columnName;
     private int weight;
@@ -18,7 +19,8 @@ public class Model {
     private boolean extraBonus;
     private boolean fix;
 
-    public Model(String modelName, String columnName, int weight, int maxPoint, boolean addPoint, boolean extraBonus, boolean fix) {
+    public Model(int userId, String modelName, String columnName, int weight, int maxPoint, boolean addPoint, boolean extraBonus, boolean fix) {
+        this.userId = userId;
         this.modelName = modelName;
         this.columnName = columnName;
         this.weight = weight;

@@ -29,5 +29,5 @@ public class Constants {
 
     public static final String LOADFAILED = "Load failed.";
 
-
+    public static final String OUTPUTCSVPATH = "";
 }

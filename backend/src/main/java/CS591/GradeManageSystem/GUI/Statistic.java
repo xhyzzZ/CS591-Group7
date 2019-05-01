@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 public class Statistic extends JPanel{
 	private JLabel label=new JLabel("Statistics:");
-	private JComboBox chooseHW=new JComboBox();
+	private JComboBox chooseHW = new JComboBox();
 	private JButton cal=new JButton("Calculate");
 	private JButton back=new JButton("back");
 	

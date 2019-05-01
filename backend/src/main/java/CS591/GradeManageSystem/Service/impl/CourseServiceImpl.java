@@ -32,7 +32,7 @@ public class CourseServiceImpl implements CS591.GradeManageSystem.Service.Course
 
     @Override
     public Course createCourse(int userId, String courseName, String year, String type, String modelName) {
-        List<Model> models = modelRepository.findByModelName(modelName);
+        List<Model> models = modelRepository.findByUserIdAndModelName(userId, modelName);
         Course course = new Course(userId, courseName, year, type, true);
         courseRepository.save(course);
         models.sort(Comparator.comparingInt(Model::getModelId));

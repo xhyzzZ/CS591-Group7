@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class AddNewAssignment extends JPanel{
-	private JLabel addassignmentLabel, assignmentnameLabel, percentLabel, maximumLabel, deductpointLabel;
+	private JLabel addassignmentLabel,extralabel ,totalPercentLabel, assignmentnameLabel, percentLabel, maximumLabel, deductpointLabel;
 	private JTextField assignmentField, percentField, maximumField;
 	private JCheckBox pointBox;
 
@@ -41,6 +41,10 @@ public class AddNewAssignment extends JPanel{
 		percentLabel.setFont(labelFont);
 		percentLabel.setVerticalAlignment(SwingConstants.CENTER);
 		percentLabel.setBounds(300, 225, 200, 50);
+		extralabel = new JLabel("Extra Bonus?");
+		extralabel.setFont(labelFont);
+		extralabel.setVerticalAlignment(SwingConstants.CENTER);
+		extralabel.setBounds(300, 360, 200, 50);
 
 		maximumLabel = new JLabel("Maximum Points:");
 		maximumLabel.setFont(labelFont);
@@ -60,13 +64,22 @@ public class AddNewAssignment extends JPanel{
 		percentField.setToolTipText("Enter Precent in total criterion");
 		percentField.setBounds(500, 240, 130, 40);
 
+		totalPercentLabel = new JLabel("Current total: 0%");
+		totalPercentLabel.setFont(labelFont);
+		totalPercentLabel.setVerticalAlignment(SwingConstants.CENTER);
+		totalPercentLabel.setBounds(650, 240, 200, 40);
+
 		maximumField = new JTextField();
-		maximumField.setToolTipText("Enter maxmum points");
+		maximumField.setToolTipText("Enter maximum points");
 		maximumField.setBounds(500, 290, 130, 40);
 
 		pointBox = new JCheckBox("");
 		pointBox.setVerticalAlignment(SwingConstants.CENTER);
 		pointBox.setBounds(530, 325, 200, 50);
+
+		bounsBox = new JCheckBox("");
+		bounsBox.setVerticalAlignment(SwingConstants.CENTER);
+		bounsBox.setBounds(530, 360, 200, 50);
 
 		confirmButton = new JButton("Confirm");
 		confirmButton.setBounds(300, 400, 150, 50);
@@ -83,8 +96,11 @@ public class AddNewAssignment extends JPanel{
 		this.add(percentField);
 		this.add(maximumField);
 		this.add(pointBox);
+		this.add(bounsBox);
 		this.add(confirmButton);
 		this.add(cancelButton);
+		this.add(totalPercentLabel);
+		this.add(extralabel);
 
 
 	}
@@ -109,6 +125,8 @@ public class AddNewAssignment extends JPanel{
 		return this.deductpointLabel;
 	}
 
+	public JLabel getTotalPercentLabel() { return this.totalPercentLabel; }
+
 	public String getassignmentField() {
 		return this.assignmentField.getText();
 	}
@@ -123,6 +141,9 @@ public class AddNewAssignment extends JPanel{
 
 	public JCheckBox getpointBox() {
 		return this.pointBox;
+	}
+	public JCheckBox getextraBox() {
+		return this.bounsBox;
 	}
 
 	public JButton getConfirmButton() {

@@ -13,11 +13,10 @@ public class AddNewCourse1 extends JPanel{
 	private JLabel semester=new JLabel("Semester");
 	private JLabel importFile = new JLabel("Import File:");
 	private JLabel importModule1=new JLabel("Import Module:");
-	private JComboBox semesterBox =new JComboBox(new String[]{"Spring", "Fall"});;
-	private JComboBox importModule=new JComboBox(new String[]{"Default"});
+	private JComboBox semesterBox =new JComboBox(new String[]{"Spring", "Fall", "Summer"});;
+	private JComboBox importModule = new JComboBox();
 	private JPanel p;
 	private static Font labelFont = new Font("Dialog", Font.PLAIN, 20);
-	private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);
 
 	public AddNewCourse1(JPanel p){
 		super(null);
@@ -86,21 +85,6 @@ public class AddNewCourse1 extends JPanel{
 
 		importModule.setBounds(460, 450, 200, 50);
 
-		//this.add(courseID1);
-		//this.add(courseID);
-		//this.add(courseName1);
-		//this.add(courseName);
-		//this.add(courseYear1);
-		//this.add(courseYear);
-		//this.add(importFile);
-		//this.add(cancel);
-		//this.add(confirm);
-		//this.add(importModule);
-		//this.add(semester);
-		//this.add(semesterBox);
-		//this.add(importModule1);
-		//this.setResizable(false);
-		// this.setDefaultCloseOperation(JPanel.EXIT_ON_CLOSE);
 		this.setLayout(new GridLayout(2,2));
 		Panel  p1=new Panel();
 		p1.setLayout(new GridLayout(7,3));
@@ -143,6 +127,11 @@ public class AddNewCourse1 extends JPanel{
 
 	public JComboBox getImportModule() {
 		return this.importModule;
+	}
+
+	public void setImportModule(String[] models) {
+		DefaultComboBoxModel model = new DefaultComboBoxModel(models);
+		this.getImportModule().setModel(model);
 	}
 
 	public JButton getConfirmButton() {
