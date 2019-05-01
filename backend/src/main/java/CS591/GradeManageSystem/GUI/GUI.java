@@ -11,21 +11,21 @@ import java.util.*;
 import java.util.List;
 
 public class GUI extends JFrame{
-	private Login loginPanel = new Login();
-	private Register registerPanel = new Register();
-	private Dashboard dashboardPanel = new Dashboard();
-	private AddNewAssignment assignmentPanel= new AddNewAssignment();
-	private AddNewCourse1 addcoursePanel = new AddNewCourse1(dashboardPanel.getcoursePanel());
-	private Statistic staPanel = new Statistic();
-	private UpdateAssignment updateAssignment = new UpdateAssignment();
+	private static Login loginPanel = new Login();
+	private static Register registerPanel = new Register();
+	private static Dashboard dashboardPanel = new Dashboard();
+	private static AddNewAssignment assignmentPanel= new AddNewAssignment();
+	private static AddNewCourse1 addcoursePanel = new AddNewCourse1(dashboardPanel.getcoursePanel());
+	private static Statistic staPanel = new Statistic();
+	private static UpdateAssignment updateAssignment = new UpdateAssignment();
 
-	private UserServiceImpl userServiceImpl = new UserServiceImpl();
-	private CourseServiceImpl courseServiceImpl = new CourseServiceImpl();
-	private AssignmentServiceImpl assignmentServiceImpl = new AssignmentServiceImpl();
-	private StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
-	private UnitServiceimpl unitServiceimpl = new UnitServiceimpl();
-	private ModelServiceImpl modelService = new ModelServiceImpl();
-	private StatisticsServiceImpl statisticsService = new StatisticsServiceImpl();
+	private static UserServiceImpl userServiceImpl = new UserServiceImpl();
+	private static CourseServiceImpl courseServiceImpl = new CourseServiceImpl();
+	private static AssignmentServiceImpl assignmentServiceImpl = new AssignmentServiceImpl();
+	private static StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
+	private static UnitServiceimpl unitServiceimpl = new UnitServiceimpl();
+	private static ModelServiceImpl modelService = new ModelServiceImpl();
+	private static StatisticsServiceImpl statisticsService = new StatisticsServiceImpl();
 
 	// current login user
 	private static User currentUser = null;
@@ -54,7 +54,7 @@ public class GUI extends JFrame{
 	private JFrame frame;
 
 	private DefaultTableModel dd;
-	private ManagementInterface managePage;
+	private static ManagementInterface managePage;
 
 	public static void main(String[] args) {
 		new GUI();
@@ -589,34 +589,55 @@ public class GUI extends JFrame{
 		});
 	}
 
-	public void update(JButton name, Course cs) {
+	public static void update(JButton name, Course cs) {
 		assignments = assignmentServiceImpl.getAssignments(cs.getCourseId());
 		students = studentServiceImpl.getStudents(cs.getCourseId());
 		units = unitServiceimpl.getUnits(cs.getCourseId());
 
 		String[] as = assignmentServiceImpl.getAssignmentsName(cs.getCourseId());
 
-		String[][] us = unitServiceimpl.getUnitContents(cs.getCourseId());
+		String[][] us = getUnits();
 		managePage.update(name, as, us);
-
-		managePage.setVisible(true);
 	}
 
-	public void update(Course cs) {
+	public static void update(Course cs) {
 		assignments = assignmentServiceImpl.getAssignments(cs.getCourseId());
 		students = studentServiceImpl.getStudents(cs.getCourseId());
 		units = unitServiceimpl.getUnits(cs.getCourseId());
 
 		String[] as = assignmentServiceImpl.getAssignmentsName(cs.getCourseId());
 
-		String[][] us = unitServiceimpl.getUnitContents(cs.getCourseId());
+		String[][] us = getUnits();
 		managePage.update(as, us);
+		for (Student student : students) {
+			System.out.println(student.getStudentId());
+		}
+	}
 
-		managePage.setVisible(true);
+	public static String[][] getUnits() {
+		String[][] res = new String[students.size()][assignments.size()];
+		for (int i = 0; i < students.size(); i++) {
+			for (int j = 0; j < assignments.size(); j++) {
+				res[i][j] = unitServiceimpl.getUnit(assignments.get(j).getAssignmentId(),
+						students.get(i).getStudentId()).getContent();
+			}
+		}
+
+		return res;
 	}
 
 	public static String getNote(int r, int c) {
 		return units.get(assignments.get(c)).get(students.get(r)).getNote();
+	}
+
+	public static void sortByColumn(int c) {
+		Collections.sort(students, new Comparator<Student>() {
+			@Override
+			public int compare(Student o1, Student o2) {
+				return units.get(assignments.get(c)).get(o1).getContent().compareTo(units.get(assignments.get(c)).get(o2).getContent());
+			}
+		});
+		update(currentCourse);
 	}
 }
 

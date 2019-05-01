@@ -10,9 +10,9 @@ public interface UnitService {
 
     void update(Unit unit);
 
-    String[][] getUnitContents(int courseId);
-
     Map<Assignment, Map<Student, Unit>> getUnits(int courseId);
+
+    Unit getUnit(int assignmentId, int studentId);
 
     Unit createUnit(int courseId, int studentId, int assignmentId, String content, String note);
 

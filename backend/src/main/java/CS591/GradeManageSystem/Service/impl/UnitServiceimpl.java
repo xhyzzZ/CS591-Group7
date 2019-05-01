@@ -27,22 +27,6 @@ public class UnitServiceimpl implements UnitService {
     }
 
     @Override
-    public String[][] getUnitContents(int courseId) {
-        List<Assignment> assignments = assignmentRepository.findByCourseId(courseId);
-        List<Student> students = studentRepository.findByCourseId(courseId);
-
-        String[][] res = new String[students.size()][assignments.size()];
-        for (int i = 0; i < students.size(); i++) {
-            for (int j = 0; j < assignments.size(); j++) {
-                res[i][j] = unitRepository.findByAssignmentIdAndStudentId(assignments.get(j).getAssignmentId(),
-                        students.get(i).getStudentId()).getContent();
-            }
-        }
-
-        return res;
-    }
-
-    @Override
     public Map<Assignment, Map<Student, Unit>> getUnits(int courseId) {
 
         List<Unit> units = unitRepository.findByCourseId(courseId);
@@ -55,6 +39,11 @@ public class UnitServiceimpl implements UnitService {
         }
 
         return ret;
+    }
+
+    @Override
+    public Unit getUnit(int assignmentId, int studentId) {
+        return unitRepository.findByAssignmentIdAndStudentId(assignmentId, studentId);
     }
 
     @Override
