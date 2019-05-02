@@ -97,14 +97,22 @@ package GUI;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.util.Enumeration;
 import java.util.HashSet;
+import java.util.Vector;
 
 public class GUI extends JFrame{
 	private Login loginPanel= new Login();
@@ -113,7 +121,7 @@ public class GUI extends JFrame{
 	private AddNewAssignment assignmentPanel= new AddNewAssignment();
 	private AddNewCourse1 addcoursePanel= new AddNewCourse1(dashboardPanel.getcoursePanel());
 	private Statistic staPanel= new Statistic();
-	
+	private UpdateAssignment updateAssignmentPanel = new UpdateAssignment();
 	//!!!!!!
 	private JFrame frame;
 	
@@ -135,10 +143,16 @@ public class GUI extends JFrame{
 		     "Pool", new Integer(10), new Boolean(false)}
 		};
 	private DefaultTableModel dd;
-	private ManagementInterface managePage;
+	public static ManagementInterface managePage;
 	
 	
 	public static void main(String[] args) {
+		try { 
+	        //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
+			//UIManager.setLookAndFeel(
+		            //UIManager.getCrossPlatformLookAndFeelClassName());
+			UIManager.setLookAndFeel("com.pagosoft.plaf.PgsLookAndFeel");
+	    } catch(Exception ignored){}
 		new GUI();
 		Object a = 1;
 		int b= Integer.parseInt(a.toString());
@@ -151,7 +165,10 @@ public class GUI extends JFrame{
 		this.managePage=new ManagementInterface(dd,null);
 		
 		frame.setTitle("Welcome to Grading System!");
-		frame.setSize(1000, 800);
+		Toolkit tk  = Toolkit.getDefaultToolkit();
+		int x = ((int)tk.getScreenSize().getWidth());
+		int y = ((int)tk.getScreenSize().getHeight());
+		frame.setSize(x, y);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
@@ -164,7 +181,7 @@ public class GUI extends JFrame{
 		frame.add(addcoursePanel) ;
 		frame.add(managePage);
 		frame.add(staPanel);
-		
+		frame.add(updateAssignmentPanel);
 		loginPanel.setVisible(true);	
 		frame.setVisible(true);
 		
@@ -174,6 +191,8 @@ public class GUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				//check mima 
 				//if() {
+				//System.out.println(loginPanel.getUsernameField().getText());
+				dashboardPanel.setUser(loginPanel.getUsernameField().getText());
 				loginPanel.setVisible(false);
 				dashboardPanel.setVisible(true);
 				//else
@@ -258,7 +277,7 @@ public class GUI extends JFrame{
 		addcoursePanel.getOpenButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser c = new JFileChooser();
-				int rVal = c.showSaveDialog(GUI.this);
+				int rVal = c.showOpenDialog(GUI.this);
 				if(rVal == c.APPROVE_OPTION) {
 					String name = c.getSelectedFile().getName();
 					String dir = c.getCurrentDirectory().toString();
@@ -286,7 +305,7 @@ public class GUI extends JFrame{
 				int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to delete the student?");
 				if(t==0) { 
 					
-					 System.out.println(selRowIndexs.length);
+					 //System.out.println(selRowIndexs.length);
 		            for(int i=0;i<selRowIndexs.length;i++){  
 		            	//System.out.println(i+" "+selRowIndexs[i]);
 		        	  managePage.getd().removeRow(selRowIndexs[i]-i);
@@ -331,8 +350,8 @@ public class GUI extends JFrame{
 			           String[] n=new String[c-selcolIndexs.length]; 
 			           Object[][] o=new Object[r][c-selcolIndexs.length];
 			           for(int i=0;i<selcolIndexs.length;i++){
-			    h.add(selcolIndexs[i]);
-			    }
+			        	   h.add(selcolIndexs[i]);
+			           }
 			       
 			           for(int i=0,j=0;i<n.length;){
 			         
@@ -401,13 +420,28 @@ public class GUI extends JFrame{
 			}
 		});
 		
+		
+		managePage.getUpdateAssignment().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel d = managePage.getd();
+				int columncount = d.getColumnCount()-2;
+				String[] forCombo = new String[columncount];
+				for(int i=0, j=2;i<columncount;i++, j++) {
+					forCombo[i] = d.getColumnName(j);
+				}
+				updateAssignmentPanel.SetforCombo(forCombo);
+				managePage.setVisible(false);
+				updateAssignmentPanel.setVisible(true);
+			}
+		});
+		
 		managePage.getStatistic().addActionListener(new ActionListener() {
 			   public void actionPerformed(ActionEvent e) {
 			    managePage.setVisible(false);
 			    
 			    String[] forCombo;
 			     int colCount=managePage.getd().getColumnCount();
-			     System.out.println(colCount);
+			     //System.out.println(colCount);
 			      forCombo=new String[colCount-2];/////-5
 			      
 			      for(int i=0,j=2;j<colCount;i++,j++) {
@@ -456,7 +490,7 @@ public class GUI extends JFrame{
 			    
 			   
 			  }});
-		
+		/*
 		managePage.getsavesheetButton().addActionListener(new ActionListener() {
 			   public void actionPerformed(ActionEvent e) {
 			    DefaultTableModel m = managePage.getd();
@@ -478,6 +512,7 @@ public class GUI extends JFrame{
 			    
 			    
 			  }});
+		*/
 		
 		managePage.getexitButton().addActionListener(new ActionListener() {
 			   public void actionPerformed(ActionEvent e) {
@@ -503,12 +538,122 @@ public class GUI extends JFrame{
 			  }
 			   });
 		
+		managePage.getaddNote().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//int colIndex = managePage.getTable().getSelectedColumn();
+				//int rowIndex = managePage.getTable().getSelectedRow();
+				int rowcount = managePage.getd().getRowCount();
+				int colcount = managePage.getd().getColumnCount();
+				Vector<Vector> v = managePage.getd().getDataVector();
+				boolean[] s = new boolean[rowcount];
+				//System.out.println(colIndex + " " + rowIndex);
+				//System.out.println(rowcount + " " + rowcount);
+				
+//				if(colIndex == -1 || rowIndex == -1) {
+//					JOptionPane.showMessageDialog(managePage, "Please select the cell first!");
+//				}
+//				else {
+					//String note = managePage.getTa().getText();
+//					if(note==null) {
+//						
+//					}
+					String note = managePage.getTa().getText();
+					//String note = JOptionPane.showInputDialog(managePage, "Note you want to add:");
+					
+					///// !!!!!!!!! 返回给后台
+					//return note, row, column
+				//}
+				
+				//for(int i=0;i<rowcount;i++) {
+					//s[i] = managePage.getd().getColumnName(i);
+				//}
+				//System.out.println(s);
+				Enumeration<TableColumn> kk = managePage.getTable().getColumnModel().getColumns();
+				//TableCellRenderer renderer = new TableCellRenderer();
+				//@Override
+				
+				DefaultTableCellRenderer tcr = new DefaultTableCellRenderer() {
+					//public void setValue
+					public Component getTableCellRendererComponent(JTable table, Object value,
+					    boolean isSelected, boolean hasFocus, int row, int column) {
+						table = managePage.getTable();
+						table.setFillsViewportHeight(true);
+						setOpaque(true);
+						Component cell = super.getTableCellRendererComponent (table, value, isSelected, hasFocus, row, column);
+						for(int i=0;i<table.getRowCount();i++) {
+							cell = super.getTableCellRendererComponent (table, value, isSelected, hasFocus, i, i);
+							cell.setBackground(Color.RED);
+						}
+//						Component cell = super.getTableCellRendererComponent (table, value, isSelected, hasFocus, row, column);
+//						if(row==1 && column==1 && cell.isBackgroundSet()  ) {//设置变色的单元格
+//							cell.setBackground(Color.RED);
+//							//s[rowIndex] = true;
+//						}
+//						else if(row==2 && column==2 && cell.isBackgroundSet()  ) {//设置变色的单元格
+//							cell.setBackground(Color.RED);
+//							//s[rowIndex] = true;
+//						}
+//						
+//						else if(cell.getBackground()!=Color.RED){
+//							cell.setBackground(Color.LIGHT_GRAY);
+//						}
+							//cell.setBackground(Color.LIGHT_GRAY);
+							//cell.setBackground(rowIndex % 2 == 0 ? getBackground() : Color.LIGHT_GRAY);
+						
+						return cell;
+					}
+				};
+				
+		
+				for(int i = 0;i<colcount;i++) {
+					managePage.getTable().getColumn(managePage.getTable().getColumnName(i)).setCellRenderer(tcr);
+				}
+				
+			}
+		});
+		
+		
+		managePage.getSaveMenuItem().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			    DefaultTableModel m = managePage.getd();
+			    int r=m.getRowCount();
+			    int c=m.getColumnCount();
+			    String[] colName=new String[c];
+			    Object[][] tab=new Object[r][c];
+			    for(int i=0;i<c;i++) {
+			     colName[i]=m.getColumnName(i);
+			     //System.out.println(colName[i]);
+			     }    
+			    for(int i=0;i<r;i++) {
+			     for(int j=0;j<c;j++) {
+			                    tab[i][j]=m.getValueAt(i, j);
+			    }
+			            
+			   }
+			    ///return tab, colName
+			    
+			    
+			  }
+		});
+		
+		managePage.getdeleteMenuItem().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to delete this whole table? ");
+				if(t==0) {
+					dashboardPanel.getcoursePanel().remove(managePage.getb());
+					managePage.setVisible(false);
+					dashboardPanel.setVisible(true);
+				}
+			}
+		});
+		
+		
 		staPanel.getBackButton().addActionListener(new ActionListener() {
 			   public void actionPerformed(ActionEvent e) {
 			    staPanel.setVisible(false);
 			    managePage.setVisible(true);
 			    
-			   }});
+		}});
 			 
 		staPanel.getCalButton().addActionListener(new ActionListener() {
 			   public void actionPerformed(ActionEvent e) {     
@@ -517,23 +662,48 @@ public class GUI extends JFrame{
 			        String t=staPanel.getchooseHW().getSelectedItem().toString();       
 			       // !!!!!!!
 			        int c=staPanel.getchooseHW().getSelectedIndex()+2; //+5 default
-			        int[] data=new int[rowCount];
+			        double[] data=new double[rowCount];
 			        for(int i=0;i<rowCount;i++){
 			         if(model.getValueAt(i, c)==null)
 			          data[i]=0;
 			         else
-			         data[i]=Integer.parseInt(model.getValueAt(i, c).toString());    
+			         data[i]=Double.parseDouble(model.getValueAt(i, c).toString());    
 			        }
 			        
-			        int test=0;
+			        double test=0;
 			        for(int j=0;j<2;j++)
 			         test+=data[j];
-			        JOptionPane.showMessageDialog(staPanel,t+"'s "+test/2+"Statistic:\nMean:\nMedian:\nStdDev:\nHighest\nLowest:\n");
+			        JOptionPane.showMessageDialog(staPanel,t+"'s "+test/2+"\n" + "Statistic:\nMean:\nMedian:\nStdDev:\nHighest\nLowest:\n");
 			  
 			   }
 			   
 			  });
 		
+		updateAssignmentPanel.getConfirmButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel d = managePage.getd();
+				int rowcount = d.getRowCount();
+				
+				
+				//!!!!!!+5
+				int index = updateAssignmentPanel.getchooseHwBox().getSelectedIndex() + 2;     
+				//System.out.println(index);
+				String weight = updateAssignmentPanel.getpercentField().getText();
+				String max = updateAssignmentPanel.getmaximumField().getText();
+				boolean deduct = updateAssignmentPanel.getpointBox().isSelected();
+				
+				updateAssignmentPanel.setVisible(false);
+				managePage.setVisible(true);
+				//return index, changed weight, max, deduct. 
+			}
+		});
+		
+		updateAssignmentPanel.getCancelButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				updateAssignmentPanel.setVisible(false);
+				managePage.setVisible(true);
+			}
+		});
 		
 		assignmentPanel.getConfirmButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
@@ -541,7 +711,13 @@ public class GUI extends JFrame{
 				// add colomn name
 				
 				DefaultTableModel tableModel = managePage.getd();
-				tableModel.addColumn(assignmentPanel.getassignmentField().getText());
+				boolean x = assignmentPanel.getpointBox().isSelected();
+				if(x) {
+					tableModel.addColumn(assignmentPanel.getassignmentField().getText() + " (Max:" + assignmentPanel.getmaximumField().getText() + "/" + assignmentPanel.getpercentField().getText() + "% " + "/'-')");
+				}
+				else {
+					tableModel.addColumn(assignmentPanel.getassignmentField().getText() + " (Max:" + assignmentPanel.getmaximumField().getText() + "/" + assignmentPanel.getpercentField().getText() + "% " + "/'+')");
+				}
 				managePage.setVisible(true);
 			}
 		});

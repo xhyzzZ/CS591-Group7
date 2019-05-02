@@ -12,9 +12,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class AddNewAssignment extends JPanel{
-	private JLabel addassignmentLabel, assignmentnameLabel, percentLabel, maximumLabel, deductpointLabel;
+	private JLabel addassignmentLabel, assignmentnameLabel, extraBonusLabel, percentLabel, maximumLabel, deductpointLabel;
 	private JTextField assignmentField, percentField, maximumField;
 	private JCheckBox pointBox;
+	private JCheckBox extraBonusBox;
 	private JButton confirmButton, cancelButton;
 	private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);
 	private static Font labelFont = new Font("Dialog", Font.ITALIC, 14);
@@ -38,6 +39,11 @@ public class AddNewAssignment extends JPanel{
 		percentLabel.setFont(labelFont);
 		percentLabel.setVerticalAlignment(SwingConstants.CENTER);
 		percentLabel.setBounds(300, 225, 200, 50);
+		
+		extraBonusLabel = new JLabel("Extra Bonus?");
+		extraBonusLabel.setFont(labelFont);
+		extraBonusLabel.setVerticalAlignment(SwingConstants.CENTER);
+		extraBonusLabel.setBounds(300, 375, 200, 50);
 		
 		maximumLabel = new JLabel("Maximum Points:");
 		maximumLabel.setFont(labelFont);
@@ -65,6 +71,10 @@ public class AddNewAssignment extends JPanel{
 		pointBox.setVerticalAlignment(SwingConstants.CENTER);
 		pointBox.setBounds(530, 325, 200, 50);
 		
+		extraBonusBox = new JCheckBox("");
+		extraBonusBox.setVerticalAlignment(SwingConstants.CENTER);
+		extraBonusBox.setBounds(530, 375, 200, 50);
+		
 		confirmButton = new JButton("Confirm");
 		confirmButton.setBounds(300, 400, 150, 50);
 		
@@ -80,6 +90,8 @@ public class AddNewAssignment extends JPanel{
 		this.add(percentField);
 		this.add(maximumField);
 		this.add(pointBox);
+		this.add(extraBonusLabel);
+		this.add(extraBonusBox);
 		this.add(confirmButton);
 		this.add(cancelButton);
 		
