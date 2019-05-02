@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class UpdateAssignment extends JPanel  {
+public class UpdateAssignment extends JPanel {
     private JLabel chooseassignmentLabel, addassignmentLabel, assignmentnameLabel, percentLabel, maximumLabel, deductpointLabel;
     private JTextField assignmentField, percentField, maximumField;
     private JCheckBox pointBox;
@@ -19,7 +19,7 @@ public class UpdateAssignment extends JPanel  {
     private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);
     private static Font labelFont = new Font("Dialog", Font.ITALIC, 14);
 
-    public UpdateAssignment(){
+    public UpdateAssignment() {
 
         super(null);
 
