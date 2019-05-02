@@ -28,68 +28,68 @@ public class UpdateAssignment extends JPanel  {
 		
 		addassignmentLabel = new JLabel("Update Assignment");
 		addassignmentLabel.setFont(labelFont_big);
-		addassignmentLabel.setBounds(370, 50, 300, 50);
+		addassignmentLabel.setBounds(550, 100, 300, 50);
 		addassignmentLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		addassignmentLabel.setVerticalAlignment(SwingConstants.CENTER);
 		
 		chooseassignmentLabel = new JLabel("Choose Assignment");
 		chooseassignmentLabel.setFont(labelFont);
 		chooseassignmentLabel.setVerticalAlignment(SwingConstants.CENTER);
-		chooseassignmentLabel.setBounds(300, 125, 240, 50);
+		chooseassignmentLabel.setBounds(520, 175, 240, 50);
 		
-		assignmentnameLabel = new JLabel("Assignment Name:");
-		assignmentnameLabel.setFont(labelFont);
-		assignmentnameLabel.setVerticalAlignment(SwingConstants.CENTER);
-		assignmentnameLabel.setBounds(300, 175, 240, 50);
+//		assignmentnameLabel = new JLabel("Assignment Name:");
+//		assignmentnameLabel.setFont(labelFont);
+//		assignmentnameLabel.setVerticalAlignment(SwingConstants.CENTER);
+//		assignmentnameLabel.setBounds(520, 225, 240, 50);
 		
 		percentLabel = new JLabel("Percent in total criterion:");
 		percentLabel.setFont(labelFont);
 		percentLabel.setVerticalAlignment(SwingConstants.CENTER);
-		percentLabel.setBounds(300, 225, 200, 50);
+		percentLabel.setBounds(520, 225, 200, 50);
 		
 		maximumLabel = new JLabel("Maximum Points:");
 		maximumLabel.setFont(labelFont);
 		maximumLabel.setVerticalAlignment(SwingConstants.CENTER);
-		maximumLabel.setBounds(300, 275, 200, 50);
+		maximumLabel.setBounds(520, 275, 200, 50);
 		
 		deductpointLabel = new JLabel("Deduct points or not:");
 		deductpointLabel.setFont(labelFont);
 		deductpointLabel.setVerticalAlignment(SwingConstants.CENTER);
-		deductpointLabel.setBounds(300, 325, 200, 50);
+		deductpointLabel.setBounds(520, 325, 200, 50);
 		
-		assignmentField = new JTextField();
-		assignmentField.setToolTipText("Enter assignment name");
-		assignmentField.setBounds(500, 175, 130, 40);
+//		assignmentField = new JTextField();
+//		assignmentField.setToolTipText("Enter assignment name");
+//		assignmentField.setBounds(750, 240, 130, 40);
 		
 		percentField = new JTextField();
 		percentField.setToolTipText("Enter Precent in total criterion");
-		percentField.setBounds(500, 240, 130, 40);
+		percentField.setBounds(750, 225, 130, 40);
 		
 		maximumField = new JTextField();
 		maximumField.setToolTipText("Enter maxmum points");
-		maximumField.setBounds(500, 290, 130, 40);
+		maximumField.setBounds(750, 275, 130, 40);
 		
 		pointBox = new JCheckBox("");
 		pointBox.setVerticalAlignment(SwingConstants.CENTER);
-		pointBox.setBounds(530, 325, 200, 50);
+		pointBox.setBounds(780, 325, 200, 50);
 		
 		chooseHwBox = new JComboBox();
 		//chooseHwBox.setVerticalAlignment(SwingConstants.CENTER);
-		chooseHwBox.setBounds(530, 125, 200, 50);
+		chooseHwBox.setBounds(750, 175, 130, 40);
 		
 		confirmButton = new JButton("Confirm");
-		confirmButton.setBounds(300, 400, 150, 50);
+		confirmButton.setBounds(530, 400, 130, 100);
 		
 		cancelButton = new JButton("Cancel");
-		cancelButton.setBounds(500, 400, 150, 50);
+		cancelButton.setBounds(780, 400, 130, 100);
 		
 		this.add(addassignmentLabel);
 		this.add(chooseassignmentLabel);
-		this.add(assignmentnameLabel);
+		//this.add(assignmentnameLabel);
 		this.add(percentLabel);
 		this.add(maximumLabel);
 		this.add(deductpointLabel);
-		this.add(assignmentField);
+		//this.add(assignmentField);
 		this.add(percentField);
 		this.add(maximumField);
 		this.add(pointBox);

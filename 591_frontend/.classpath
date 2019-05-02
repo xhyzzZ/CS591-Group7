@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Users/zhukaikang/Downloads/PgsLookAndFeel-1.1.2/pgslookandfeel-1.1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

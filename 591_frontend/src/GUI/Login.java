@@ -53,12 +53,12 @@ public class Login extends JPanel{
 		usernameLabel = new JLabel("Username:");
 		usernameLabel.setFont(labelFont);
 		usernameLabel.setVerticalAlignment(SwingConstants.CENTER);
-		usernameLabel.setBounds(570, 300, 200, 100);
+		usernameLabel.setBounds(560, 300, 200, 100);
 		
 		passwordLabel = new JLabel("Password:");
 		passwordLabel.setFont(labelFont);
 		passwordLabel.setVerticalAlignment(SwingConstants.CENTER);
-		passwordLabel.setBounds(570, 400, 200, 50);
+		passwordLabel.setBounds(560, 400, 200, 50);
 		
 //		imageLabel = new JLabel(new ImageIcon("/Users/zhukaikang/eclipse-workspace/591_frontend/src/img/Login.png"));
 //		imageLabel.setBounds(100, 100, 100, 100);

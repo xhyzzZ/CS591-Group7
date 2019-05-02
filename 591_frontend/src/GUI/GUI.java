@@ -100,6 +100,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -147,13 +148,18 @@ public class GUI extends JFrame{
 	
 	
 	public static void main(String[] args) {
-		try { 
-	        //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
-			//UIManager.setLookAndFeel(
-		            //UIManager.getCrossPlatformLookAndFeelClassName());
-			UIManager.setLookAndFeel("com.pagosoft.plaf.PgsLookAndFeel");
-	    } catch(Exception ignored){}
-		new GUI();
+//		try { 
+//	        //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
+//			//UIManager.setLookAndFeel(
+//		            //UIManager.getCrossPlatformLookAndFeelClassName());
+//	    } catch(Exception ignored){}
+		//new GUI();
+        try {
+        	UIManager.setLookAndFeel("com.pagosoft.plaf.PgsLookAndFeel");
+        	// Is your UI already created? So you will have to update the component-tree
+        	// of your current frame (or actually all of them...)
+        	SwingUtilities.updateComponentTreeUI(new GUI());
+        } catch(Exception e) { /* Most of the time you're just going to ignore it */ }
 		Object a = 1;
 		int b= Integer.parseInt(a.toString());
 		//System.out.println(b+b);
@@ -299,7 +305,7 @@ public class GUI extends JFrame{
 		managePage.deletestudentButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int[] selRowIndexs=managePage.getTable().getSelectedRows();
-				System.out.println(selRowIndexs.length);
+				//System.out.println(selRowIndexs.length);
 				if(selRowIndexs==null||selRowIndexs.length==0) JOptionPane.showMessageDialog(managePage, "Please select student first!");
 				else{
 				int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to delete the student?");
@@ -572,42 +578,42 @@ public class GUI extends JFrame{
 				//TableCellRenderer renderer = new TableCellRenderer();
 				//@Override
 				
-				DefaultTableCellRenderer tcr = new DefaultTableCellRenderer() {
-					//public void setValue
-					public Component getTableCellRendererComponent(JTable table, Object value,
-					    boolean isSelected, boolean hasFocus, int row, int column) {
-						table = managePage.getTable();
-						table.setFillsViewportHeight(true);
-						setOpaque(true);
-						Component cell = super.getTableCellRendererComponent (table, value, isSelected, hasFocus, row, column);
-						for(int i=0;i<table.getRowCount();i++) {
-							cell = super.getTableCellRendererComponent (table, value, isSelected, hasFocus, i, i);
-							cell.setBackground(Color.RED);
-						}
+//				DefaultTableCellRenderer tcr = new DefaultTableCellRenderer() {
+//					//public void setValue
+//					public Component getTableCellRendererComponent(JTable table, Object value,
+//					    boolean isSelected, boolean hasFocus, int row, int column) {
+//						table = managePage.getTable();
+//						table.setFillsViewportHeight(true);
+//						setOpaque(true);
 //						Component cell = super.getTableCellRendererComponent (table, value, isSelected, hasFocus, row, column);
-//						if(row==1 && column==1 && cell.isBackgroundSet()  ) {//设置变色的单元格
+//						for(int i=0;i<table.getRowCount();i++) {
+//							cell = super.getTableCellRendererComponent (table, value, isSelected, hasFocus, i, i);
 //							cell.setBackground(Color.RED);
-//							//s[rowIndex] = true;
 //						}
-//						else if(row==2 && column==2 && cell.isBackgroundSet()  ) {//设置变色的单元格
-//							cell.setBackground(Color.RED);
-//							//s[rowIndex] = true;
-//						}
+////						Component cell = super.getTableCellRendererComponent (table, value, isSelected, hasFocus, row, column);
+////						if(row==1 && column==1 && cell.isBackgroundSet()  ) {//设置变色的单元格
+////							cell.setBackground(Color.RED);
+////							//s[rowIndex] = true;
+////						}
+////						else if(row==2 && column==2 && cell.isBackgroundSet()  ) {//设置变色的单元格
+////							cell.setBackground(Color.RED);
+////							//s[rowIndex] = true;
+////						}
+////						
+////						else if(cell.getBackground()!=Color.RED){
+////							cell.setBackground(Color.LIGHT_GRAY);
+////						}
+//							//cell.setBackground(Color.LIGHT_GRAY);
+//							//cell.setBackground(rowIndex % 2 == 0 ? getBackground() : Color.LIGHT_GRAY);
 //						
-//						else if(cell.getBackground()!=Color.RED){
-//							cell.setBackground(Color.LIGHT_GRAY);
-//						}
-							//cell.setBackground(Color.LIGHT_GRAY);
-							//cell.setBackground(rowIndex % 2 == 0 ? getBackground() : Color.LIGHT_GRAY);
-						
-						return cell;
-					}
-				};
+//						return cell;
+			
+				//};
 				
 		
-				for(int i = 0;i<colcount;i++) {
-					managePage.getTable().getColumn(managePage.getTable().getColumnName(i)).setCellRenderer(tcr);
-				}
+//				for(int i = 0;i<colcount;i++) {
+//					managePage.getTable().getColumn(managePage.getTable().getColumnName(i)).setCellRenderer(tcr);
+//				}
 				
 			}
 		});
@@ -647,6 +653,13 @@ public class GUI extends JFrame{
 			}
 		});
 		
+		managePage.getcloseCourseMenuItem().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int t=JOptionPane.showConfirmDialog(managePage,"Are you sure to close this course? If yes the data will be read-only!");
+				if(t==0)
+					managePage.getTable().setEnabled(false);
+			}
+		});
 		
 		staPanel.getBackButton().addActionListener(new ActionListener() {
 			   public void actionPerformed(ActionEvent e) {

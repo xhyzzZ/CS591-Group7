@@ -195,7 +195,7 @@ public class ManagementInterface extends MyPanel {
 //       
         scrollPane.add(managementTable);
         scrollPane.revalidate();
-   		managementPanel.setBounds(100, 100, 800, 500);
+   		managementPanel.setBounds(50, 50, 1000, 600);
    		managementPanel.setLayout(new BorderLayout());
    		//this.setLayout(new BorderLayout());
    		managementPanel.add(scrollPane, BorderLayout.CENTER);
@@ -250,13 +250,13 @@ public class ManagementInterface extends MyPanel {
 		updateAssignment = new JButton("Update Assignment");
 		
 		addNote = new JButton("Add Note");
-		addNote.setBounds(560, 660, 450, 100);
+		addNote.setBounds(1080, 600, 100, 70);
 		ta = new JTextArea();
-		ta.setBounds(100, 660, 450, 100);
+		ta.setBounds(1200, 600, 200, 200);
 		ta.setText("aaa"+"\n"+"ppp");
 		
 		noteLabel = new JLabel("Note:");
-		noteLabel.setBounds(50, 600, 50, 150);
+		noteLabel.setBounds(1100, 600, 50, 150);
 		noteLabel.setVerticalAlignment(SwingConstants.CENTER);
 		
 		menuBar = new JMenuBar();
@@ -292,8 +292,8 @@ public class ManagementInterface extends MyPanel {
 		p2.add(saveasmodelButton);
 		p2.add(savesheetButton);
 		
-		p1.setBounds(800,100,150,450);
-		p2.setBounds(380, 700, 600, 100);
+		p1.setBounds(1200,100,150,450);
+		p2.setBounds(400, 680, 600, 100);
 		this.add(p1);
 		this.add(p2);
 		this.add(addNote);
@@ -403,7 +403,7 @@ public class ManagementInterface extends MyPanel {
 	}
 	
 	public void update(JButton nb) {
-		System.out.println("aasdffhh");
+		//System.out.println("aasdffhh");
 		String[] cc = {"First Name",
 	             "Last Name","test","test1"
 	           };

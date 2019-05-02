@@ -1,4 +1,6 @@
 package GUI;
+import java.awt.Font;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -10,8 +12,13 @@ public class Statistic extends JPanel{
 	private JComboBox chooseHW=new JComboBox();
 	private JButton cal=new JButton("Calculate");
 	private JButton back=new JButton("back");
+	private static Font labelFont = new Font("Dialog", Font.PLAIN, 20);
 	
 	Statistic(){
+		label.setFont(labelFont);
+		cal.setFont(labelFont);
+		back.setFont(labelFont);
+		
 		this.add(label);
 		this.add(chooseHW);
 		this.add(cal);
