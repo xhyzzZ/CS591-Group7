@@ -1,7 +1,6 @@
 package CS591.GradeManageSystem.config;
 
 import CS591.GradeManageSystem.utils.Constants;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 

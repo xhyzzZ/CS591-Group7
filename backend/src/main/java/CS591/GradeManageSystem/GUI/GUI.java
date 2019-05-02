@@ -621,7 +621,7 @@ public class GUI extends JFrame{
 
 	public static String[][] getUnits() {
 		String[][] res = new String[students.size()][assignments.size()];
-		for (int i = 0; i < students.size(); i++) {	
+		for (int i = 0; i < students.size(); i++) {
 			for (int j = 0; j < assignments.size(); j++) {
 				res[i][j] = unitServiceimpl.getUnit(assignments.get(j).getAssignmentId(), students.get(i).getStudentId()).getContent();
 			}
