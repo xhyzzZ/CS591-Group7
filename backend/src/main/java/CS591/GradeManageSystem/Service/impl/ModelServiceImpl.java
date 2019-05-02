@@ -34,11 +34,18 @@ public class ModelServiceImpl implements ModelService {
         Model lastName = new Model(userId, "DEFAULT", "lastName", 0, 0, false, false, true);
         Model studentId = new Model(userId, "DEFAULT", "studentId", 0, 0, false, false, true);
         Model email = new Model(userId, "DEFAULT", "email", 0, 0, false, false, true);
+        Model graduate = new Model(userId, "DEFAULT", "Graduate/Undergraduate", 0, 0, false, false, true);
         modelRepository.save(firstName);
         modelRepository.save(middleName);
         modelRepository.save(lastName);
         modelRepository.save(studentId);
         modelRepository.save(email);
+        modelRepository.save(graduate);
+    }
+
+    @Override
+    public void deleteModel(int modelId) {
+        modelRepository.deleteByModelId(modelId);
     }
 
 

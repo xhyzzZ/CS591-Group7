@@ -11,4 +11,6 @@ public interface ModelService {
     List<Model> findByUserIdAndModelName(int userId, String modelName);
 
     void createDefault(int userId);
+
+    void deleteModel(int modelId);
 }

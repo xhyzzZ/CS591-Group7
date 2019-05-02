@@ -26,7 +26,7 @@ public class AssignmentServiceImpl implements CS591.GradeManageSystem.Service.As
         assignments.sort(Comparator.comparingInt(Assignment::getAssignmentId));
         String[] assignmentNames = new String[assignments.size()];
         for (int i = 0; i < assignments.size(); i++) {
-            if (i < 5) {
+            if (i < 6) {
                 assignmentNames[i] = assignments.get(i).getAssignmentName();
             } else {
                 String symbol = assignments.get(i).isAddPoint() ? "+" : "-";
@@ -41,6 +41,11 @@ public class AssignmentServiceImpl implements CS591.GradeManageSystem.Service.As
     public void deleteById(int courseId, int assignmentId) {
         unitRepository.deleteByCourseIdAndAssignmentId(courseId, assignmentId);
         assignmentRepository.deleteByAssignmentId(assignmentId);
+    }
+
+    @Override
+    public void update(Assignment assignment) {
+        assignmentRepository.update(assignment);
     }
 
     @Override

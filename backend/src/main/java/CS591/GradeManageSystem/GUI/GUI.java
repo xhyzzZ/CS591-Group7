@@ -2,8 +2,10 @@ package CS591.GradeManageSystem.GUI;
 import CS591.GradeManageSystem.Service.impl.*;
 import CS591.GradeManageSystem.Service.impl.UserServiceImpl;
 import CS591.GradeManageSystem.entity.*;
+import com.opencsv.CSVWriter;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.*;
 import java.awt.*;
 import java.io.*;
@@ -83,6 +85,7 @@ public class GUI extends JFrame{
 		frame.add(addcoursePanel) ;
 		frame.add(managePage);
 		frame.add(staPanel);
+		frame.add(updateAssignment);
 
 		loginPanel.setVisible(true);
 		frame.setVisible(true);
@@ -97,26 +100,35 @@ public class GUI extends JFrame{
 			dashboardPanel.setUser(loginPanel.getUsernameField());
 
 			int check = userServiceImpl.checkLogin(username, password);
-			if(check == 1) {
-				JOptionPane.showMessageDialog(loginPanel, "No such user!");
-			} else if (check == 2) {
-				JOptionPane.showMessageDialog(loginPanel, "Wrong password!");
-			} else {
-				currentUser = userServiceImpl.login(username, password);
-				addcoursePanel.getCoursePanel().removeAll();
-				for (Course cs : courseServiceImpl.getCourses(currentUser.getUserId())) {
-					JButton name = new JButton(cs.getCourseName() + " " + cs.getYear() + " " + cs.getType().toString());
-					addcoursePanel.getCoursePanel().add(name);
-					name.addActionListener(e1 -> {
-						dashboardPanel.setVisible(false);
-						managePage.setVisible(true);
-						currentCourse = cs;
-						update(name, cs);
-					});
+			if(!username.equals("") && !password.equals("")) {
+				if(check == 1) {
+					JOptionPane.showMessageDialog(loginPanel, "No such user!");
+				} else if (check == 2) {
+					JOptionPane.showMessageDialog(loginPanel, "Wrong password!");
+				} else {
+					currentUser = userServiceImpl.login(username, password);
+					addcoursePanel.getCoursePanel().removeAll();
+					for (Course cs : courseServiceImpl.getCourses(currentUser.getUserId())) {
+						JButton name = new JButton(cs.getCourseName() + " " + cs.getYear() + " " + cs.getType().toString());
+						addcoursePanel.getCoursePanel().add(name);
+						name.addActionListener(e1 -> {
+							dashboardPanel.setVisible(false);
+							managePage.setVisible(true);
+							currentCourse = cs;
+							managePage.getManagementPanel().setBorder (BorderFactory.createTitledBorder (BorderFactory.createEtchedBorder (),
+									cs.getCourseName() + "/" + cs.getYear() + "/" + cs.getType().toString(),
+									TitledBorder.CENTER,
+									TitledBorder.TOP));
+							update(name, cs);
+						});
+					}
+					loginPanel.setVisible(false);
+					dashboardPanel.setVisible(true);
 				}
-				loginPanel.setVisible(false);
-				dashboardPanel.setVisible(true);
+			} else {
+				JOptionPane.showMessageDialog(loginPanel, "Username or password is empty!");
 			}
+
 		});
 
 		// open the register GUI
@@ -132,19 +144,26 @@ public class GUI extends JFrame{
 		});
 
 		// the register button
+		// the register button
 		registerPanel.getConfirmButton().addActionListener(e -> {
+
 			String username = registerPanel.getUsernameField();
 			String password = registerPanel.getPasswordField();
 			String confirm = registerPanel.getPasswordreField();
 			int check = userServiceImpl.register(username, password, confirm);
-			if(check == 1) {
-				JOptionPane.showMessageDialog(registerPanel, "The user already exists!");
-			} else if(check == 2) {
-				JOptionPane.showMessageDialog(registerPanel, "Password is not the same!");
+			if(!username.equals("") && !password.equals("") && !confirm.equals("")) {
+				if(check == 1) {
+					JOptionPane.showMessageDialog(registerPanel, "The user already exists!");
+				} else if(check == 2) {
+					JOptionPane.showMessageDialog(registerPanel, "Password is not the same!");
+				} else {
+					registerPanel.setVisible(false);
+					loginPanel.setVisible(true);
+				}
 			} else {
-				registerPanel.setVisible(false);
-				loginPanel.setVisible(true);
+				JOptionPane.showMessageDialog(registerPanel, "Username or password cannot be empty!");
 			}
+
 		});
 
 		// logout button
@@ -184,38 +203,46 @@ public class GUI extends JFrame{
 			semester = semester.toUpperCase();
 			Course cs = courseServiceImpl.createCourse(userId, courseName, year, semester, moduleName);
 
-			if (importOption) {
-				try {
-					reader = new BufferedReader(new FileReader(path));
-					String line;
-					while ((line = reader.readLine()) != null) {
-						String[] content = line.split("\\s+");
-						Student student = studentServiceImpl.createStudent(cs.getCourseId(), "");
-						List<Assignment> as = assignmentServiceImpl.getAssignments(cs.getCourseId());
-						for (int i = 0; i < content.length; i++) {
-							unitServiceimpl.createUnit(cs.getCourseId(), student.getStudentId(), as.get(i).getAssignmentId(), content[i], "");
+			if(!courseName.equals("") && !year.equals("")) {
+				if (importOption) {
+					try {
+						reader = new BufferedReader(new FileReader(path));
+						String line;
+						while ((line = reader.readLine()) != null) {
+							String[] content = line.split("\\s+");
+							Student student = studentServiceImpl.createStudent(cs.getCourseId(), "");
+							List<Assignment> as = assignmentServiceImpl.getAssignments(cs.getCourseId());
+							for (int i = 0; i < content.length; i++) {
+								unitServiceimpl.createUnit(cs.getCourseId(), student.getStudentId(), as.get(i).getAssignmentId(), content[i], "");
+							}
 						}
+					} catch (Exception ex) {
+						ex.printStackTrace();
 					}
-				} catch (Exception ex) {
-					ex.printStackTrace();
 				}
+
+				// clear import info
+				importOption = false;
+				path = null;
+
+				JButton name = new JButton(cs.getCourseName() + " " + cs.getYear() + " " + cs.getType().toString());
+				addcoursePanel.getCoursePanel().add(name);
+				name.addActionListener(e1 -> {
+					dashboardPanel.setVisible(false);
+					currentCourse = cs;
+					managePage.getManagementPanel().setBorder (BorderFactory.createTitledBorder (BorderFactory.createEtchedBorder (),
+							cs.getCourseName() + "/" + cs.getYear() + "/" + cs.getType().toString(),
+							TitledBorder.CENTER,
+							TitledBorder.TOP));
+					update(name, cs);
+					managePage.setVisible(true);
+				});
+
+				addcoursePanel.setVisible(false);
+				dashboardPanel.setVisible(true);
+			} else {
+				JOptionPane.showMessageDialog(addcoursePanel, "Please input information");
 			}
-
-			// clear import info
-			importOption = false;
-			path = null;
-
-			JButton name = new JButton(cs.getCourseName() + " " + cs.getYear() + " " + cs.getType().toString());
-			addcoursePanel.getCoursePanel().add(name);
-			name.addActionListener(e1 -> {
-				dashboardPanel.setVisible(false);
-				currentCourse = cs;
-				update(name, cs);
-				managePage.setVisible(true);
-			});
-
-			addcoursePanel.setVisible(false);
-			dashboardPanel.setVisible(true);
 		});
 
 		// return to the dashboard GUI
@@ -249,6 +276,59 @@ public class GUI extends JFrame{
 			assignmentPanel.setVisible(true);
 		});
 
+		// add assignment confirm
+		assignmentPanel.getConfirmButton().addActionListener(e -> {
+			int courseId = currentCourse.getCourseId();
+			String assignmentName = assignmentPanel.getassignmentField();
+			String weight = assignmentPanel.getpercentField();
+			String maxPoint = assignmentPanel.getmaximumField();
+			boolean addPoint = !assignmentPanel.getpointBox().isSelected();
+			boolean extraBonus = assignmentPanel.getextraBox().isSelected();
+			boolean fix = false;
+
+			if(!assignmentName.equals("") && !maxPoint.equals("") && !weight.equals("")) {
+				int sum = 0;
+				for (Assignment assignment : assignments) {
+					if (!assignment.isFix() && !assignment.isExtraBonus()) sum += assignment.getWeight();
+				}
+
+				int w = Integer.parseInt(weight);
+				int s = Integer.parseInt(maxPoint);
+				if (w + sum > 100) {
+					//if weight plus sum is larger than 100, then show the message
+					JOptionPane.showMessageDialog(managePage,"The total weight exceeds 100%");
+					return;
+				}
+
+				Assignment assignment = assignmentServiceImpl.createAssignment(courseId, assignmentName, w, s, addPoint, extraBonus, fix);
+				assignmentPanel.setVisible(false);
+
+				for (Student student : students) {
+					unitServiceimpl.createUnit(currentCourse.getCourseId(), student.getStudentId(), assignment.getAssignmentId(), "0", "");
+				}
+
+				update(currentCourse);
+
+				managePage.setVisible(true);
+			} else {
+				JOptionPane.showMessageDialog(assignmentPanel, "Information is not complete!");
+			}
+
+
+		});
+
+		// return to the manage page
+		assignmentPanel.getCancelButton().addActionListener(e -> {
+			assignmentPanel.setVisible(false);
+			managePage.setVisible(true);
+		});
+
+		// return to the manage page
+		assignmentPanel.getCancelButton().addActionListener(e -> {
+			assignmentPanel.setVisible(false);
+			managePage.setVisible(true);
+		});
+
 		// delete a student
 		// if not editable, return
 		managePage.deletestudentButton().addActionListener(e -> {
@@ -273,6 +353,12 @@ public class GUI extends JFrame{
 		managePage.getdeletecolButton().addActionListener(e -> {
 			if (!currentCourse.isEditable()) return;
 			int[] selColIndexes = managePage.getTable().getSelectedColumns();
+			for (int i : selColIndexes) {
+				if (i < 6) {
+					JOptionPane.showMessageDialog(managePage,"Cannot delete fix column");
+					return;
+				}
+			}
 			if (selColIndexes == null || selColIndexes.length == 0) JOptionPane.showMessageDialog(managePage, "Please select column first!");
 			else {
 				int t = JOptionPane.showConfirmDialog(managePage,"Are you sure to delete these column?");
@@ -335,29 +421,34 @@ public class GUI extends JFrame{
 
 			if(option == JFileChooser.APPROVE_OPTION){ //假如用户选择了保存
 				File file = chooser.getSelectedFile();
+
 				try {
-					FileOutputStream fos = new FileOutputStream(file);
+					// create FileWriter object with file as parameter
+					FileWriter outputfile = new FileWriter(file);
+
+					// create CSVWriter object filewriter object as parameter
+					CSVWriter writer = new CSVWriter(outputfile);
 
 					// the data we want to get
+					List<String[]> all = new ArrayList<>();
+					String[] assignment = new String[assignments.size()];
 					for(int i = 0; i < assignments.size(); i++) {
-						String[] assignment = new String[assignments.size()];
 						assignment[i] = assignments.get(i).getAssignmentName();
-						byte[] bytesArray = assignment[i].getBytes();
-						fos.write(bytesArray);
-						fos.flush();
-
+						// adding header to csv
 					}
+					all.add(assignment);
+					writer.writeAll(all);
+
+					String[] student = new String[assignments.size()];
 					for(int i = 0; i < students.size(); i++) {
 						for(int j = 0; j < assignments.size(); j++) {
-							String[] student = new String[assignments.size()];
 							student[j] = units.get(assignments.get(j)).get(students.get(i)).getContent();
-							byte[] bytesArray = student[j].getBytes();
-							fos.write(bytesArray);
-							fos.flush();
 						}
+						writer.writeNext(student);
 					}
 
-					fos.close();
+					// closing writer connection
+					writer.close();
 
 				} catch (IOException ee) {
 					ee.printStackTrace();
@@ -371,9 +462,9 @@ public class GUI extends JFrame{
 
 			String[] forCombo;
 			int colCount = managePage.getd().getColumnCount();
-			forCombo = new String[colCount - 5];
+			forCombo = new String[colCount - 6];
 
-			for(int i = 0, j = 5; j < colCount ; i++, j++) {
+			for(int i = 0, j = 6; j < colCount ; i++, j++) {
 				forCombo[i] = managePage.getd().getColumnName(j);
 			}
 
@@ -389,7 +480,7 @@ public class GUI extends JFrame{
 			Assignment totalColumn = assignmentServiceImpl.createAssignment(currentCourse.getCourseId(), "Total", 0, 100, false, true, true);
 			for (Student student : students) {
 				double total = 0;
-				for (int i = 5; i < assignments.size(); i++) {
+				for (int i = 6; i < assignments.size(); i++) {
 					Assignment assignment = assignments.get(i);
 					if (assignment.isExtraBonus()) continue;
 					total += Integer.parseInt(units.get(assignment).get(student).getContent()) * ((assignment.getWeight() / 100.0));
@@ -418,8 +509,10 @@ public class GUI extends JFrame{
 		// save as model
 		managePage.getsaveasmodelButton().addActionListener(e -> {
 			String modelName = currentCourse.getCourseName() + " " + currentCourse.getYear() + " " + currentCourse.getType().toString();
-			List<Model> findExist = modelService.findByUserIdAndModelName(currentUser.getUserId(), modelName);
-			if (findExist.size() > 0) return;
+			List<Model> models = modelService.findByUserIdAndModelName(currentUser.getUserId(), modelName);
+			for (Model model : models) {
+				modelService.deleteModel(model.getModelId());
+			}
 			for (Assignment assignment : assignments) {
 				modelService.createModel(currentUser.getUserId(), modelName, assignment.getAssignmentName(), assignment.getWeight(), assignment.getMaxPoint(), assignment.isAddPoint(), assignment.isExtraBonus(), assignment.isFix());
 			}
@@ -450,14 +543,38 @@ public class GUI extends JFrame{
 		// open update assignment
 		managePage.getUpdateAssignment().addActionListener(e -> {
 			DefaultTableModel d = managePage.getd();
-			int columncount = d.getColumnCount() - 5;
+			int columncount = d.getColumnCount() - 6;
 			String[] forCombo = new String[columncount];
-			for(int i = 0, j = 5; i < columncount; i++, j++) {
+			for(int i = 0, j = 6; i < columncount; i++, j++) {
 				forCombo[i] = d.getColumnName(j);
 			}
 			updateAssignment.SetforCombo(forCombo);
 			managePage.setVisible(false);
 			updateAssignment.setVisible(true);
+		});
+
+		updateAssignment.getCancelButton().addActionListener(e -> {
+			updateAssignment.setVisible(false);
+			managePage.setVisible(true);
+		});
+
+		updateAssignment.getConfirmButton().addActionListener(e -> {
+
+			int index = updateAssignment.getchooseHwBox().getSelectedIndex() + 6;
+			String weight = updateAssignment.getpercentField().getText();
+			String maxPoint = updateAssignment.getmaximumField().getText();
+			boolean deduct = updateAssignment.getpointBox().isSelected();
+			String name = updateAssignment.getassignmentField().getText();
+
+			assignments.get(index).setWeight(Integer.parseInt(weight));
+			assignments.get(index).setMaxPoint(Integer.parseInt(maxPoint));
+			assignments.get(index).setAddPoint(!deduct);
+			assignments.get(index).setAssignmentName(name);
+			assignmentServiceImpl.update(assignments.get(index));
+			update(currentCourse);
+
+			updateAssignment.setVisible(false);
+			managePage.setVisible(true);
 		});
 
 		// add note
@@ -492,6 +609,14 @@ public class GUI extends JFrame{
 			}
 		});
 
+		managePage.getSaveAsModelMenuItem().addActionListener(e -> {
+			// save as model
+			String modelName = currentCourse.getCourseName() + " " + currentCourse.getYear() + " " + currentCourse.getType().toString();
+			for (Assignment assignment : assignments) {
+				modelService.createModel(currentUser.getUserId(), modelName, assignment.getAssignmentName(), assignment.getWeight(), assignment.getMaxPoint(), assignment.isAddPoint(), assignment.isExtraBonus(), assignment.isFix());
+			}
+		});
+
 		// delete menu items
 		managePage.getdeleteMenuItem().addActionListener(e -> {
 			int t = JOptionPane.showConfirmDialog(managePage,"Are you sure to delete this whole table? ");
@@ -502,23 +627,6 @@ public class GUI extends JFrame{
 				managePage.setVisible(false);
 				dashboardPanel.setVisible(true);
 			}
-		});
-
-		// save as model
-		managePage.getsaveasmodelButton().addActionListener(e -> {
-			String modelName = currentCourse.getCourseName() + " " + currentCourse.getYear() + " " + currentCourse.getType().toString();
-			List<Model> findExist = modelService.findByUserIdAndModelName(currentUser.getUserId(), modelName);
-			if (findExist.size() > 0) return;
-			for (Assignment assignment : assignments) {
-				modelService.createModel(currentUser.getUserId(), modelName, assignment.getAssignmentName(), assignment.getWeight(), assignment.getMaxPoint(), assignment.isAddPoint(), assignment.isExtraBonus(), assignment.isFix());
-			}
-		});
-
-		// add assignment
-		managePage.getaddassignmentButton().addActionListener(e -> {
-			if (!currentCourse.isEditable()) return;
-			managePage.setVisible(false);
-			assignmentPanel.setVisible(true);
 		});
 
 		// close course
@@ -540,7 +648,7 @@ public class GUI extends JFrame{
 
 		// calculate the row
 		staPanel.getCalButton().addActionListener(e -> {
-			int c = staPanel.getchooseHW().getSelectedIndex() + 5;
+			int c = staPanel.getchooseHW().getSelectedIndex() + 6;
 			Assignment assignment = assignments.get(c);
 			double[] data = statisticsService.getStatistics(assignment.getAssignmentId(), currentCourse.getCourseId());
 			double max = statisticsService.getMax(data);
@@ -555,45 +663,6 @@ public class GUI extends JFrame{
 					"Mean: " + mean + "\n" +
 					"StdDev: " + stddev + "\n";
 			JOptionPane.showMessageDialog(staPanel, sb);
-		});
-
-		// add assignment confirm
-		assignmentPanel.getConfirmButton().addActionListener(e -> {
-			int courseId = currentCourse.getCourseId();
-			String assignmentName = assignmentPanel.getassignmentField();
-			int weight = assignmentPanel.getpercentField();
-			int maxPoint = assignmentPanel.getmaximumField();
-			boolean addPoint = !assignmentPanel.getpointBox().isSelected();
-			boolean extraBonus = assignmentPanel.getextraBox().isSelected();
-			boolean fix = false;
-
-			int sum = 0;
-			for (Assignment assignment : assignments) {
-				if (!assignment.isFix() && !assignment.isExtraBonus()) sum += assignment.getWeight();
-			}
-
-			if (weight + sum > 100) {
-
-				//if weight plus sum is larger than 100, then show the message
-				JOptionPane.showMessageDialog(managePage,"The total weight exceeds 100%");
-			}
-
-			Assignment assignment = assignmentServiceImpl.createAssignment(courseId, assignmentName, weight, maxPoint, addPoint, extraBonus, fix);
-			assignmentPanel.setVisible(false);
-
-			for (Student student : students) {
-				unitServiceimpl.createUnit(currentCourse.getCourseId(), student.getStudentId(), assignment.getAssignmentId(), "0", "");
-			}
-
-			update(currentCourse);
-
-			managePage.setVisible(true);
-		});
-
-		// return to the manage page
-		assignmentPanel.getCancelButton().addActionListener(e -> {
-			assignmentPanel.setVisible(false);
-			managePage.setVisible(true);
 		});
 	}
 

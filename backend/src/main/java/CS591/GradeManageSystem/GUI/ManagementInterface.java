@@ -510,7 +510,7 @@ public class ManagementInterface extends MyPanel {
 	}
 
 	public JButton getsaveasmodelButton() {
-		return this.addassignmentButton;
+		return this.saveasmodelButton;
 	}
 
 	public JButton getsavesheetButton() {
@@ -570,6 +570,10 @@ public class ManagementInterface extends MyPanel {
 		this.managementPanel.add(scroll);
 		this.scrollPane=scroll;
 		this.managementPanel.revalidate();
+	}
+
+	public JPanel getManagementPanel() {
+		return this.managementPanel;
 	}
 }
 
