@@ -67,7 +67,10 @@ public class GUI extends JFrame{
 		this.managePage = new ManagementInterface(dd,null);
 
 		frame.setTitle("Welcome to Grading System!");
-		frame.setSize(1500, 1000);
+		Toolkit tk  = Toolkit.getDefaultToolkit();
+		int x = ((int)tk.getScreenSize().getWidth());
+		int y = ((int)tk.getScreenSize().getHeight());
+		frame.setSize(x, y);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
@@ -91,6 +94,7 @@ public class GUI extends JFrame{
 			//check password
 			String username = loginPanel.getUsernameField();
 			String password = loginPanel.getPasswordField();
+			dashboardPanel.setUser(loginPanel.getUsernameField());
 
 			int check = userServiceImpl.checkLogin(username, password);
 			if(check == 1) {
