@@ -217,8 +217,12 @@ public class GUI extends JFrame{
 							String[] content = line.split("\\s+");
 							Student student = studentServiceImpl.createStudent(cs.getCourseId(), "");
 							List<Assignment> as = assignmentServiceImpl.getAssignments(cs.getCourseId());
-							for (int i = 0; i < content.length; i++) {
-								unitServiceimpl.createUnit(cs.getCourseId(), student.getStudentId(), as.get(i).getAssignmentId(), content[i], "");
+							for (int i = 0; i < as.size(); i++) {
+								if (i < content.length) {
+									unitServiceimpl.createUnit(cs.getCourseId(), student.getStudentId(), as.get(i).getAssignmentId(), content[i], "");
+								} else {
+									unitServiceimpl.createUnit(cs.getCourseId(), student.getStudentId(), as.get(i).getAssignmentId(), "", "");
+								}
 							}
 						}
 					} catch (Exception ex) {
@@ -280,6 +284,9 @@ public class GUI extends JFrame{
 				if (!assignment.isFix() && !assignment.isExtraBonus()) sum += assignment.getWeight();
 			}
 			assignmentPanel.getTotalPercentLabel().setText("Current Total: " + sum + "%");
+			assignmentPanel.setAssignmentField("");
+			assignmentPanel.setMaximumField("");
+			assignmentPanel.setPercentField("");
 			managePage.setVisible(false);
 			assignmentPanel.setVisible(true);
 		});
@@ -560,7 +567,7 @@ public class GUI extends JFrame{
 				modelService.deleteModel(model.getModelId());
 			}
 			for (Assignment assignment : assignments) {
-				if (!modelName.equals("Total")) {
+				if (!assignment.getAssignmentName().equals("Total")) {
 					modelService.createModel(currentUser.getUserId(), modelName, assignment.getAssignmentName(), assignment.getWeight(), assignment.getMaxPoint(), assignment.isAddPoint(), assignment.isExtraBonus(), assignment.isFix());
 				}
 			}
@@ -617,11 +624,13 @@ public class GUI extends JFrame{
 			String maxPoint = updateAssignment.getmaximumField().getText();
 			boolean deduct = updateAssignment.getpointBox().isSelected();
 			String name = updateAssignment.getassignmentField().getText();
+			boolean extra = updateAssignment.getExtraBonusBox().isSelected();
 
 			assignments.get(index).setWeight(Integer.parseInt(weight));
 			assignments.get(index).setMaxPoint(Integer.parseInt(maxPoint));
 			assignments.get(index).setAddPoint(!deduct);
 			assignments.get(index).setAssignmentName(name);
+			assignments.get(index).setExtraBonus(extra);
 			assignmentServiceImpl.update(assignments.get(index));
 			update(currentCourse);
 
@@ -768,7 +777,7 @@ public class GUI extends JFrame{
 		String[][] res = new String[students.size()][assignments.size()];
 		for (int i = 0; i < students.size(); i++) {
 			for (int j = 0; j < assignments.size(); j++) {
-					res[i][j] = unitServiceimpl.getUnit(assignments.get(j).getAssignmentId(), students.get(i).getStudentId()).getContent();
+				res[i][j] = unitServiceimpl.getUnit(assignments.get(j).getAssignmentId(), students.get(i).getStudentId()).getContent();
 			}
 		}
 

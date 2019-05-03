@@ -1,19 +1,13 @@
 package CS591.GradeManageSystem.GUI;
 import java.awt.Font;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 
 public class UpdateAssignment extends JPanel {
-    private JLabel chooseassignmentLabel, addassignmentLabel, assignmentnameLabel, percentLabel, maximumLabel, deductpointLabel;
+    private JLabel chooseassignmentLabel, extraBonusLabel, addassignmentLabel, assignmentnameLabel, percentLabel, maximumLabel, deductpointLabel;
     private JTextField assignmentField, percentField, maximumField;
     private JCheckBox pointBox;
+    private JCheckBox extraBonusBox;
     private JComboBox chooseHwBox;
     private JButton confirmButton, cancelButton;
     private static Font labelFont_big = new Font("Dialog", Font.BOLD, 24);
@@ -25,60 +19,69 @@ public class UpdateAssignment extends JPanel {
 
         addassignmentLabel = new JLabel("Update Assignment");
         addassignmentLabel.setFont(labelFont_big);
-        addassignmentLabel.setBounds(370, 50, 300, 50);
+        addassignmentLabel.setBounds(550, 100, 300, 50);
         addassignmentLabel.setHorizontalAlignment(SwingConstants.CENTER);
         addassignmentLabel.setVerticalAlignment(SwingConstants.CENTER);
 
         chooseassignmentLabel = new JLabel("Choose Assignment");
         chooseassignmentLabel.setFont(labelFont);
         chooseassignmentLabel.setVerticalAlignment(SwingConstants.CENTER);
-        chooseassignmentLabel.setBounds(300, 125, 240, 50);
+        chooseassignmentLabel.setBounds(520, 175, 240, 50);
 
         assignmentnameLabel = new JLabel("Assignment Name:");
         assignmentnameLabel.setFont(labelFont);
         assignmentnameLabel.setVerticalAlignment(SwingConstants.CENTER);
-        assignmentnameLabel.setBounds(300, 175, 240, 50);
+        assignmentnameLabel.setBounds(520, 225, 240, 50);
 
         percentLabel = new JLabel("Percent in total criterion:");
         percentLabel.setFont(labelFont);
         percentLabel.setVerticalAlignment(SwingConstants.CENTER);
-        percentLabel.setBounds(300, 225, 200, 50);
+        percentLabel.setBounds(520, 275, 200, 50);
 
         maximumLabel = new JLabel("Maximum Points:");
         maximumLabel.setFont(labelFont);
         maximumLabel.setVerticalAlignment(SwingConstants.CENTER);
-        maximumLabel.setBounds(300, 275, 200, 50);
+        maximumLabel.setBounds(520, 325, 200, 50);
 
         deductpointLabel = new JLabel("Deduct points or not:");
         deductpointLabel.setFont(labelFont);
         deductpointLabel.setVerticalAlignment(SwingConstants.CENTER);
-        deductpointLabel.setBounds(300, 325, 200, 50);
+        deductpointLabel.setBounds(520, 375, 200, 50);
+
+        extraBonusLabel = new JLabel("Extra Bonus:");
+        extraBonusLabel.setFont(labelFont);
+        extraBonusLabel.setVerticalAlignment(SwingConstants.CENTER);
+        extraBonusLabel.setBounds(520, 425, 200, 50);
 
         assignmentField = new JTextField();
         assignmentField.setToolTipText("Enter assignment name");
-        assignmentField.setBounds(500, 175, 130, 40);
+        assignmentField.setBounds(750, 225, 130, 40);
 
         percentField = new JTextField();
         percentField.setToolTipText("Enter Precent in total criterion");
-        percentField.setBounds(500, 240, 130, 40);
+        percentField.setBounds(750, 275, 130, 40);
 
         maximumField = new JTextField();
         maximumField.setToolTipText("Enter maxmum points");
-        maximumField.setBounds(500, 290, 130, 40);
+        maximumField.setBounds(750, 325, 130, 40);
 
         pointBox = new JCheckBox("");
         pointBox.setVerticalAlignment(SwingConstants.CENTER);
-        pointBox.setBounds(530, 325, 200, 50);
+        pointBox.setBounds(780, 375, 200, 50);
+
+        extraBonusBox = new JCheckBox();
+        extraBonusBox.setVerticalAlignment(SwingConstants.CENTER);
+        extraBonusBox.setBounds(780, 425, 200, 50);
 
         chooseHwBox = new JComboBox();
         //chooseHwBox.setVerticalAlignment(SwingConstants.CENTER);
-        chooseHwBox.setBounds(530, 125, 200, 50);
+        chooseHwBox.setBounds(750, 175, 170, 40);
 
-        confirmButton = new JButton("Confirm");
-        confirmButton.setBounds(300, 400, 150, 50);
+        confirmButton = new JButton("", new ImageIcon("images/Confirm2.png"));
+        confirmButton.setBounds(530, 500, 130, 70);
 
-        cancelButton = new JButton("Cancel");
-        cancelButton.setBounds(500, 400, 150, 50);
+        cancelButton = new JButton("", new ImageIcon("images/Cancel2.png"));
+        cancelButton.setBounds(780, 500, 130, 70);
 
         this.add(addassignmentLabel);
         this.add(chooseassignmentLabel);
@@ -93,6 +96,8 @@ public class UpdateAssignment extends JPanel {
         this.add(confirmButton);
         this.add(cancelButton);
         this.add(chooseHwBox);
+        this.add(extraBonusBox);
+        this.add(extraBonusLabel);
 
     }
 
@@ -142,6 +147,10 @@ public class UpdateAssignment extends JPanel {
 
     public JButton getCancelButton() {
         return this.cancelButton;
+    }
+
+    public JCheckBox getExtraBonusBox() {
+        return this.extraBonusBox;
     }
 
     public void SetforCombo(String[] t) {
