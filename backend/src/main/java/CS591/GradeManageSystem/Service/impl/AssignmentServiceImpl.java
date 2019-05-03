@@ -26,11 +26,11 @@ public class AssignmentServiceImpl implements CS591.GradeManageSystem.Service.As
         assignments.sort(Comparator.comparingInt(Assignment::getAssignmentId));
         String[] assignmentNames = new String[assignments.size()];
         for (int i = 0; i < assignments.size(); i++) {
-            if (i < 6) {
+            if (i < 6 || assignments.get(i).getAssignmentName().equals("Total")) {
                 assignmentNames[i] = assignments.get(i).getAssignmentName();
             } else {
                 String symbol = assignments.get(i).isAddPoint() ? "+" : "-";
-                assignmentNames[i] = assignments.get(i).getAssignmentName() + "(Max: " + assignments.get(i).getWeight() + "%) " + symbol;
+                assignmentNames[i] = assignments.get(i).getAssignmentName() + " (" + assignments.get(i).getWeight() + "%/" + assignments.get(i).getMaxPoint() + ") " + symbol;
             }
         }
 

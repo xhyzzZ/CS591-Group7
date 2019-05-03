@@ -6,7 +6,7 @@ import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
-import java.awt.Font;
+import java.awt.*;
 
 public class Login extends JPanel {
 	private JLabel loginLabel, usernameLabel, passwordLabel, imageLabel;
@@ -19,65 +19,64 @@ public class Login extends JPanel {
 	public Login() {
 		super(null);
 
+		Toolkit tk  = Toolkit.getDefaultToolkit();
+		int x = ((int)tk.getScreenSize().getWidth());
+		int y = ((int)tk.getScreenSize().getHeight());
 		loginLabel = new JLabel("Login");
+
 		loginLabel.setFont(labelFont_big);
 		loginLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		loginLabel.setVerticalAlignment(SwingConstants.CENTER);
-		loginLabel.setBounds(400, 100, 200, 50);
+		loginLabel.setBounds(520, 200, 400, 100);
 
 		usernameLabel = new JLabel("Username:");
 		usernameLabel.setFont(labelFont);
 		usernameLabel.setVerticalAlignment(SwingConstants.CENTER);
-		usernameLabel.setBounds(330, 200, 200, 50);
+		usernameLabel.setBounds(560, 300, 200, 100);
+		usernameLabel.setIcon(new ImageIcon("images/Login2.png"));
 
 		passwordLabel = new JLabel("Password:");
+		passwordLabel.setIcon(new ImageIcon("images/Lock2.png"));
 		passwordLabel.setFont(labelFont);
 		passwordLabel.setVerticalAlignment(SwingConstants.CENTER);
-		passwordLabel.setBounds(330, 300, 200, 50);
-
-		imageLabel = new JLabel(new ImageIcon("/Users/zhukaikang/eclipse-workspace/591_frontend/src/img/Login.png"));
-		imageLabel.setBounds(100, 100, 100, 100);
+		passwordLabel.setBounds(560, 400, 200, 50);
 
 		usernameField = new JTextField();
 		usernameField.setToolTipText("Enter your username");
-		usernameField.setBounds(460, 200, 200, 50);
+		usernameField.setBounds(720, 330, 200, 50);
 
 		passwordField = new JPasswordField();
 		passwordField.setToolTipText("Enter your password");
-		passwordField.setBounds(460, 300, 200, 50);
+		passwordField.setBounds(720, 400, 200, 50);
 
-		//loginButton = new JButton();
-		loginButton = new JButton("Login", new ImageIcon("/Users/zhukaikang/eclipse-workspace/591_frontend/images/Login2.png"));
-		//loginButton.setIcon(new ImageIcon("/Users/zhukaikang/eclipse-workspace/591_frontend/src/img/Login.png"));
-		//loginButton.setBorder(null);
+		loginButton = new JButton("Login", new ImageIcon("images/Login2.png"));
 		loginButton.setFont(labelFont);
 		loginButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		loginButton.setVerticalTextPosition(SwingConstants.BOTTOM);
 		loginButton.setVerticalAlignment(SwingConstants.CENTER);
 		loginButton.setToolTipText("Login to your account");
-		loginButton.setBounds(330, 400, 130, 100);
+		loginButton.setBounds(550, 500, 130, 100);
 
-		loginButton.addActionListener(e -> {
-
-		});
-
-		registerButton = new JButton("Register", new ImageIcon("/Users/zhukaikang/eclipse-workspace/591_frontend/images/Register.png"));
+		registerButton = new JButton("Register", new ImageIcon("images/Register.png"));
 		registerButton.setFont(labelFont);
 		registerButton.setToolTipText("Register your account");
 		registerButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		registerButton.setVerticalTextPosition(SwingConstants.BOTTOM);
 		registerButton.setVerticalAlignment(SwingConstants.CENTER);
-		registerButton.setBounds(530, 400, 130, 100);
+		registerButton.setBounds(790, 500, 130, 100);
 
+		MyPanel pp=new MyPanel();
+		pp.setPic("images/BU.png");
+		pp.setBounds(570, 50, 350, 150);
+
+		this.add(pp);
 		this.add(loginLabel);
-		//this.add(imageLabel);
 		this.add(usernameLabel);
 		this.add(passwordLabel);
 		this.add(usernameField);
 		this.add(passwordField);
 		this.add(loginButton);
 		this.add(registerButton);
-		//this.add(new JLabel(new ImageIcon("img/Login.png")));
 		validate();
 	}
 

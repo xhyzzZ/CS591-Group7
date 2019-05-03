@@ -302,8 +302,6 @@ public class ManagementInterface extends MyPanel {
 	private JMenuItem closeCourseMenuItem;
 
 	private DefaultTableModel d;
-	//
-	//private MyJTable managementTable ;
 	private MyJTable managementTable;
 	private JButton b;
 	public ManagementInterface(DefaultTableModel d,JButton b) {
@@ -315,7 +313,6 @@ public class ManagementInterface extends MyPanel {
 		managementPanel=new JPanel();
 		this.d=d;
 
-		//managementTable=new MyJTable(d);
 		managementTable=new MyJTable(d);
 		managementTable.setPreferredScrollableViewportSize(new Dimension(800,800));
 		managementTable.setFillsViewportHeight(true);
@@ -325,9 +322,6 @@ public class ManagementInterface extends MyPanel {
 		TableRowSorter<DefaultTableModel> sorter= new TableRowSorter<DefaultTableModel>(d);
 		managementTable.setRowSorter(sorter);
 		managementTable.setCellSelectionEnabled(true);
-		//RowSorter rowSorter = new TableRowSorter((TableModel)d);
-		//managementTable.setRowSorter(rowSorter);
-		//managementTable.setTableHeader();
 		managementTable.getTableHeader().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -336,18 +330,14 @@ public class ManagementInterface extends MyPanel {
 				System.out.println("Column index selected " + col + " " + name);
 			}
 		});
-//
-		//managementPanel.setBounds(50, 50, 700, 600);
+
 		scrollPane = new JScrollPane(managementTable, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-//
+
 		scrollPane.add(managementTable);
 		scrollPane.revalidate();
 		managementPanel.setBounds(50, 50, 1000, 600);
 		managementPanel.setLayout(new BorderLayout());
-		//this.setLayout(new BorderLayout());
 		managementPanel.add(scrollPane, BorderLayout.CENTER);
-
-		//scrollPane.setFillsViewportHeight(true);
 
 		JPanel p1=new JPanel();
 		p1.setLayout(new GridLayout(7,1));
@@ -369,41 +359,42 @@ public class ManagementInterface extends MyPanel {
 
 		total = new JButton("Add total score");
 
-		exitButton = new JButton("Save and Exit", new ImageIcon("images/Exit.png"));
+		exitButton = new JButton("Save&Exit", new ImageIcon("images/Exit2.png"));
 		exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		exitButton.setVerticalTextPosition(SwingConstants.BOTTOM);
 		exitButton.setVerticalAlignment(SwingConstants.CENTER);
 
-		exporttocsvButton = new JButton("Export to csv", new ImageIcon("images/Csv.png"));
+		exporttocsvButton = new JButton("Export", new ImageIcon("images/CSV2.png"));
 		exporttocsvButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		exporttocsvButton.setVerticalTextPosition(SwingConstants.BOTTOM);
 		exporttocsvButton.setVerticalAlignment(SwingConstants.CENTER);
 
-		deletesheetButton = new JButton("Delete Sheet", new ImageIcon("images/Delete1.png"));
+		deletesheetButton = new JButton("Sheet", new ImageIcon("images/Delete2.png"));
 		deletesheetButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		deletesheetButton.setVerticalTextPosition(SwingConstants.BOTTOM);
 		deletesheetButton.setVerticalAlignment(SwingConstants.CENTER);
 
-		saveasmodelButton = new JButton("Save as model", new ImageIcon("images/Model.png"));
+		saveasmodelButton = new JButton("Save model", new ImageIcon("images/Model2.png"));
 		saveasmodelButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		saveasmodelButton.setVerticalTextPosition(SwingConstants.BOTTOM);
 		saveasmodelButton.setVerticalAlignment(SwingConstants.CENTER);
 
-		savesheetButton = new JButton("Save Sheet", new ImageIcon("images/Save.png"));
+		savesheetButton = new JButton("Sheet", new ImageIcon("images/Save2.png"));
 		savesheetButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		savesheetButton.setVerticalTextPosition(SwingConstants.BOTTOM);
 		savesheetButton.setVerticalAlignment(SwingConstants.CENTER);
 
 		updateAssignment = new JButton("Update Assignment");
 
-		addNote = new JButton("Add Note");
-		addNote.setBounds(1080, 600, 100, 70);
+		addNote = new JButton("", new ImageIcon("images/Write2.png"));
+		addNote.setBounds(1300, 740, 90, 60);
+		addNote.setToolTipText("Click here to add note");
 		ta = new JTextArea();
-		ta.setBounds(1200, 600, 200, 200);
-		ta.setText("aaa"+"\n"+"ppp");
+		ta.setBounds(1100, 600, 200, 200);
+		ta.setText("");
 
 		noteLabel = new JLabel("Note:");
-		noteLabel.setBounds(1100, 600, 50, 150);
+		noteLabel.setBounds(1200, 700, 50, 150);
 		noteLabel.setVerticalAlignment(SwingConstants.CENTER);
 
 		menuBar = new JMenuBar();
@@ -422,15 +413,12 @@ public class ManagementInterface extends MyPanel {
 		fileMenu.add(exportToCsvMenuItem);
 		fileMenu.add(closeCourseMenuItem);
 		editMenu.add(deleteMenuItem);
-		// managementTable.setFillsViewportHeight(true);
-		//scrollPane.setViewportView(managementTable);
 		p1.add(addassignmentButton);
 		p1.add(deletecolButton);
 		p1.add(addrowButton);
 		p1.add(deletestudentButton);
 		p1.add(showStatistic);
 		p1.add(total);
-		//p1.add(addNote);
 		p1.add(updateAssignment);
 		p2.add(exitButton);
 		p2.add(deletesheetButton);
@@ -439,8 +427,8 @@ public class ManagementInterface extends MyPanel {
 		p2.add(saveasmodelButton);
 		p2.add(savesheetButton);
 
-		p1.setBounds(1200,100,150,450);
-		p2.setBounds(400, 680, 600, 100);
+		p1.setBounds(1100,100,150,450);
+		p2.setBounds(210, 680, 670, 100);
 		this.add(p1);
 		this.add(p2);
 		this.add(addNote);

@@ -2,14 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78b91a7b-5671-4b29-a038-69ff9ed10e34" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/BU.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/BU.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/images/BU2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/BU2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/AddNewAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/AddNewAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/BU3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/BU4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Cancel.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Cancel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Close.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Close.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Confirm.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Confirm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Csv.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Csv.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Delete.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Delete.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Delete1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Delete1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Exit.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Exit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Login.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Login.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Login1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Login1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Login2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Login2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Logout.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Logout.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Model.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Open.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Open.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Open_big.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Open_big.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Password.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Password.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Register.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Register.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Save.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Save.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/User.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/User.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/User1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/User1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/User2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/User2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg3.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg4.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg5.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Dashboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/AssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/AssignmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/ModelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/ModelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/AssignmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/AssignmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/ModelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/ModelServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/Dashboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/ManagementInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/ManagementInterface$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/ManagementInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/ManagementInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/GUI/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/Service/impl/AssignmentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CS591/GradeManageSystem/Service/impl/AssignmentServiceImpl.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,29 +53,34 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/backend$GUI.ic" NAME="GUI Coverage Results" MODIFIED="1556842854552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>CS591.GradeManageSystem.GUI.*</FILTER>
+    </SUITE>
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="5801509">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="11818" />
+          <entry key="java" value="13357" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="11818" />
+          <entry key="JAVA" value="13357" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="103" />
+          <entry key="java" value="117" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="103" />
+          <entry key="JAVA" value="117" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -60,14 +100,54 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="362" column="35" selection-start-line="362" selection-start-column="35" selection-end-line="362" selection-end-column="35" />
+            <state relative-caret-position="184">
+              <caret line="671" column="68" lean-forward="true" selection-start-line="671" selection-start-column="68" selection-end-line="671" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2068#2069#0" expanded="true" />
-                <element signature="e#2084#2085#0" expanded="true" />
-                <element signature="e#23172#23173#0" expanded="true" />
-                <element signature="e#23246#23247#0" expanded="true" />
+                <element signature="e#27331#27332#0" expanded="true" />
+                <element signature="e#27405#27406#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Register.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2762#2763#0" expanded="true" />
+                <element signature="e#2804#2805#0" expanded="true" />
+                <element signature="e#2841#2842#0" expanded="true" />
+                <element signature="e#2903#2904#0" expanded="true" />
+                <element signature="e#2942#2943#0" expanded="true" />
+                <element signature="e#3006#3007#0" expanded="true" />
+                <element signature="e#3044#3045#0" expanded="true" />
+                <element signature="e#3076#3077#0" expanded="true" />
+                <element signature="e#3113#3114#0" expanded="true" />
+                <element signature="e#3144#3145#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Login.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3177#3178#0" expanded="true" />
+                <element signature="e#3219#3220#0" expanded="true" />
+                <element signature="e#3256#3257#0" expanded="true" />
+                <element signature="e#3318#3319#0" expanded="true" />
+                <element signature="e#3354#3355#0" expanded="true" />
+                <element signature="e#3384#3385#0" expanded="true" />
+                <element signature="e#3423#3424#0" expanded="true" />
+                <element signature="e#3456#3457#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,8 +156,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="573" lean-forward="true" selection-start-line="573" selection-end-line="573" />
+            <state relative-caret-position="-244">
+              <caret line="390" column="48" selection-start-line="390" selection-start-column="48" selection-end-line="390" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#16185#16186#0" expanded="true" />
@@ -90,54 +170,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/ModelService.java">
+        <entry file="file://$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/b677b76d6ab93173b473b190dea63ff2/Message/MessageTemp/05ef346cc077c0cae6ca639984b16869/File/ManagementInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="189">
+              <caret line="276" column="8" lean-forward="true" selection-start-line="276" selection-start-column="8" selection-end-line="276" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/ModelServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Dashboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1965#1966#0" expanded="true" />
-                <element signature="e#2014#2015#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="84">
+              <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/AssignmentService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/UserRepositoryImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="141" column="16" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
+            <state relative-caret-position="284">
+              <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -145,36 +199,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/AssignmentServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
-              <folding>
-                <element signature="e#1893#1894#0" expanded="true" />
-                <element signature="e#1938#1939#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/AddNewAssignment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="130" column="11" selection-start-line="130" selection-start-column="11" selection-end-line="130" selection-end-column="11" />
-              <folding>
-                <element signature="e#4190#4191#0" expanded="true" />
-                <element signature="e#4231#4232#0" expanded="true" />
-                <element signature="e#4282#4283#0" expanded="true" />
-                <element signature="e#4323#4324#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="287">
+              <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -202,6 +228,17 @@
       <find>addas</find>
       <find>saveas</find>
       <find>csv</find>
+      <find>saves</find>
+      <find>close</find>
+      <find>save</find>
+      <find>ta</find>
+      <find>note</find>
+      <find>editable</find>
+      <find>saveshe</find>
+      <find>savesh</find>
+      <find>gettotal</find>
+      <find>total</find>
+      <find>saveasmo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -240,11 +277,14 @@
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/UnitServiceimpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/config/AppConf.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/AssignmentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/AssignmentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/AddNewAssignment.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/ModelServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/ModelService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Dashboard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Register.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Login.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/AssignmentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/GUI.java" />
       </list>
     </option>
@@ -439,7 +479,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556729280416" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556849970647" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -579,7 +619,7 @@
       <workItem from="1556546854779" duration="2891000" />
       <workItem from="1556565109731" duration="4165000" />
       <workItem from="1556599441886" duration="32331000" />
-      <workItem from="1556825591648" duration="5954000" />
+      <workItem from="1556825591648" duration="14817000" />
     </task>
     <servers />
   </component>
@@ -616,7 +656,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45289000" />
+    <option name="totallyTimeSpent" value="54152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="800" extended-state="0" />
@@ -641,6 +681,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32909605" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -652,7 +693,7 @@
       <window_info anchor="right" id="Maven Projects" order="8" weight="0.3297568" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23676682" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23962805" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -661,7 +702,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32909605" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27683616" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27683616" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997175" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -671,15 +712,16 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32909605" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.3297568" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3297568" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="9" weight="0.3297568" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,65 +731,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/AssignmentRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="8" column="80" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/entity/Assignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/DAO/Impl/AssignmentRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="921">
-          <caret line="55" column="22" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/StudentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/StatisticsServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-90">
@@ -851,7 +834,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/AddNewCourse.java" />
-    <entry file="file://$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/b677b76d6ab93173b473b190dea63ff2/Message/MessageTemp/05ef346cc077c0cae6ca639984b16869/File/ManagementInterface.java" />
     <entry file="file://$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/b677b76d6ab93173b473b190dea63ff2/Message/MessageTemp/05ef346cc077c0cae6ca639984b16869/File/GUI.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/javax/swing/JTextArea.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -917,13 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2860">
           <caret line="132" column="20" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1005,17 +980,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/AssignmentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
-          <folding>
-            <element signature="e#1893#1894#0" expanded="true" />
-            <element signature="e#1938#1939#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -1027,13 +991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="141" column="16" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1072,10 +1029,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="579" selection-start-line="579" selection-end-line="579" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/lang/NumberFormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/b677b76d6ab93173b473b190dea63ff2/Message/MessageTemp/05ef346cc077c0cae6ca639984b16869/File/Dashboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="44" column="4" lean-forward="true" selection-start-line="44" selection-start-column="4" selection-end-line="50" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/b677b76d6ab93173b473b190dea63ff2/Message/MessageTemp/05ef346cc077c0cae6ca639984b16869/File/Login(1).java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="100" selection-start-line="100" selection-end-line="103" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/b677b76d6ab93173b473b190dea63ff2/Message/MessageTemp/05ef346cc077c0cae6ca639984b16869/File/Register(1).java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16">
+          <caret line="63" column="8" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2762#2763#0" expanded="true" />
+            <element signature="e#2804#2805#0" expanded="true" />
+            <element signature="e#2841#2842#0" expanded="true" />
+            <element signature="e#2903#2904#0" expanded="true" />
+            <element signature="e#2942#2943#0" expanded="true" />
+            <element signature="e#3006#3007#0" expanded="true" />
+            <element signature="e#3044#3045#0" expanded="true" />
+            <element signature="e#3076#3077#0" expanded="true" />
+            <element signature="e#3113#3114#0" expanded="true" />
+            <element signature="e#3144#3145#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Dashboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3177#3178#0" expanded="true" />
+            <element signature="e#3219#3220#0" expanded="true" />
+            <element signature="e#3256#3257#0" expanded="true" />
+            <element signature="e#3318#3319#0" expanded="true" />
+            <element signature="e#3354#3355#0" expanded="true" />
+            <element signature="e#3384#3385#0" expanded="true" />
+            <element signature="e#3423#3424#0" expanded="true" />
+            <element signature="e#3456#3457#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/b677b76d6ab93173b473b190dea63ff2/Message/MessageTemp/05ef346cc077c0cae6ca639984b16869/File/ManagementInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="276" column="8" lean-forward="true" selection-start-line="276" selection-start-column="8" selection-end-line="276" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="573" lean-forward="true" selection-start-line="573" selection-end-line="573" />
+        <state relative-caret-position="-244">
+          <caret line="390" column="48" selection-start-line="390" selection-start-column="48" selection-end-line="390" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#16185#16186#0" expanded="true" />
@@ -1086,16 +1137,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/Service/impl/AssignmentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="32" column="120" selection-start-line="32" selection-start-column="120" selection-end-line="32" selection-end-column="120" />
+          <folding>
+            <element signature="e#1893#1894#0" expanded="true" />
+            <element signature="e#1948#1949#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CS591/GradeManageSystem/GUI/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="362" column="35" selection-start-line="362" selection-start-column="35" selection-end-line="362" selection-end-column="35" />
+        <state relative-caret-position="184">
+          <caret line="671" column="68" lean-forward="true" selection-start-line="671" selection-start-column="68" selection-end-line="671" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2068#2069#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#23172#23173#0" expanded="true" />
-            <element signature="e#23246#23247#0" expanded="true" />
+            <element signature="e#27331#27332#0" expanded="true" />
+            <element signature="e#27405#27406#0" expanded="true" />
           </folding>
         </state>
       </provider>

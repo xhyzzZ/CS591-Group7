@@ -61,6 +61,10 @@ public class GUI extends JFrame{
 
 	public static void main(String[] args) {
 		new GUI();
+//		try {
+//			UIManager.setLookAndFeel("com.pagosoft.plaf.PgsLookAndFeel");
+//			SwingUtilities.updateComponentTreeUI(new GUI());
+//		} catch(Exception e) { /* Most of the time you're just going to ignore it */ }
 	}
 
 	public GUI() {
@@ -123,6 +127,7 @@ public class GUI extends JFrame{
 						});
 					}
 					loginPanel.setVisible(false);
+					dashboardPanel.getUserLabel().setText("Hi! " + currentUser.getUsername());
 					dashboardPanel.setVisible(true);
 				}
 			} else {
@@ -266,7 +271,10 @@ public class GUI extends JFrame{
 
 		// open add-assignment GUI
 		managePage.getaddassignmentButton().addActionListener(e -> {
-			if (!currentCourse.isEditable()) return;
+			if (!currentCourse.isEditable()) {
+				JOptionPane.showMessageDialog(managePage, "This course is close!");
+				return;
+			}
 			int sum = 0;
 			for (Assignment assignment : assignments) {
 				if (!assignment.isFix() && !assignment.isExtraBonus()) sum += assignment.getWeight();
@@ -332,7 +340,10 @@ public class GUI extends JFrame{
 		// delete a student
 		// if not editable, return
 		managePage.deletestudentButton().addActionListener(e -> {
-			if (!currentCourse.isEditable()) return;
+			if (!currentCourse.isEditable()) {
+				JOptionPane.showMessageDialog(managePage, "This course is close!");
+				return;
+			}
 			int[] selRowIndexes = managePage.getTable().getSelectedRows();
 			if(selRowIndexes == null || selRowIndexes.length == 0) JOptionPane.showMessageDialog(managePage, "Please select student first!");
 			else{
@@ -351,7 +362,10 @@ public class GUI extends JFrame{
 		// delete a column
 		// if not editable, return
 		managePage.getdeletecolButton().addActionListener(e -> {
-			if (!currentCourse.isEditable()) return;
+			if (!currentCourse.isEditable()) {
+				JOptionPane.showMessageDialog(managePage, "This course is close!");
+				return;
+			}
 			int[] selColIndexes = managePage.getTable().getSelectedColumns();
 			for (int i : selColIndexes) {
 				if (i < 6) {
@@ -376,7 +390,10 @@ public class GUI extends JFrame{
 		// add row
 		// if not editable, return
 		managePage.getrowButton().addActionListener(e -> {
-			if (!currentCourse.isEditable()) return;
+			if (!currentCourse.isEditable()) {
+				JOptionPane.showMessageDialog(managePage, "This course is close!");
+				return;
+			}
 			Student student = studentServiceImpl.createStudent(currentCourse.getCourseId(), "");
 			students.add(student);
 			for (Assignment assignment : assignments) {
@@ -397,7 +414,6 @@ public class GUI extends JFrame{
 			if (t == 0) {
 				currentCourse.setEditable(false);
 				courseServiceImpl.update(currentCourse);
-				managePage.getTable().setEnabled(false);
 			}
 		});
 
@@ -476,14 +492,30 @@ public class GUI extends JFrame{
 		// get Total
 		// if not editable, return
 		managePage.getTotal().addActionListener(e -> {
-			if (!currentCourse.isEditable()) return;
-			Assignment totalColumn = assignmentServiceImpl.createAssignment(currentCourse.getCourseId(), "Total", 0, 100, false, true, true);
+			if (!currentCourse.isEditable()) {
+				JOptionPane.showMessageDialog(managePage, "This course is close!");
+				return;
+			}
+			for (Assignment assignment : assignments) {
+				if (assignment.getAssignmentName().equals("Total")) {
+					assignmentServiceImpl.deleteById(currentCourse.getCourseId(), assignment.getAssignmentId());
+				}
+			}
+			Assignment totalColumn = assignmentServiceImpl.createAssignment(currentCourse.getCourseId(), "Total", 0, 100, true, true, true);
 			for (Student student : students) {
 				double total = 0;
-				for (int i = 6; i < assignments.size(); i++) {
-					Assignment assignment = assignments.get(i);
-					if (assignment.isExtraBonus()) continue;
-					total += Integer.parseInt(units.get(assignment).get(student).getContent()) * ((assignment.getWeight() / 100.0));
+				try {
+					for (int i = 6; i < assignments.size(); i++) {
+						Assignment assignment = assignments.get(i);
+						if (assignment.isExtraBonus()) continue;
+						double grade = Math.abs(Double.parseDouble(units.get(assignment).get(student).getContent()));
+						grade = assignment.isAddPoint() ? grade : assignment.getMaxPoint() - grade;
+						total += grade * (assignment.getWeight() / 100.0);
+					}
+				} catch (Exception ex) {
+					assignmentServiceImpl.deleteById(currentCourse.getCourseId(), totalColumn.getAssignmentId());
+					JOptionPane.showMessageDialog(managePage, "Grade must be a number");
+					return;
 				}
 				unitServiceimpl.createUnit(currentCourse.getCourseId(), student.getStudentId(), totalColumn.getAssignmentId(), String.valueOf(total), "");
 			}
@@ -493,17 +525,31 @@ public class GUI extends JFrame{
 		// save sheet
 		// if not editable, return
 		managePage.getsavesheetButton().addActionListener(e -> {
-			if (!currentCourse.isEditable()) return;
+			if (!currentCourse.isEditable()) {
+				update(currentCourse);
+				JOptionPane.showMessageDialog(managePage, "This course is close!");
+				return;
+			}
 			DefaultTableModel m = managePage.getd();
 			for(int i = 0; i < m.getRowCount(); i++) {
 				for(int j = 0; j < m.getColumnCount(); j++) {
 					String content = (String) m.getValueAt(i, j);
+					try {
+						if (j >= 6 && !content.isEmpty()) {
+							double grade = Double.parseDouble(content);
+							int sign = assignments.get(j).isAddPoint() ? 1 : -1;
+							grade = Math.abs(grade) > assignments.get(j).getMaxPoint() ? sign * assignments.get(j).getMaxPoint() : sign * Math.abs(grade);
+							content = String.valueOf(grade);
+						}
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(managePage, "Grade must be a number");
+						return;
+					}
 					Unit unit = units.get(assignments.get(j)).get(students.get(i));
 					unit.setContent(content);
 					unitServiceimpl.update(unit);
 				}
 			}
-			update(currentCourse);
 		});
 
 		// save as model
@@ -514,7 +560,9 @@ public class GUI extends JFrame{
 				modelService.deleteModel(model.getModelId());
 			}
 			for (Assignment assignment : assignments) {
-				modelService.createModel(currentUser.getUserId(), modelName, assignment.getAssignmentName(), assignment.getWeight(), assignment.getMaxPoint(), assignment.isAddPoint(), assignment.isExtraBonus(), assignment.isFix());
+				if (!modelName.equals("Total")) {
+					modelService.createModel(currentUser.getUserId(), modelName, assignment.getAssignmentName(), assignment.getWeight(), assignment.getMaxPoint(), assignment.isAddPoint(), assignment.isExtraBonus(), assignment.isFix());
+				}
 			}
 		});
 
@@ -542,6 +590,10 @@ public class GUI extends JFrame{
 
 		// open update assignment
 		managePage.getUpdateAssignment().addActionListener(e -> {
+			if (!currentCourse.isEditable()) {
+				JOptionPane.showMessageDialog(managePage, "This course is close!");
+				return;
+			}
 			DefaultTableModel d = managePage.getd();
 			int columncount = d.getColumnCount() - 6;
 			String[] forCombo = new String[columncount];
@@ -579,6 +631,10 @@ public class GUI extends JFrame{
 
 		// add note
 		managePage.getaddNote().addActionListener(e -> {
+			if (!currentCourse.isEditable()) {
+				JOptionPane.showMessageDialog(managePage, "This course is close!");
+				return;
+			}
 			int colIndex = managePage.getTable().getSelectedColumn();
 			int rowIndex = managePage.getTable().getSelectedRow();
 
@@ -595,7 +651,11 @@ public class GUI extends JFrame{
 
 		// save menu items
 		managePage.getSaveMenuItem().addActionListener(e -> {
-			if (currentCourse.isEditable()) {
+			update(currentCourse);
+			if (!currentCourse.isEditable()) {
+				JOptionPane.showMessageDialog(managePage, "This course is close!");
+				return;
+			} else {
 				DefaultTableModel m = managePage.getd();
 				for(int i = 0; i < m.getRowCount(); i++) {
 					for(int j = 0; j < m.getColumnCount(); j++) {
@@ -610,8 +670,13 @@ public class GUI extends JFrame{
 		});
 
 		managePage.getSaveAsModelMenuItem().addActionListener(e -> {
-			// save as model
 			String modelName = currentCourse.getCourseName() + " " + currentCourse.getYear() + " " + currentCourse.getType().toString();
+			List<Model> models = modelService.findByUserIdAndModelName(currentUser.getUserId(), modelName);
+			for (Model model : models) {
+				if (!modelName.equals("Total")) {
+					modelService.deleteModel(model.getModelId());
+				}
+			}
 			for (Assignment assignment : assignments) {
 				modelService.createModel(currentUser.getUserId(), modelName, assignment.getAssignmentName(), assignment.getWeight(), assignment.getMaxPoint(), assignment.isAddPoint(), assignment.isExtraBonus(), assignment.isFix());
 			}
@@ -631,12 +696,14 @@ public class GUI extends JFrame{
 
 		// close course
 		managePage.getclosecourseButton().addActionListener(e -> {
-			if (!currentCourse.isEditable()) return;
+			if (!currentCourse.isEditable()) {
+				JOptionPane.showMessageDialog(managePage, "You already close the course!");
+				return;
+			}
 			int t = JOptionPane.showConfirmDialog(managePage,"Are you sure to close this course? If yes the data will be read-only!");
 			if (t == 0) {
 				currentCourse.setEditable(false);
 				courseServiceImpl.update(currentCourse);
-				managePage.getTable().setEnabled(false);
 			}
 		});
 
@@ -701,7 +768,7 @@ public class GUI extends JFrame{
 		String[][] res = new String[students.size()][assignments.size()];
 		for (int i = 0; i < students.size(); i++) {
 			for (int j = 0; j < assignments.size(); j++) {
-				res[i][j] = unitServiceimpl.getUnit(assignments.get(j).getAssignmentId(), students.get(i).getStudentId()).getContent();
+					res[i][j] = unitServiceimpl.getUnit(assignments.get(j).getAssignmentId(), students.get(i).getStudentId()).getContent();
 			}
 		}
 
