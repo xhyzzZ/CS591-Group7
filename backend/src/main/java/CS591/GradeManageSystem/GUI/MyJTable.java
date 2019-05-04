@@ -11,7 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
-class MyJTable extends JTable implements MouseListener{
+class MyJTable extends JTable implements MouseListener {
 
     private static int r;
     private static int c;

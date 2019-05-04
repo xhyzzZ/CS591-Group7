@@ -89,18 +89,6 @@ public class Register extends JPanel {
 
 	}
 
-//	public JLabel getRegisterLabel() {
-//		return this.registerLabel;
-//	}
-//
-//	public JLabel getUsernameLabel() {
-//		return this.usernameLabel;
-//	}
-//
-//	public JLabel getPasswordLabel() {
-//		return this.passwordLabel;
-//	}
-
 	public String getUsernameField() {
 		return this.usernameField.getText();
 	}

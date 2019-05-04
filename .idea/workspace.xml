@@ -3,40 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="8040dcf1-be9b-460d-93e6-ab2d51ad2bdc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Close.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Close.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Csv.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Csv.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Delete.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Delete.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Delete1.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Delete1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Exit.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Exit.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Login.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Login.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Login1.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Login1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Login2.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Login2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Model.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Model.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Password.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Password.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Register.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Register.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/images/Save.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/images/Save.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/backend.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/AddNewAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/AddNewAssignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/AddNewCourse1.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/AddNewCourse1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Statistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Statistic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/TableHeaderMouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/TableHeaderMouseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/UpdateAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/UpdateAssignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/config/AppConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/config/AppConf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/AddNewAssignment.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/AddNewAssignment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/AddNewCourse1.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/AddNewCourse1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/Dashboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/ManagementInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/GUI/ManagementInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/config/AppConf.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/config/AppConf.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/CS591/GradeManageSystem/utils/Constants.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/backend/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,24 +24,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="943">
-              <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
+            <state relative-caret-position="-3881">
+              <caret line="537" column="23" lean-forward="true" selection-start-line="537" selection-start-column="23" selection-end-line="537" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2068#2069#0" expanded="true" />
-                <element signature="e#2084#2085#0" expanded="true" />
-                <element signature="e#22084#22085#0" expanded="true" />
-                <element signature="e#22158#22159#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GradingSystemApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -75,48 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-613">
-              <caret line="37" column="100" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/config/AppConf.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/AddNewCourse1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="200" column="30" lean-forward="true" selection-start-line="200" selection-start-column="30" selection-end-line="200" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3683#3684#0" expanded="true" />
-                <element signature="e#3722#3723#0" expanded="true" />
-                <element signature="e#3756#3757#0" expanded="true" />
-                <element signature="e#3795#3796#0" expanded="true" />
-                <element signature="e#3830#3831#0" expanded="true" />
-                <element signature="e#3860#3861#0" expanded="true" />
-                <element signature="e#3899#3900#0" expanded="true" />
-                <element signature="e#3930#3931#0" expanded="true" />
-                <element signature="e#4127#4128#0" expanded="true" />
-                <element signature="e#4153#4154#0" expanded="true" />
-                <element signature="e#4190#4191#0" expanded="true" />
-                <element signature="e#4215#4216#0" expanded="true" />
-                <element signature="e#4250#4251#0" expanded="true" />
-                <element signature="e#4273#4274#0" expanded="true" />
-                <element signature="e#4308#4309#0" expanded="true" />
-                <element signature="e#4328#4329#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="510">
+              <caret line="37" column="48" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -124,59 +45,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3094">
-              <caret line="549" column="5" selection-start-line="549" selection-start-column="5" selection-end-line="549" selection-end-column="5" />
+            <state relative-caret-position="3842">
+              <caret line="267" column="5" selection-start-line="267" selection-start-column="5" selection-end-line="267" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#10763#10782#0" expanded="true" />
-                <element signature="e#11072#11340#0" expanded="true" />
-                <element signature="e#11339#11340#0" expanded="true" />
-                <element signature="e#15720#15721#0" expanded="true" />
-                <element signature="e#15755#15756#0" expanded="true" />
-                <element signature="e#15794#15795#0" expanded="true" />
-                <element signature="e#15825#15826#0" expanded="true" />
-                <element signature="e#15871#15872#0" expanded="true" />
-                <element signature="e#15909#15910#0" expanded="true" />
-                <element signature="e#15955#15956#0" expanded="true" />
-                <element signature="e#15993#15994#0" expanded="true" />
-                <element signature="e#16034#16035#0" expanded="true" />
-                <element signature="e#16067#16068#0" expanded="true" />
-                <element signature="e#16113#16114#0" expanded="true" />
-                <element signature="e#16151#16152#0" expanded="true" />
-                <element signature="e#16195#16196#0" expanded="true" />
-                <element signature="e#16233#16234#0" expanded="true" />
-                <element signature="e#16267#16268#0" expanded="true" />
-                <element signature="e#16298#16299#0" expanded="true" />
-                <element signature="e#16338#16339#0" expanded="true" />
-                <element signature="e#16372#16373#0" expanded="true" />
-                <element signature="e#16413#16414#0" expanded="true" />
+                <element signature="e#16417#16418#0" expanded="true" />
                 <element signature="e#16451#16452#0" expanded="true" />
-                <element signature="e#16493#16494#0" expanded="true" />
-                <element signature="e#16529#16530#0" expanded="true" />
-                <element signature="e#16564#16565#0" expanded="true" />
-                <element signature="e#16593#16594#0" expanded="true" />
-                <element signature="e#16635#16636#0" expanded="true" />
-                <element signature="e#16671#16672#0" expanded="true" />
-                <element signature="e#16713#16714#0" expanded="true" />
-                <element signature="e#16749#16750#0" expanded="true" />
-                <element signature="e#16791#16792#0" expanded="true" />
-                <element signature="e#16829#16830#0" expanded="true" />
-                <element signature="e#16869#16870#0" expanded="true" />
-                <element signature="e#16903#16904#0" expanded="true" />
-                <element signature="e#16933#16934#0" expanded="true" />
-                <element signature="e#16957#16958#0" expanded="true" />
-                <element signature="e#16989#16990#0" expanded="true" />
-                <element signature="e#17015#17016#0" expanded="true" />
-                <element signature="e#17049#17050#0" expanded="true" />
-                <element signature="e#17081#17082#0" expanded="true" />
-                <element signature="e#17112#17113#0" expanded="true" />
-                <element signature="e#17146#17147#0" expanded="true" />
-                <element signature="e#17241#17242#0" expanded="true" />
-                <element signature="e#17261#17262#0" expanded="true" />
-                <element signature="e#17290#17291#0" expanded="true" />
-                <element signature="e#17311#17312#0" expanded="true" />
-                <element signature="e#17347#17348#0" expanded="true" />
-                <element signature="e#17362#17363#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -185,30 +59,56 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Dashboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="87" column="27" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="27" />
+            <state relative-caret-position="221">
+              <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5263#5264#0" expanded="true" />
-                <element signature="e#5294#5295#0" expanded="true" />
-                <element signature="e#5337#5338#0" expanded="true" />
-                <element signature="e#5374#5375#0" expanded="true" />
-                <element signature="e#5409#5410#0" expanded="true" />
-                <element signature="e#5439#5440#0" expanded="true" />
-                <element signature="e#5472#5473#0" expanded="true" />
-                <element signature="e#5500#5501#0" expanded="true" />
-                <element signature="e#5534#5535#0" expanded="true" />
-                <element signature="e#5571#5572#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Register.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Statistic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#551#552#0" expanded="true" />
+                <element signature="e#573#574#0" expanded="true" />
+                <element signature="e#607#608#0" expanded="true" />
+                <element signature="e#630#631#0" expanded="true" />
+                <element signature="e#664#665#0" expanded="true" />
+                <element signature="e#691#692#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+        <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/UpdateAssignment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12019">
-              <caret line="707" column="45" selection-start-line="707" selection-start-column="45" selection-end-line="707" selection-end-column="45" />
+            <state relative-caret-position="165">
+              <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/TableHeaderMouseListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -216,8 +116,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="218">
+              <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -225,8 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="36" selection-start-column="36" selection-end-column="36" />
+            <state relative-caret-position="136">
+              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -274,24 +177,23 @@
         <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/utils/CSVUtils.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/utils/Constants.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/config/AppConf.java" />
-        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/AddNewAssignment.java" />
-        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Statistic.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/TableHeaderMouseListener.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/UpdateAssignment.java" />
         <option value="$PROJECT_DIR$/backend/pom.xml" />
         <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Login.java" />
-        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Register.java" />
-        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyPanel.java" />
-        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java" />
-        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/GUI.java" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/AddNewAssignment.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/AddNewCourse1.java" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/GUI.java" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyPanel.java" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Dashboard.java" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Register.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="164" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="797" />
@@ -302,7 +204,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -313,19 +214,71 @@
             <path>
               <item name="CS591-Group7" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS591-Group7" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS591-Group7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS591-Group7" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS591-Group7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS591-Group7" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS591-Group7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS591-Group7" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS591-Group7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS591-Group7" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="CS591" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS591-Group7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS591-Group7" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="CS591" type="462c0819:PsiDirectoryNode" />
+              <item name="GradeManageSystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS591-Group7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS591-Group7" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="CS591" type="462c0819:PsiDirectoryNode" />
+              <item name="GradeManageSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556825632830" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556933979072" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -425,17 +378,18 @@
       <workItem from="1556718230513" duration="200000" />
       <workItem from="1556724862663" duration="3156000" />
       <workItem from="1556771820346" duration="7133000" />
+      <workItem from="1556933622142" duration="410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31729000" />
+    <option name="totallyTimeSpent" value="32139000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-88" y="23" width="1440" height="797" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2846924" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28826895" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -501,21 +455,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/entity/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/test/java/CourseTest.java" />
     <entry file="file://$PROJECT_DIR$/backend/src/main/test/java/StudentTest.java" />
     <entry file="file://$PROJECT_DIR$/backend/src/main/test/java/ModelTest.java" />
     <entry file="file://$PROJECT_DIR$/backend/src/main/test/java/AssignmentTest.java" />
@@ -523,34 +462,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="54" column="68" selection-start-line="54" selection-start-column="68" selection-end-line="54" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/Impl/UserRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1667">
-          <caret line="100" column="67" selection-start-line="100" selection-start-column="67" selection-end-line="100" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/AssignmentRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/StudentRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/ModelRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -623,41 +534,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/entity/Unit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/UnitRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/Impl/StudentRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="67" column="70" selection-start-line="67" selection-start-column="70" selection-end-line="67" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/Service/AssignmentService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/entity/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -679,34 +559,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/Impl/AssignmentRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1996">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/Impl/CourseRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/utils/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/entity/Assignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -717,9 +573,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/images/BU2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/images/Login.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GradingSystemApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="707" column="45" selection-start-line="707" selection-start-column="45" selection-end-line="707" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/config/AppConf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/config/TableInitialize.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-154">
+        <state relative-caret-position="51">
           <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -727,67 +613,205 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/images/BU2.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Register.java">
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/Impl/AssignmentRepositoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-256">
-          <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+        <state relative-caret-position="-2259">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/TableHeaderMouseListener.java">
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/Impl/CourseRepositoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="-2640">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/UpdateAssignment.java">
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/Impl/StudentRepositoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2074">
-          <caret line="122" column="13" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
+        <state relative-caret-position="263">
+          <caret line="67" column="70" selection-start-line="67" selection-start-column="70" selection-end-line="67" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/Impl/UserRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1229">
+          <caret line="100" column="67" selection-start-line="100" selection-start-column="67" selection-end-line="100" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/AssignmentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/CourseRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/ModelRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/StudentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/UnitRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/DAO/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/entity/Assignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/entity/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/entity/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/entity/Unit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/AddNewAssignment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1379">
-          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+        <state relative-caret-position="-1297">
+          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
           <folding>
-            <element signature="e#3673#3674#0" expanded="true" />
-            <element signature="e#3710#3711#0" expanded="true" />
-            <element signature="e#3753#3754#0" expanded="true" />
-            <element signature="e#3791#3792#0" expanded="true" />
-            <element signature="e#3827#3828#0" expanded="true" />
-            <element signature="e#3858#3859#0" expanded="true" />
-            <element signature="e#3894#3895#0" expanded="true" />
-            <element signature="e#3925#3926#0" expanded="true" />
-            <element signature="e#3965#3966#0" expanded="true" />
-            <element signature="e#4000#4001#0" expanded="true" />
-            <element signature="e#4113#4114#0" expanded="true" />
-            <element signature="e#4157#4158#0" expanded="true" />
-            <element signature="e#4190#4191#0" expanded="true" />
-            <element signature="e#4249#4250#0" expanded="true" />
-            <element signature="e#4282#4283#0" expanded="true" />
-            <element signature="e#4341#4342#0" expanded="true" />
-            <element signature="e#4376#4377#0" expanded="true" />
-            <element signature="e#4403#4404#0" expanded="true" />
-            <element signature="e#4438#4439#0" expanded="true" />
-            <element signature="e#4465#4466#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/images/Login.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/AddNewCourse1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="86" column="25" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3881">
+          <caret line="537" column="23" lean-forward="true" selection-start-line="537" selection-start-column="23" selection-end-line="537" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3842">
+          <caret line="267" column="5" selection-start-line="267" selection-start-column="5" selection-end-line="267" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#16417#16418#0" expanded="true" />
+            <element signature="e#16451#16452#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="37" column="48" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Dashboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Statistic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="17">
+          <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#551#552#0" expanded="true" />
             <element signature="e#573#574#0" expanded="true" />
             <element signature="e#607#608#0" expanded="true" />
@@ -798,170 +822,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GradingSystemApplication.java">
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/TableHeaderMouseListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="102">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/config/AppConf.java">
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/UpdateAssignment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="36" selection-start-column="36" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/MyJTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/ManagementInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3094">
-          <caret line="549" column="5" selection-start-line="549" selection-start-column="5" selection-end-line="549" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#10763#10782#0" expanded="true" />
-            <element signature="e#11072#11340#0" expanded="true" />
-            <element signature="e#11339#11340#0" expanded="true" />
-            <element signature="e#15720#15721#0" expanded="true" />
-            <element signature="e#15755#15756#0" expanded="true" />
-            <element signature="e#15794#15795#0" expanded="true" />
-            <element signature="e#15825#15826#0" expanded="true" />
-            <element signature="e#15871#15872#0" expanded="true" />
-            <element signature="e#15909#15910#0" expanded="true" />
-            <element signature="e#15955#15956#0" expanded="true" />
-            <element signature="e#15993#15994#0" expanded="true" />
-            <element signature="e#16034#16035#0" expanded="true" />
-            <element signature="e#16067#16068#0" expanded="true" />
-            <element signature="e#16113#16114#0" expanded="true" />
-            <element signature="e#16151#16152#0" expanded="true" />
-            <element signature="e#16195#16196#0" expanded="true" />
-            <element signature="e#16233#16234#0" expanded="true" />
-            <element signature="e#16267#16268#0" expanded="true" />
-            <element signature="e#16298#16299#0" expanded="true" />
-            <element signature="e#16338#16339#0" expanded="true" />
-            <element signature="e#16372#16373#0" expanded="true" />
-            <element signature="e#16413#16414#0" expanded="true" />
-            <element signature="e#16451#16452#0" expanded="true" />
-            <element signature="e#16493#16494#0" expanded="true" />
-            <element signature="e#16529#16530#0" expanded="true" />
-            <element signature="e#16564#16565#0" expanded="true" />
-            <element signature="e#16593#16594#0" expanded="true" />
-            <element signature="e#16635#16636#0" expanded="true" />
-            <element signature="e#16671#16672#0" expanded="true" />
-            <element signature="e#16713#16714#0" expanded="true" />
-            <element signature="e#16749#16750#0" expanded="true" />
-            <element signature="e#16791#16792#0" expanded="true" />
-            <element signature="e#16829#16830#0" expanded="true" />
-            <element signature="e#16869#16870#0" expanded="true" />
-            <element signature="e#16903#16904#0" expanded="true" />
-            <element signature="e#16933#16934#0" expanded="true" />
-            <element signature="e#16957#16958#0" expanded="true" />
-            <element signature="e#16989#16990#0" expanded="true" />
-            <element signature="e#17015#17016#0" expanded="true" />
-            <element signature="e#17049#17050#0" expanded="true" />
-            <element signature="e#17081#17082#0" expanded="true" />
-            <element signature="e#17112#17113#0" expanded="true" />
-            <element signature="e#17146#17147#0" expanded="true" />
-            <element signature="e#17241#17242#0" expanded="true" />
-            <element signature="e#17261#17262#0" expanded="true" />
-            <element signature="e#17290#17291#0" expanded="true" />
-            <element signature="e#17311#17312#0" expanded="true" />
-            <element signature="e#17347#17348#0" expanded="true" />
-            <element signature="e#17362#17363#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-613">
-          <caret line="37" column="100" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/AddNewCourse1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="200" column="30" lean-forward="true" selection-start-line="200" selection-start-column="30" selection-end-line="200" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3683#3684#0" expanded="true" />
-            <element signature="e#3722#3723#0" expanded="true" />
-            <element signature="e#3756#3757#0" expanded="true" />
-            <element signature="e#3795#3796#0" expanded="true" />
-            <element signature="e#3830#3831#0" expanded="true" />
-            <element signature="e#3860#3861#0" expanded="true" />
-            <element signature="e#3899#3900#0" expanded="true" />
-            <element signature="e#3930#3931#0" expanded="true" />
-            <element signature="e#4127#4128#0" expanded="true" />
-            <element signature="e#4153#4154#0" expanded="true" />
-            <element signature="e#4190#4191#0" expanded="true" />
-            <element signature="e#4215#4216#0" expanded="true" />
-            <element signature="e#4250#4251#0" expanded="true" />
-            <element signature="e#4273#4274#0" expanded="true" />
-            <element signature="e#4308#4309#0" expanded="true" />
-            <element signature="e#4328#4329#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2068#2069#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#22084#22085#0" expanded="true" />
-            <element signature="e#22158#22159#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/CS591/GradeManageSystem/GUI/Dashboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="87" column="27" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5263#5264#0" expanded="true" />
-            <element signature="e#5294#5295#0" expanded="true" />
-            <element signature="e#5337#5338#0" expanded="true" />
-            <element signature="e#5374#5375#0" expanded="true" />
-            <element signature="e#5409#5410#0" expanded="true" />
-            <element signature="e#5439#5440#0" expanded="true" />
-            <element signature="e#5472#5473#0" expanded="true" />
-            <element signature="e#5500#5501#0" expanded="true" />
-            <element signature="e#5534#5535#0" expanded="true" />
-            <element signature="e#5571#5572#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12019">
-          <caret line="707" column="45" selection-start-line="707" selection-start-column="45" selection-end-line="707" selection-end-column="45" />
+        <state relative-caret-position="165">
+          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
         </state>
       </provider>
     </entry>

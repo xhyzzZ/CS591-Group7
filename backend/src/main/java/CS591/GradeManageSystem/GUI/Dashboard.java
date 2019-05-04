@@ -11,7 +11,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-public class Dashboard extends MyPanel{
+public class Dashboard extends MyPanel {
 	private JLabel dashboardLabel, userLabel;
 	private JButton logoutButton, addnewcourseButton, cs591Button;
 	private JPanel coursePanel;

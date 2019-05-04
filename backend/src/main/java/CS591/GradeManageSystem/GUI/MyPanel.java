@@ -6,19 +6,16 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class MyPanel extends JPanel{
+public class MyPanel extends JPanel {
     ImageIcon icon = new ImageIcon();
-    Image img=icon.getImage();
-    MyPanel(){
+    Image img = icon.getImage();
+    MyPanel() {
 
     }
 
-    MyPanel(String s){
-//		 super();
-//		 this.icon = new ImageIcon(s);
-//         this.img = icon.getImage();
-        //g.drawImage(img, 0, 0, icon.getIconWidth(), icon.getIconHeight(), icon.getImageObserver());
-    };
+    MyPanel(String s) {
+
+    }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
