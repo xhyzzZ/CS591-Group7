@@ -29,7 +29,7 @@ For this project, we use IDEA as editor and we install and manage our third part
 If want to run our code in IDEA, you can open it and import all the changes or reimport``pom.xml``
 
 #### Step 2(important):  
-Make sure you've installed MySQL in your computer. If you haven't, you can use the [link](https://dev.mysql.com/doc/refman/8.0/en/installing.html) to download mysql 
+Make sure you've installed MySQL in your computer. If you haven't, you can use the [link](https://dev.mysql.com/doc/refman/8.0/en/installing.html) to download MySQL 
 #### Step 3(important):
 Check the ``AppConf.java`` file for the four strings.  
 For the database we used, our database name is ``gradingsystem``, our username is ``root``and our password is ``""``, so you must change this part if you want our project to run on your laptop.
